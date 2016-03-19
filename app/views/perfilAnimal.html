@@ -1,0 +1,25 @@
+<div class="row" id="perfilAnimal">
+  <div class="col-lg-2 col-lg-offset-1 hidden-xs hidden-sm">
+    <img src="{{ apiEndpoint }}/static{{ animal.fotos[0] }}" alt="Foto de perfil de {{ animal.nombre }}" class="img-circle" width="250px" height="250px"/>
+  </div>
+  <div class="col-lg-6 col-lg-offset-1 col-xs-12">
+      <h1>{{ animal.nombre }}</h1>
+      <p class="lead justificado">{{ animal.desc }}</p>
+      <h4><strong>Genero: </strong>{{ animal.genero }}</h4>
+      <h4><strong>Edad: </strong>{{ animal.edad }}</h4>
+  </div>
+</div>
+<hr class="separador" />
+<div class="container-fluid" ng-controller="GalgosEnAdopcion">
+    <div class="flexslider">
+      <ul class="slides">
+        <li ng-repeat="foto in animal.fotos">
+          <img src="{{ apiEndpoint }}/static{{ foto }}" />
+        </li>
+      </ul>
+    </div>
+</div>
+<div class="row text-center">
+  <hr class="separador medio" />
+  <span><a class="btn btn-primary" href="#" role="button" ng-click="mostrarFormularioAdopcion(galgo.id)">Adoptar</a></span>
+</div>
