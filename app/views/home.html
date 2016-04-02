@@ -23,12 +23,12 @@
             <span class="img-circle fotoAnimal" style="background: url({{ apiEndpoint }}/static{{ galgo.fotos[0] }})"></span>
             <h2 ng-class="{'m': 'macho', 'h': 'hembra'}[galgo.genero]">{{galgo.nombre | limitTo : 9}}{{galgo.nombre.length > 9 ? '...' : ''}}</h2>
             <p class="desc">{{galgo.desc | limitTo : 30 }}{{galgo.desc.length > 30 ? '...' : ''}}</p>
-            <span><a class="btn btn-primary" ui-sref="perfilAnimal({ id: galgo.id })" role="button">Saber mas!</a></span>
+            <span><a class="btn btn-primary" role="button" ng-click="mostrarTarjetaEnAdopcion(galgo.id)">Saber mas!</a></span>
           </div>
         </div>
     </div>
 </div>
 <div class="row text-center">
   <hr class="separador medio" />
-  <span><a class="btn btn-primary" href="#" role="button" ng-click="saberMas(galgo.id)">Ver mas</a></span>
+  <span><a class="btn btn-primary" href="#" role="button" ng-click="mostrarFormularioAdopcion(galgo.id)">Ver mas</a></span>
 </div>

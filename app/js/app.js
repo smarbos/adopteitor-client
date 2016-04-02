@@ -29,6 +29,7 @@ adopteitorApp.config(function($stateProvider, $urlRouterProvider) {
         })
         .state('contacto', {
             url: '/contacto',
+            controller: "contacto",
             templateUrl: 'views/contacto.html'
         })
         .state('donaciones', {
