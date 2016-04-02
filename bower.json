@@ -13,7 +13,9 @@
     "angular-ui-router": "~0.2.15",
     "angular-resource": "~1.4.8",
     "components-font-awesome": "~4.5.0",
-    "flexslider": "https://github.com/woothemes/FlexSlider.git#^2.6.0"
+    "flexslider": "https://github.com/woothemes/FlexSlider.git#^2.6.0",
+    "PHPMailer": "https://github.com/PHPMailer/PHPMailer.git#~5.2.14",
+    "jquery": "^2.2.2"
   },
   "moduleType": [],
   "keywords": [
