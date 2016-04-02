@@ -1,2 +1,5 @@
 node_modules/
 app/css/
+.sass-cache/
+app/bower_components/
+app/config.php
