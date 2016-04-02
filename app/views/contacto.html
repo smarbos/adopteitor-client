@@ -1,1 +1,64 @@
-<h1>contacto</h1>
+<div class="container-fluid" ng-controller="GalgosEnAdopcion" id="formularioContacto">
+  <div class="row text-center">
+    <div class="col-xs-12">
+        <h1>Contactanos!</h1>
+    </div>
+  </div>
+  <form name="contactform" method="post" ng-submit="save(contactform)" class="ng-pristine">
+      <div class="row">
+        <div class="form-group">
+            <div class="col-xs-4">
+                <label for="nombre">Nombre:</label>
+            </div>
+            <div class="col-xs-8">
+                <input type="text" name="nombre" id="nombre" value="" ng-model="formData.nombre" class="form-control" required>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+            <div class="col-xs-4">
+                <label for="apellido">Apellido:</label>
+            </div>
+            <div class="col-xs-8">
+                <input type="text" name="apellido" id="apellido" value="" ng-model="formData.apellido" class="form-control" required>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+            <div class="col-xs-4">
+                <label for="telefono">Telefono:</label>
+            </div>
+            <div class="col-xs-8">
+                <input type="tel" name="telefono" id="telefono" value="" ng-model="formData.telefono" class="form-control">
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+            <div class="col-xs-4">
+                <label for="email">Email:</label>
+            </div>
+            <div class="col-xs-8">
+                <input type="email" name="email" id="email" value="" ng-model="formData.email" class="form-control" required>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+            <div class="col-xs-4">
+                <label for="ciudad">Mensaje:</label>
+            </div>
+            <div class="col-xs-8">
+                <textarea type="" name="mensaje" id="mensaje" value="" ng-model="formData.mensaje" class="form-control"></textarea>
+            </div>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-xs-12">
+            <button type="submit" class="btn btn-success" ng-disabled="submitButtonDisabled">Enviar</button>
+        </div>
+      </div>
+  </form>
+</div>

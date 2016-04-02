@@ -255,12 +255,16 @@ hr{
     }
 }
 
-#formularioAdopcion{
+#formularioAdopcion, #formularioContacto{
+    width: 75%;
     h1{
         margin-bottom: 40px;
     }
     .form-group{
         margin-bottom: 40px;
+    }
+    button{
+        margin-top: 40px;
     }
 }
 
