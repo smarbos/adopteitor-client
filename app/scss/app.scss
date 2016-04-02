@@ -248,3 +248,32 @@ hr{
         background-position: center !important;
     }
 }
+
+#perfilAnimal{
+    .genero, .edad{
+        font-size: 56px;
+    }
+}
+
+#formularioAdopcion{
+    h1{
+        margin-bottom: 40px;
+    }
+    .form-group{
+        margin-bottom: 40px;
+    }
+}
+
+.modal-content{
+    padding: 2em 0;
+
+}
+.center-modal {
+    position: fixed;
+    top: 10%;
+    left: 18.5%;
+    z-index: 1050;
+    width: 80%;
+    height: 80%;
+    margin-left: -10%;
+}
