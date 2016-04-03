@@ -1,6 +1,6 @@
 'use strict';
 
-var adopteitorApp = angular.module('adopteitorApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'config']);
+var adopteitorApp = angular.module('adopteitorApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'config', 'angularUtils.directives.dirPagination']);
 
 
 adopteitorApp.config(function($stateProvider, $urlRouterProvider) {
@@ -11,9 +11,17 @@ adopteitorApp.config(function($stateProvider, $urlRouterProvider) {
             url: '/home',
             templateUrl: 'views/home.html'
         })
+        .state('en-adopcion', {
+            url: '/en-adopcion',
+            templateUrl: 'views/en-adopcion.html'
+        })
         .state('mision', {
             url: '/mision',
             templateUrl: 'views/mision.html'
+        })
+        .state('transitos', {
+            url: '/transitos',
+            templateUrl: 'views/transitos.html'
         })
         .state('finales-felices', {
             controller: 'finales-felices',
