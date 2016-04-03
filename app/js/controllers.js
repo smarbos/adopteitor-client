@@ -26,7 +26,9 @@ adopteitorApp.factory('FormularioAdopcion', ['$resource', 'ENV', function($resou
 adopteitorApp.controller('GalgosEnAdopcion', ['$scope', '$location', 'enAdopcion', '$uibModal', 'ENV',
     function ($scope, $location, enAdopcion, $uibModal, ENV) {
 
-              $scope.galgosEnAdopcion = enAdopcion.query();
+        $scope.currentPage = 1;
+        $scope.pageSize = 10;
+                $scope.galgosEnAdopcion = enAdopcion.query();
               $scope.galgosEnAdopcion.$promise.then(function(data) {
                   $scope.galgosEnAdopcionRes = data.results;
               });

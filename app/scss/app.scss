@@ -126,8 +126,19 @@ hr{
 
 
 .tarjetaEnAdopcion{
-  padding: 1em 1.3em;
+    margin: 1em 0;
 
+    .fotoAnimal{
+        display: block;
+        margin: 0 auto;
+        background-color: red;
+        width: 140px;
+        height: 140px;
+        background-repeat: no-repeat !important;
+        background-size: contain !important;
+        background-size: 110% 110% !important;
+        background-position: center !important;
+    }
   .desc{
     overflow: hidden;
     text-overflow: ellipsis;
@@ -235,28 +246,13 @@ hr{
 }
 
 
-#listaAnimales{
-    .fotoAnimal{
-        display: block;
-        margin: 0 auto;
-        background-color: red;
-        width: 140px;
-        height: 140px;
-        background-repeat: no-repeat !important;
-        background-size: contain !important;
-        background-size: 110% 110% !important;
-        background-position: center !important;
-    }
-}
-
 #perfilAnimal{
     .genero, .edad{
         font-size: 56px;
     }
 }
 
-#formularioAdopcion, #formularioContacto{
-    width: 75%;
+#formularioAdopcion, #formularioContacto, #queres-ofrecerte{
     h1{
         margin-bottom: 40px;
     }
@@ -280,4 +276,18 @@ hr{
     width: 80%;
     height: 80%;
     margin-left: -10%;
+}
+
+#queres-ofrecerte, #que-implica-ser-casa-de-transito, #casa-de-transito{
+    margin-top: 2em;
+}
+
+#en-adopcion{
+    h1{
+        margin: 1em 0;
+    }
+    dir-pagination-controls{
+        margin-top: 2em;
+        display: block;
+    }
 }
