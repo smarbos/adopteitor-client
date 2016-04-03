@@ -15,7 +15,8 @@
     "components-font-awesome": "~4.5.0",
     "flexslider": "https://github.com/woothemes/FlexSlider.git#^2.6.0",
     "PHPMailer": "https://github.com/PHPMailer/PHPMailer.git#~5.2.14",
-    "jquery": "^2.2.2"
+    "jquery": "^2.2.2",
+    "angularUtils-pagination": "angular-utils-pagination#^0.11.1"
   },
   "moduleType": [],
   "keywords": [
