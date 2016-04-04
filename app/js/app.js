@@ -21,6 +21,7 @@ adopteitorApp.config(function($stateProvider, $urlRouterProvider) {
         })
         .state('transitos', {
             url: '/transitos',
+            controller: 'transitos',
             templateUrl: 'views/transitos.html'
         })
         .state('finales-felices', {
