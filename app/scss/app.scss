@@ -29,14 +29,17 @@ body{
 }
 @media all and (min-width: 421px){
   #header{
-  text-align: center;
-  background-image: url("../img/header.jpg");
-  height:314px;
-}
+      text-align: center;
+    background-image: url("../img/header_new.jpg");
+    height:186px;
+    background-repeat: round;
 
-#headerContainer{
-  background-color: #1bb7cd;
-}
+  }
+
+  #headerContainer{
+      background-color: #01BAF0;
+      padding-top: 20px;
+  }
 }
 
 @media all and (max-width: 420px){
@@ -91,24 +94,39 @@ h1, h2, h3, h4{
   margin-top: 1em;
   text-align: left;
   padding: 0px;
+  width: 92%;
+  ul{
+      text-align: center;
   }
+  li{
+    //   width: 24%;
+
+      text-align: center;
+  }
+  hr{
+      width: 100%;
+      float: left;
+  }
+ }
 
 #menuRight{
   margin-top: 1em;
   text-align: right;
+  float: right;
   padding: 0px;
-}
-
-#menu hr{
-  width: 90%;
-}
-
-#hrMenuLeft{
-  float: left;
+  width: 92%;
+  ul{
+      text-align: center;
+  }
+  li{
+    //   width: 33%;
+      text-align: center;
+  }
 }
 
 #hrMenuRight{
   float: right;
+  width: 100%;
 }
 
 hr{
@@ -135,8 +153,7 @@ hr{
         width: 140px;
         height: 140px;
         background-repeat: no-repeat !important;
-        background-size: contain !important;
-        background-size: 110% 110% !important;
+        background-size: cover !important;
         background-position: center !important;
     }
   .desc{
