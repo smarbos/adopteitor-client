@@ -98,23 +98,30 @@ adopteitorApp.controller('contacto', ['$scope', '$location', 'getAnimalByID', '$
 adopteitorApp.controller('formularioAdopcion', ['$scope', '$uibModalInstance', 'FormularioAdopcion', '$http', 'id',
     function($scope, $modalInstance, FormularioAdopcion, $http, id) {
         $('#galgo').val(id);
-        console.log(id);
+        //console.log(id);
         $scope.result = 'hidden'
         $scope.resultMessage;
         $scope.formData; //formData is an object holding the name, email, subject, and message
+	console.log("currenlty show id ");
+	console.log(id);
         $scope.submitButtonDisabled = false;
         $scope.submitted = false; //used so that form errors are shown only after the form has been submitted
         $scope.newFormularioAdopcion;
         $scope.galgo=id;
         // $scope.newFormularioAdopcion.nombre="carlitos";
         $scope.save = function(contactform, formData) {
-            console.log(contactform);
+console.log("---contactform---");        
+    console.log(contactform);
+console.log("---formdata---");
             console.log(formData);
+	contactform.id = id;
+console.log("---new---contactoform----");
+console.log(contactform);
             console.log("Submit");
 
             var newFormularioAdopcion = new FormularioAdopcion(formularioAdopcion);
-            console.log(newFormularioAdopcion);
-            console.log(formularioAdopcion);
+            //console.log(newFormularioAdopcion);
+            //console.log(formularioAdopcion);
     		newFormularioAdopcion.$save(
                 function(formularioAdopcion, putResponseHeaders) {
                     $scope.FormulariosAdopcion.push(formularioAdopcion);

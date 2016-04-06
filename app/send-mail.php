@@ -1,10 +1,10 @@
 <?php
 require_once 'bower_components/PHPMailer/PHPMailerAutoload.php';
 require_once 'config.php';
- if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['email']) && isset($_POST['ciudad']) && isset($_POST['telefono']) && isset($_POST['galgo'])) {
+ if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['email']) && isset($_POST['ciudad']) && isset($_POST['telefono']) && isset($_POST['id'])) {
 
     //check if any of the inputs are empty
-    if (empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['email']) || empty($_POST['ciudad']) || empty($_POST['telefono']) || empty($_POST['galgo'])) {
+    if (empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['email']) || empty($_POST['ciudad']) || empty($_POST['telefono']) || empty($_POST['id'])) {
         $data = array('success' => false, 'message' => 'Please fill out the form completely.');
         echo json_encode($data);
         exit;
@@ -42,7 +42,7 @@ $mail->Password   = $master_piece;        // SMTP account password
     $mail->Body = "
         <h1>Nuevo formulario de adopcion</h1><br/>
         <br/>
-        <h2><strong>Solicitud: </strong></h2> <a href=\"http://www.adopteitor.local:8080/Animal/" . $_POST['galgo'] . "\">Galgo ID: N° 000[" . $_POST['galgo'] . "]</a><br/>
+        <h2><strong>Solicitud: </strong></h2> <a href=\"http://www.adopteitor.local:8080/Animal/" . $_POST['id'] . "\">Galgo ID: N° 000[" . $_POST['id'] . "]</a><br/>
         <br/>
         <h2>Datos del adoptante: </h2><br/>
         <p><strong>Nombre: </strong>".  $_POST['nombre'] ."</p>
