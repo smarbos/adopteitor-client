@@ -3,3 +3,4 @@ app/css/
 .sass-cache/
 app/bower_components/
 app/config.php
+app/js/config.js
