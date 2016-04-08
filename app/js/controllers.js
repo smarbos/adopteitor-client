@@ -23,8 +23,8 @@ adopteitorApp.factory('FormularioAdopcion', ['$resource', 'ENV', function($resou
 );
 }]);
 
-adopteitorApp.controller('GalgosEnAdopcion', ['$scope', '$location', 'enAdopcion', '$uibModal', 'ENV',
-    function ($scope, $location, enAdopcion, $uibModal, ENV) {
+adopteitorApp.controller('GalgosEnAdopcion', ['$scope', '$location', 'enAdopcion', 'ModalService', 'ENV',
+    function ($scope, $location, enAdopcion, ModalService, ENV) {
 
         $scope.currentPage = 1;
         $scope.pageSize = 10;
@@ -35,23 +35,47 @@ adopteitorApp.controller('GalgosEnAdopcion', ['$scope', '$location', 'enAdopcion
               $scope.apiEndpoint = ENV.apiEndpoint;
 
               $scope.mostrarTarjetaEnAdopcion = function($galgoID){
-                var modalInstance = $uibModal.open({
-                 animation: $scope.animationsEnabled,
-                 templateUrl: 'views/modal-tarjeta-en-adopcion.html',
-                 controller: 'animalByID',
-                 windowClass: 'center-modal',
-                 resolve: {
-                   id: function () {
-                     return $galgoID;
-                   }
-                 }
-               });
+                  ModalService.showModal({
+          templateUrl: "views/modal-tarjeta-en-adopcion.html",
+          controller: "animalByID",
+          inputs: {
+            id: "1"
+          }
+        }).then( function(modal)
+ {
+     modal.element.show();
+ });
+
+                //   ModalService.showModal({
+                //     templateUrl: "views/modal-tarjeta-en-adopcion.html",
+                //     controller: "animalByID",
+                //      inputs: {
+                //        id: $galgoID
+                //      }
+                //   }).then(function(modal) {
+                //     modal.close.then(function(result) {
+                //       $scope.customResult = "All good!";
+                //     });
+                //   });
+
+
+            //     var modalInstance = $uibModal.open({
+            //      animation: $scope.animationsEnabled,
+            //      templateUrl: 'views/modal-tarjeta-en-adopcion.html',
+            //      controller: 'animalByID',
+            //      windowClass: 'center-modal',
+            //      resolve: {
+            //        id: function () {
+            //          return $galgoID;
+            //        }
+            //      }
+            //    });
               }
     }
 ]);
 
-adopteitorApp.controller('animalByID', ['$scope', '$location', 'getAnimalByID', '$uibModal', '$stateParams', 'ENV', 'id',
-    function ($scope, $location, getAnimalByID, $uibModal, $stateParams, ENV, id) {
+adopteitorApp.controller('animalByID', ['$scope', '$location', 'getAnimalByID', 'ModalService', '$stateParams', 'ENV', 'id',
+    function ($scope, $location, getAnimalByID, ModalService, $stateParams, ENV, id) {
         $scope.apiEndpoint = ENV.apiEndpoint;
         $scope.animalByID = getAnimalByID.query({},{'id': id});
         $scope.animalByID.$promise.then(function(data) {
@@ -67,20 +91,27 @@ adopteitorApp.controller('animalByID', ['$scope', '$location', 'getAnimalByID', 
         }
         );
         $scope.mostrarFormularioAdopcion = function(id){
-          var modalInstance = $uibModal.open({
-           animation: $scope.animationsEnabled,
-           templateUrl: 'views/formularioAdopcion.html',
-           windowClass: 'center-modal',
-           controller: 'formularioAdopcion',
-           resolve: {
-             items: function () {
-               return $scope.items;
-           },
-             id: function () {
-               return id;
-             }
-           }
-         });
+            ModalService.showModal({
+              templateUrl: "views/formularioAdopcion.html",
+              controller: "formularioAdopcion",
+              inputs: {
+                id: id
+              }
+            });
+        //   var modalInstance = $uibModal.open({
+        //    animation: $scope.animationsEnabled,
+        //    templateUrl: 'views/formularioAdopcion.html',
+        //    windowClass: 'center-modal',
+        //    controller: 'formularioAdopcion',
+        //    resolve: {
+        //      items: function () {
+        //        return $scope.items;
+        //    },
+        //      id: function () {
+        //        return id;
+        //      }
+        //    }
+        //  });
         }
     }
 ]);
@@ -102,21 +133,21 @@ adopteitorApp.controller('formularioAdopcion', ['$scope', '$uibModalInstance', '
         $scope.result = 'hidden'
         $scope.resultMessage;
         $scope.formData; //formData is an object holding the name, email, subject, and message
-	console.log("currenlty show id ");
-	console.log(id);
+	    console.log("currenlty show id ");
+	    console.log(id);
         $scope.submitButtonDisabled = false;
         $scope.submitted = false; //used so that form errors are shown only after the form has been submitted
         $scope.newFormularioAdopcion;
         $scope.galgo=id;
         // $scope.newFormularioAdopcion.nombre="carlitos";
         $scope.save = function(contactform, formData) {
-console.log("---contactform---");        
-    console.log(contactform);
-console.log("---formdata---");
-            console.log(formData);
-	contactform.id = id;
-console.log("---new---contactoform----");
-console.log(contactform);
+        console.log("---contactform---");
+        console.log(contactform);
+        console.log("---formdata---");
+        console.log(formData);
+	    contactform.id = id;
+        console.log("---new---contactoform----");
+        console.log(contactform);
             console.log("Submit");
 
             var newFormularioAdopcion = new FormularioAdopcion(formularioAdopcion);
@@ -125,10 +156,10 @@ console.log(contactform);
     		newFormularioAdopcion.$save(
                 function(formularioAdopcion, putResponseHeaders) {
                     $scope.FormulariosAdopcion.push(formularioAdopcion);
-                    console.log("SAVED OK");
+                    console.info("SAVED OK");
                 },
                 function(err){
-                    console.log(err);
+                    console.error(err);
                 }
             );
 
@@ -176,17 +207,14 @@ console.log(contactform);
     }
 ]);
 
-adopteitorApp.controller('transitos', ['$scope', 'FormularioAdopcion', '$http', 'id',
-    function($scope, FormularioAdopcion, $http, id) {
-        $('#galgo').val(id);
-        console.log(id);
+adopteitorApp.controller('transitos', ['$scope', 'FormularioAdopcion', '$http',
+    function($scope, FormularioAdopcion, $http) {
         $scope.result = 'hidden'
         $scope.resultMessage;
         $scope.formData; //formData is an object holding the name, email, subject, and message
         $scope.submitButtonDisabled = false;
         $scope.submitted = false; //used so that form errors are shown only after the form has been submitted
         $scope.newFormularioAdopcion;
-        $scope.galgo=id;
         // $scope.newFormularioAdopcion.nombre="carlitos";
         $scope.save = function(contactform, formData) {
             console.log(contactform);
@@ -216,7 +244,7 @@ adopteitorApp.controller('transitos', ['$scope', 'FormularioAdopcion', '$http', 
                 console.log($.param(contactform));
                 $http({
                     method  : 'POST',
-                    url     : 'transitos-send-mail.php',
+                    url     : 'transito-send-mail.php',
                     data    : $.param(contactform),  //param method from jQuery
                     headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  //set the headers so angular passing info as form data (not request payload)
                 }).success(function(data){
