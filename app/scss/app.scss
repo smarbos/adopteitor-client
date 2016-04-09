@@ -15,32 +15,22 @@ body{
   background-color: $background;
 }
 
-@media all and (max-width: 420px){
+
   #header{
     text-align: center;
-    background-image: url("../img/header_md.jpg");
     background-position: center;
-    height:214px;
-
-  }
-  #headerContainer{
-  background-color: #1bb7cd;
-}
-}
-@media all and (min-width: 421px){
-  #header{
-      text-align: center;
-    background-image: url("../img/header_new.jpg");
-    height:186px;
-    background-repeat: round;
-
+    height:150px;
   }
 
   #headerContainer{
-      background-color: #01BAF0;
-      padding-top: 20px;
-  }
+  background-color: #00B9EF;
+  background-image: url("../img/galguifeliz75.jpg");
+  height:400px;
+  background-repeat: repeat-x;
+  background-position-y: -247px;
+  background-size: cover;
 }
+
 
 @media all and (max-width: 420px){
   h1{
@@ -278,6 +268,16 @@ hr{
     }
     button{
         margin-top: 40px;
+    }
+    .message{
+        opacity: 1;
+        z-index: 999;
+        position: absolute;
+        margin: 2em 2em;
+    }
+    .siendo-enviado{
+        opacity: 0.2;
+        cursor: wait;
     }
 }
 
