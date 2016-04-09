@@ -3,10 +3,8 @@ require_once 'bower_components/PHPMailer/PHPMailerAutoload.php';
 require_once 'config.php';
  if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['telefono']) && isset($_POST['email']) && isset($_POST['mensaje'])) {
 
-    //check if any of the inputs are empty
     if (empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['telefono']) || empty($_POST['email']) || empty($_POST['mensaje'])) {
-        $data = array('success' => false, 'message' => 'Please fill out the form completely.');
-        echo json_encode($data);
+        $data = array('success' => false, 'message' => 'Por favor, completa correctamente el formulario.');
         exit;
     }
 
@@ -15,7 +13,7 @@ require_once 'config.php';
 
 $mail->IsSMTP(); // telling the class to use SMTP
 $mail->Host       = "mail.moravitali.com.ar"; // SMTP server
-$mail->SMTPDebug  = 2;                     // enables SMTP debug information (for testing)
+$mail->SMTPDebug  = 0;                     // enables SMTP debug information (for testing)
 // 1 = errors and messages
 // 2 = messages only
 $mail->SMTPOptions = array(
@@ -57,17 +55,15 @@ $mail->Password   = $master_piece;        // SMTP account password
     }
 
     if(!$mail->send()) {
-        $data = array('success' => false, 'message' => 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo);
-        echo json_encode($data);
+        $data = array('success' => false, 'message' => 'El mensaje no pudo ser enviado. Error: ' . $mail->ErrorInfo);
         exit;
     }
 
-    $datata = array('success' => true, 'message' => 'Thanks! We have received your message.');
-    echo json_encode($data);
+    $data = array('success' => true, 'message' => 'Muchas gracias! Te responderemos a la brevedad.');
 
 } else {
 
-    $data = array('success' => false, 'message' => 'Please fill out the form completely.');
-    echo json_encode($data);
+    $data = array('success' => false, 'message' => 'Por favor, completa correctamente el formulario.');
 
 }
+echo json_encode($data);
