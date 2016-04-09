@@ -1,34 +1,37 @@
 <div class="row" id="intro">
-  <div class="col-lg-2 col-lg-offset-1 hidden-xs hidden-sm">
-    <img src="img/portada/1.jpg" alt="" class="img-circle" width="250px" height="250px"/>
+  <div class="col-xs-12 text-center">
+    <h1>¿Cómo puedo ayudar?</h1>
   </div>
-  <div class="col-lg-6 col-lg-offset-1 col-xs-12">
-  <h1>¿Por què los Galgos?</h1>
-    <p class="lead justificado">Porque al mismo tiempo que son excelentes compañeros; leales, tranquilos, cariñosos;
-    son una de las razas más maltratadas en varias partes del mundo. En España les dicen "perros de usar y tirar", y en Argentina no es diferente...</p>
-    <p id="jumbotronBtn"><a class="btn btn-lg btn-primary" ui-sref="mision" role="button">Conoce mas!</a></p>
-  </div>
-</div>
-<hr class="separador" />
-<div class="container-fluid" ng-controller="GalgosEnAdopcion" id="listaAnimales">
-    <div class="row text-center">
-        <h1>Galgos en adopcion</h1>
-    </div>
-    <div class="text-center">
-        <div class="col-sm-3" ng-repeat="galgo in galgosEnAdopcion | limitTo : 8 ">
-          <div class="tarjetaEnAdopcion">
-            <div id="edad" ng-class="{'m': 'macho', 'h': 'hembra'}[galgo.genero]">
-                <p></p>
-            </div>
-            <span class="img-circle fotoAnimal" style="background: url({{ apiEndpoint }}/static{{ galgo.fotos[0] }})"></span>
-            <h2 ng-class="{'m': 'macho', 'h': 'hembra'}[galgo.genero]">{{galgo.nombre | limitTo : 9}}{{galgo.nombre.length > 9 ? '...' : ''}}</h2>
-            <p class="desc">{{galgo.desc | limitTo : 30 }}{{galgo.desc.length > 30 ? '...' : ''}}</p>
-            <span><a class="btn btn-primary" role="button" ng-click="mostrarTarjetaEnAdopcion(galgo.id)">Saber mas!</a></span>
-          </div>
+  <div class="row">
+      <div class="col-xs-4">
+        <div class="jumbotron text-center">
+          <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+          <h2>Dar transito a un galgo</h2>
+          <p>Hay muchos galgos buscando un hogar de transito donde poder recuperarse hasta ser adoptados.</p>
+          <p><a class="btn btn-primary btn-lg" href="#" role="button">Mas informacion</a></p>
         </div>
-    </div>
-</div>
-<div class="row text-center">
-  <hr class="separador medio" />
-  <span><a class="btn btn-primary" ui-sref="en-adopcion" role="button">Ver mas</a></span>
+      </div>
+      <div class="col-xs-4">
+        <div class="jumbotron text-center">
+          <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+          <h2>Adoptar o difundir</h2>
+          <p>¡Conoce a nuestros galguitos en adopcion responsable! Si no podes adoptar difundelos.</p>
+          <p><a class="btn btn-primary btn-lg" href="#" role="button">Quiero conocerlos</a></p>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="jumbotron text-center">
+          <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+          <h2>Hacer una donacion</h2>
+          <p>Aceptamos donaciones de dinero, alimento balanceado, medicamentos y mas.</p>
+          <p><a class="btn btn-primary btn-lg" href="#" role="button">Saber más</a></p>
+        </div>
+      </div>
+  </div>
+  <div class="col-xs-12 text-center">
+      <h2>¿Por què los Galgos?</h2>
+      <p class="">Porque al mismo tiempo que son excelentes compañeros; leales, tranquilos, cariñosos;
+          son una de las razas más maltratadas en varias partes del mundo. En España les dicen "perros de usar y tirar", y en Argentina no es diferente...</p>
+          <p id="jumbotronBtn"><a class="btn btn-lg btn-primary" ui-sref="mision" role="button">Conoce mas!</a></p>
+     </div>
 </div>

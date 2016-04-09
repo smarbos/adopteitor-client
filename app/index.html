@@ -35,21 +35,41 @@
 </script>
 </head>
 <body>
+    <div class="row" id="menu">
+        <div class="col-sm-6 text-left menu-container"><menu-Left></menu-Left></div>
+        <div class="col-sm-6 text-right menu-container"><menu-Right></menu-Right></div>
+    </div>
     <div class="container-fluid" id="headerContainer">
-      <div class="container">
+        <div class="flexslider">
+
+            <div class="box">
+              <h2>Sin hogares de tránsito no podemos salvar galgos.</h2>
+              <h2>Anotate en nuestra lista para ayudarlos.</h2>
+              <p><a class="btn btn-primary btn-lg" href="#" role="button">Quiero saber mas</a></p>
+            </div>
+        <ul class="slides">
+          <li>
+            <img src="/img/slider/slider01.jpg" />
+          </li>
+          <li>
+            <img src="/img/slider/slider02.jpg" />
+          </li>
+          <li>
+            <img src="/img/slider/slider03.jpg" />
+          </li>
+          <li>
+            <img src="/img/slider/slider04.jpg" />
+          </li>
+          <li>
+            <img src="/img/slider/slider05.jpg" />
+          </li>
+        </ul>
+      </div>
       <div id="header">
         <img src="img/logo.png" alt="Adopta un Galgo en Argentina" width="150" height="151" id="logo" class="hidden-xs hidden-sm"/>
         <img src="img/logo.png" alt="Adopta un Galgo en Argentina" width="112,5" height="113" id="logo" class="hidden-md hidden-lg"/>
       </div>
-      </div>
-    </div>
-        <div class="col-sm-12 text-center">{{ state }}</div>
-    </div>
-    <div class="row" id="menu">
-        <!-- <div class="col-sm-4 col-sm-offset-2 text-left"><menu-Left></menu-Left></div>
-        <div class="col-sm-4 text-right"><menu-Right></menu-Right></div> -->
-        <div class="col-sm-6 text-left"><menu-Left></menu-Left></div>
-        <div class="col-sm-6 text-right"><menu-Right></menu-Right></div>
+
     </div>
     <div class="container-fluid" id="main-content-container" ui-view></div>
     <footer>

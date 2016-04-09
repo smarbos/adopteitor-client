@@ -1,12 +1,25 @@
-$background: #e1f3f5;
+$background: #FAFAFA;
 $color-male: #6babe5;
 $color-female: #ecadb8;
+$primary: #3EB4E5;
+$action: #FD8000;
 
 .vcenter {
   vertical-align: middle;
   float: none;
 }
+.flexslider {
+    width: 100%;
+    height: 620px !important;
+    overflow: hidden;
+    border: 0 !important;
+}
 
+.flexslider .slides img {
+    width: 100%;
+    height: auto !important;
+    overflow: hidden;
+}
 body{
 	font-family: 'delicious_smallcapsregular', sans-serif;
   margin-left:0px;
@@ -16,6 +29,25 @@ body{
 }
 
 
+.box{
+    position: absolute;
+    background-color: white;
+    width: 500px;
+    right: 10em;
+    padding: 2em;
+    color: $primary;
+    -webkit-box-shadow: 10px 10px 38px -10px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 38px -10px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 38px -10px rgba(0,0,0,0.75);
+z-index: 99999;
+top: 9em;
+    .btn{
+        background-color: $action;
+        border-color: $action;
+        font-weight: bolder;
+        margin-top: 1em;
+    }
+}
   #header{
     text-align: center;
     background-position: center;
@@ -24,11 +56,12 @@ body{
 
   #headerContainer{
   background-color: #00B9EF;
-  background-image: url("../img/galguifeliz75.jpg");
-  height:400px;
+  // background-image: url("../img/galguifeliz75.jpg");
+  height:620px;
   background-repeat: repeat-x;
-  background-position-y: -247px;
+  background-position-y: -185px;
   background-size: cover;
+  padding: 0;
 }
 
 
@@ -52,13 +85,63 @@ h1, h2, h3, h4{
 }
 
 #logo{
-  position: relative;
-  top:80%;
+  position: absolute;
+  top:1em;
+  margin: 0 auto;
+  z-index: 9999;
+  right: 46%;
 }
 
-#menu li{
-    text-transform: uppercase;
+#menu{
+    height: 6em;
+    .menu-container{
+        height: 100%;
+    }
+    padding-bottom:1.5em;
+    &Left{
+        position: absolute;
+        bottom: 0;
+      text-align: right;
+      padding: 0px;
+      width: 88%;
+      left: 0;
+      ul{
+          text-align: right;
+      }
+      li{
+        //   width: 24%;
+            padding-right:30px;
+          text-align: center;
+      }
+      hr{
+          width: 100%;
+          float: left;
+      }
+     }
+    &Right{
+        position: absolute;
+        bottom: 0;
+      text-align: left;
+      float: right;
+      padding: 0px;
+      width: 88%;
+      right: 0;
+      ul{
+          text-align: left;
+      }
+      li{
+        //   width: 33%;
+          text-align: center;
+          padding-left:30px;
+      }
+    }
+    li{
+      display: inline-block;
+      font-family: 'chunkfiveroman', sans-serif;
+      text-transform: uppercase;
+    }
 }
+
 #menu a:hover{
   text-decoration: none;
 }
@@ -67,12 +150,7 @@ h1, h2, h3, h4{
   list-style-type: none;
   padding:0px;
   margin: 0px;
-}
 
-#menu li{
-  display: inline-block;
-  padding:10px;
-  font-family: 'chunkfiveroman', sans-serif;
 }
 
 #menuSmall{
@@ -80,44 +158,6 @@ h1, h2, h3, h4{
   text-align: center;
 }
 
-#menuLeft{
-  margin-top: 1em;
-  text-align: left;
-  padding: 0px;
-  width: 92%;
-  ul{
-      text-align: center;
-  }
-  li{
-    //   width: 24%;
-
-      text-align: center;
-  }
-  hr{
-      width: 100%;
-      float: left;
-  }
- }
-
-#menuRight{
-  margin-top: 1em;
-  text-align: right;
-  float: right;
-  padding: 0px;
-  width: 92%;
-  ul{
-      text-align: center;
-  }
-  li{
-    //   width: 33%;
-      text-align: center;
-  }
-}
-
-#hrMenuRight{
-  float: right;
-  width: 100%;
-}
 
 hr{
   border-color: black;
@@ -169,6 +209,20 @@ hr{
 
 #intro{
     margin-top: 2em;
+    h1{
+        margin: 1em 0 2em;
+    }
+    .col-xs-4{
+        padding: 0 7px;
+    }
+    .jumbotron{
+        padding:2em 2em;
+        background-color: #F1F4F9;
+        color: $action;
+        .glyphicon{
+            font-size: 4em;
+        }
+    }
 }
 @media all and (max-width: 420px){
   #comoAyudar{
