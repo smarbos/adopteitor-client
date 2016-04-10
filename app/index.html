@@ -34,34 +34,57 @@
   });
 </script>
 </head>
-<body>
+<body ng-controller="body">
     <div class="row" id="menu">
         <div class="col-sm-6 text-left menu-container"><menu-Left></menu-Left></div>
         <div class="col-sm-6 text-right menu-container"><menu-Right></menu-Right></div>
     </div>
     <div class="container-fluid" id="headerContainer">
-        <div class="flexslider">
-
+        <div ng-if="showSlider" class="flexslider">
             <div class="box">
               <h2>Sin hogares de tránsito no podemos salvar galgos.</h2>
               <h2>Anotate en nuestra lista para ayudarlos.</h2>
               <p><a class="btn btn-primary btn-lg" href="#" role="button">Quiero saber mas</a></p>
             </div>
         <ul class="slides">
-          <li>
-            <img src="/img/slider/slider01.jpg" />
+          <li ng-repeat="slide in slides">
+            <img src="/img/slider/slide01.jpg" />
           </li>
           <li>
-            <img src="/img/slider/slider02.jpg" />
+            <img src="/img/slider/slide02.jpg" />
           </li>
           <li>
-            <img src="/img/slider/slider03.jpg" />
+            <img src="/img/slider/slide03.jpg" />
           </li>
           <li>
-            <img src="/img/slider/slider04.jpg" />
+            <img src="/img/slider/slide04.jpg" />
           </li>
           <li>
-            <img src="/img/slider/slider05.jpg" />
+            <img src="/img/slider/slide05.jpg" />
+          </li>
+          <li>
+            <img src="/img/slider/slide06.jpg" />
+          </li>
+          <li>
+            <img src="/img/slider/slide07.jpg" />
+          </li>
+          <li>
+            <img src="/img/slider/slide08.jpg" />
+          </li>
+          <li>
+            <img src="/img/slider/slide09.jpg" />
+          </li>
+          <li>
+            <img src="/img/slider/slide10.jpg" />
+          </li>
+          <li>
+            <img src="/img/slider/slide11.jpg" />
+          </li>
+          <li>
+            <img src="/img/slider/slide12.jpg" />
+          </li>
+          <li>
+            <img src="/img/slider/slide13.jpg" />
           </li>
         </ul>
       </div>

@@ -1,5 +1,6 @@
 'use strict';
 
+
 adopteitorApp.factory('enAdopcion', ['$resource', 'ENV', function($resource, ENV){
     return $resource(ENV.apiEndpoint+'/Animal/', null, {'query':{method: 'GET', isArray: true}});
 }]);
@@ -22,6 +23,44 @@ adopteitorApp.factory('FormularioAdopcion', ['$resource', 'ENV', function($resou
     }
 );
 }]);
+
+adopteitorApp.factory('sliderService',[function(){
+    'use strict';
+    var statusSlider = [];
+
+    statusSlider.update = function(newStatus){
+        this.status = newStatus;
+    }
+
+    statusSlider.checkStatus = function(){
+        console.log(statusSlider.status);
+        return "statusSlider";
+    }
+    return statusSlider;
+}]);
+
+adopteitorApp.controller('body', ['$scope', '$location', 'enAdopcion', 'ENV', 'sliderService',
+    function ($scope, $location, enAdopcion, ENV, sliderService) {
+        $scope.sliderService = sliderService;
+        // console.log("body!");
+        // console.log($scope.sliderService);
+        // console.log($scope.showSlider);
+        $scope.showSlider = sliderService;
+        // console.log($scope.showSlider.statusSlider);
+        // console.log("end body!");
+        console.log(sliderService.checkStatus());
+    }
+]);
+
+adopteitorApp.controller('home', ['$scope', '$location', 'enAdopcion', 'ENV', 'sliderService',
+    function ($scope, $location, enAdopcion, ENV, sliderService) {
+        // console.log("home!");
+        // console.log(sliderService);
+        sliderService.update(false);
+        // console.log("end home!");
+    }
+]);
+
 
 adopteitorApp.controller('GalgosEnAdopcion', ['$scope', '$location', 'enAdopcion', 'ModalService', 'ENV',
     function ($scope, $location, enAdopcion, ModalService, ENV) {

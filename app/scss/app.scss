@@ -37,11 +37,13 @@ body{
     padding: 2em;
     color: $primary;
     -webkit-box-shadow: 10px 10px 38px -10px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 38px -10px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 38px -10px rgba(0,0,0,0.75);
-z-index: 99999;
-top: 9em;
-text-align: center;
+    -moz-box-shadow: 10px 10px 38px -10px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 38px -10px rgba(0,0,0,0.75);
+    z-index: 99999;
+    text-align: center;
+    top: 50%; left: inherit;
+    transform: translate(0%,-50%);
+    opacity: 0.9;
     .btn{
         background-color: $action;
         border-color: $action;
@@ -212,6 +214,9 @@ hr{
     margin-top: 2em;
     h1{
         margin: 1em 0 2em;
+    }
+    h2{
+        margin: 2em 0 1em;
     }
     .col-xs-4{
         padding: 0 7px;

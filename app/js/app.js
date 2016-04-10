@@ -9,6 +9,7 @@ adopteitorApp.config(function($stateProvider, $urlRouterProvider) {
 
         .state('home', {
             url: '/home',
+            controller: 'home',
             templateUrl: 'views/home.html'
         })
         .state('en-adopcion', {
