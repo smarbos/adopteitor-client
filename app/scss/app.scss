@@ -10,9 +10,10 @@ $action: #FD8000;
 }
 .flexslider {
     width: 100%;
-    height: 620px !important;
+    // height: 620px !important;
     overflow: hidden;
     border: 0 !important;
+    margin: 0 !important;
 }
 
 .flexslider .slides img {
@@ -30,20 +31,20 @@ body{
 
 
 .box{
-    position: absolute;
     background-color: white;
+    position: absolute;
     width: 500px;
+    height: 275px;
+    top: 0;
     right: 10em;
-    padding: 2em;
-    color: $primary;
-    -webkit-box-shadow: 10px 10px 38px -10px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 38px -10px rgba(0,0,0,0.75);
-    box-shadow: 10px 10px 38px -10px rgba(0,0,0,0.75);
-    z-index: 99999;
-    text-align: center;
-    top: 50%; left: inherit;
-    transform: translate(0%,-50%);
+    left: inherit;
+    bottom: 0;
+    overflow: hidden;
+    margin: auto;
     opacity: 0.9;
+    text-align: center;
+    z-index: 99999;
+
     .btn{
         background-color: $action;
         border-color: $action;
@@ -54,13 +55,13 @@ body{
   #header{
     text-align: center;
     background-position: center;
-    height:150px;
+    // height:150px;
   }
 
   #headerContainer{
   background-color: #00B9EF;
   // background-image: url("../img/galguifeliz75.jpg");
-  height:620px;
+  // height:620px;
   background-repeat: repeat-x;
   background-position-y: -185px;
   background-size: cover;
@@ -95,13 +96,12 @@ h1, h2, h3, h4{
   right: 46%;
 }
 
-#menu{
+#menu-container{
+    height: 100px;
+}
+#main-menu{
     height: 6em;
-    .menu-container{
-        height: 100%;
-    }
     padding-bottom:1.5em;
-    &Left{
         position: absolute;
         bottom: 0;
       text-align: right;
@@ -120,24 +120,6 @@ h1, h2, h3, h4{
           width: 100%;
           float: left;
       }
-     }
-    &Right{
-        position: absolute;
-        bottom: 0;
-      text-align: left;
-      float: right;
-      padding: 0px;
-      width: 88%;
-      right: 0;
-      ul{
-          text-align: left;
-      }
-      li{
-        //   width: 33%;
-          text-align: center;
-          padding-left:30px;
-      }
-    }
     li{
       display: inline-block;
       font-family: 'chunkfiveroman', sans-serif;
@@ -145,11 +127,11 @@ h1, h2, h3, h4{
     }
 }
 
-#menu a:hover{
+#main-menu a:hover{
   text-decoration: none;
 }
 
-#menu ul{
+#main-menu ul{
   list-style-type: none;
   padding:0px;
   margin: 0px;
@@ -367,4 +349,87 @@ hr{
         margin-top: 2em;
         display: block;
     }
+}
+
+
+@media only screen and (max-width : 1200px) {
+
+    .box{
+        // background-color: green;
+        width: 500px;
+        height: 275px;
+        z-index: 99999;
+    }
+
+}
+
+@media only screen and (max-width : 979px) {
+    .box{
+        h2{
+            font-size: 25px ;
+            margin-top: 10px;
+        }
+
+        // background-color: red;
+        width: 500px;
+        height: 215px;
+        right: 7em;
+        z-index: 99999;
+        padding: 10px 0 20px 0;
+
+
+        .btn{
+            font-size: 15px;
+        }
+    }
+
+}
+
+@media only screen and (max-width : 767px) {
+    .box{
+        display: flex;
+        position:absolute;
+        // background-color: blue;
+        width: 100%;
+        height: 75px;
+        z-index: 99999;
+        right: 0;
+        padding-right: 20px;
+        top:inherit;
+        h2{
+            font-size: 13px;
+            &:first-of-type{
+                margin-left: 10px;
+            }
+            &:last-of-type{
+                margin-right: 10px;
+            }
+        }
+
+        .btn{
+            font-size: 10px;
+            margin-top: 1em;
+        }
+    }
+
+}
+
+@media only screen and (max-width : 480px) {
+    .box{
+        // background-color: yellow;
+        width: 500px;
+        height: 275px;
+        z-index: 99999;
+    }
+
+}
+
+@media only screen and (max-width : 320px) {
+    .box{
+        // background-color: purple;
+        width: 500px;
+        height: 275px;
+        z-index: 99999;
+    }
+
 }
