@@ -22,7 +22,7 @@ $action: #FD8000;
     overflow: hidden;
 }
 body{
-	font-family: 'delicious_smallcapsregular', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   margin-left:0px;
   margin-right:0px;
   padding:0;
@@ -69,18 +69,13 @@ body{
 }
 
 
-@media all and (max-width: 420px){
-  h1{
-    text-align: center;
-    font-size: 2em;
-  }
-}
 h1, h2, h3, h4{
-  font-family: 'chunkfiveroman', sans-serif;
+  // font-family: 'chunkfiveroman', sans-serif;
+  font-weight: bold;
 }
 
 .btn{
-  font-family: 'delicious_smallcapsregular', sans-serif;
+  // font-family: 'delicious_smallcapsregular', sans-serif;
   font-style: bold;
 }
 .row{
@@ -89,54 +84,50 @@ h1, h2, h3, h4{
 }
 
 #logo{
-  position: absolute;
-  top:1em;
-  margin: 0 auto;
-  z-index: 9999;
-  right: 46%;
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    margin: 0 auto;
+    z-index: 9999;
+    width: 180px;
 }
+
 
 #menu-container{
     height: 100px;
 }
-#main-menu{
-    height: 6em;
+
+.main-menu{
+    height: auto;
     padding-bottom:1.5em;
-        position: absolute;
-        bottom: 0;
-      text-align: right;
-      padding: 0px;
-      width: 88%;
-      left: 0;
-      ul{
-          text-align: right;
-      }
-      li{
-        //   width: 24%;
-            padding-right:30px;
-          text-align: center;
-      }
-      hr{
-          width: 100%;
-          float: left;
-      }
-    li{
-      display: inline-block;
-      font-family: 'chunkfiveroman', sans-serif;
-      text-transform: uppercase;
+    position: relative;
+    bottom: 0;
+    text-align: right;
+    padding: 0px;
+    width: 100%;
+    float:right;
+    left: 0;
+    &-top{
+        padding: 30px 30px 0 0;
+    }
+    a:hover{
+      text-decoration: none;
+    }
+    &-links{
+        text-align: right;
+        list-style-type: none;
+        padding:0px;
+        margin: 0px;
+        li{
+            display: inline-block;
+            // font-family: 'chunkfiveroman', sans-serif;
+            text-transform: uppercase;
+            padding: 30px 0.4% 10px;
+            text-align: right;
+        }
     }
 }
 
-#main-menu a:hover{
-  text-decoration: none;
-}
-
-#main-menu ul{
-  list-style-type: none;
-  padding:0px;
-  margin: 0px;
-
-}
 
 #menuSmall{
   margin-top: 6em;
@@ -193,12 +184,30 @@ hr{
 }
 
 #intro{
+    .jumbotron{
+        height: 457px;
+        .btn{
+            // position: absolute;
+            // width: 27%;
+            // bottom: 0;
+            // left: 0;
+            // right: 0;
+        }
+        .glyphicon{
+            font-size: 2em;
+        }
+    }
     margin-top: 2em;
+    // font-family: 'delicious_smallcapsregular', sans-serif;
     h1{
         margin: 1em 0 2em;
     }
     h2{
         margin: 2em 0 1em;
+    }
+    p{
+        margin-bottom: 4em;
+        font-size: 1.2em;
     }
     .col-xs-4{
         padding: 0 7px;
@@ -212,24 +221,24 @@ hr{
         }
     }
 }
-@media all and (max-width: 420px){
-  #comoAyudar{
-    margin-top: 2em;
-    margin-bottom: 2em;
-  }
-
-  #comoAyudar div{
-    margin-bottom: 2em;
-  }
-
-  #porquelosGalgos h1{
-  margin-bottom: 1em;
-  }
-
-  #intro h1{
-    margin-bottom: 1em;
-  }
-}
+// @media all and (max-width: 420px){
+//   #comoAyudar{
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+//
+//   #comoAyudar div{
+//     margin-bottom: 2em;
+//   }
+//
+//   #porquelosGalgos h1{
+//   margin-bottom: 1em;
+//   }
+//
+//   #intro h1{
+//     margin-bottom: 1em;
+//   }
+// }
 
 #comoAyudar{
   text-align: center;
@@ -269,26 +278,26 @@ hr{
   color:black;
 }
 
-@media all and (max-width: 420px){
-  #footer div{
-    margin-bottom: 1em;
-  }
-  #footer{
-    margin-top: 1em;
-    background-color: #1bb7cd;
-    padding-top: 2em;
-    text-align: center;
-  }
-}
-@media all and (min-width: 420px){
-  #footer{
-  margin-top: 2em;
-  background-color: #1bb7cd;
-  padding-top: 4em;
-  padding-bottom: 2em;
-  text-align: center;
-  }
-}
+// @media all and (max-width: 420px){
+//   #footer div{
+//     margin-bottom: 1em;
+//   }
+//   #footer{
+//     margin-top: 1em;
+//     background-color: #1bb7cd;
+//     padding-top: 2em;
+//     text-align: center;
+//   }
+// }
+// @media all and (min-width: 420px){
+//   #footer{
+//   margin-top: 2em;
+//   background-color: #1bb7cd;
+//   padding-top: 4em;
+//   padding-bottom: 2em;
+//   text-align: center;
+//   }
+// }
 
 #donaciones{
   text-align: center;
@@ -352,7 +361,45 @@ hr{
 }
 
 
+//------------RESPONSIVENESS---------------//
+
+
+@media only screen and (min-width : 1201px) {
+
+    #main-content-container{
+        // background-color: red;
+        width: 90%;
+    }
+
+}
+
 @media only screen and (max-width : 1200px) {
+
+    #main-content-container{
+        // background-color: green;
+        #intro{
+            .jumbotron{
+                height: 455px;
+                .btn{
+                    // position: absolute;
+                    // width: 27%;
+                    // bottom: 0;
+                    // left: 0;
+                    // right: 0;
+                }
+            }
+            .jumbotron .glyphicon{
+                font-size: 3em;
+            }
+            h2{
+                margin-top: 1em;
+            }
+        }
+    }
+
+    .main-menu{
+        // background-color: green;
+    }
 
     .box{
         // background-color: green;
@@ -364,6 +411,43 @@ hr{
 }
 
 @media only screen and (max-width : 979px) {
+
+    #main-content-container{
+        // background-color: red;
+        #intro{
+            .jumbotron{
+                height: 377px;
+                .btn{
+                    // position: absolute;
+                    // width: 27%;
+                    // bottom: 0;
+                    // left: 0;
+                    // right: 0;
+                }
+                .glyphicon{
+                    font-size: 2em;
+                }
+            }
+            h2{
+                margin-top: 1em;
+                font-size: 2em;
+            }
+            p{
+                font-size: 18px;
+            }
+        }
+    }
+
+    #logo{
+        width: 130px;
+        top:2em;
+    }
+
+    .main-menu{
+        // background-color: red;
+        font-size: 11px;
+    }
+
     .box{
         h2{
             font-size: 25px ;
@@ -386,6 +470,26 @@ hr{
 }
 
 @media only screen and (max-width : 767px) {
+
+    #main-content-container{
+        // background-color: blue;
+    }
+
+    #logo{
+        width: 90px;
+        top:10em;
+    }
+
+    .main-menu{
+        // background-color: blue;
+        &-links{
+            width: 75%;
+            float: right;
+            margin-right: 30px;
+            margin-bottom: 30px;
+        }
+    }
+
     .box{
         display: flex;
         position:absolute;
@@ -415,6 +519,15 @@ hr{
 }
 
 @media only screen and (max-width : 480px) {
+
+    #main-content-container{
+        // background-color: yellow;
+    }
+
+    .main-menu{
+        // background-color: yellow;
+    }
+
     .box{
         // background-color: yellow;
         width: 500px;
@@ -425,6 +538,14 @@ hr{
 }
 
 @media only screen and (max-width : 320px) {
+
+    #main-content-container{
+        // background-color: purple;
+    }
+
+    .main-menu{
+        // background-color: purple;
+    }
     .box{
         // background-color: purple;
         width: 500px;

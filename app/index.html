@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="bower_components/flexslider/flexslider.css">
-  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
@@ -31,17 +31,18 @@
 
   <script type="text/javascript" charset="utf-8">
   $(window).load(function() {
-    $('.flexslider').flexslider();
+    $('.flexslider').flexslider({
+        controlNav: false
+    });
   });
 </script>
 </head>
 <body ng-controller="body">
-    <div class="row" id="menu">
-        <div class="col-sm-6 text-left menu-container"><menu-Left></menu-Left></div>
-        <div class="col-sm-6 text-right menu-container"><menu-Right></menu-Right></div>
+    <div class="row menu-container">
+        <main-Menu></main-Menu>
     </div>
     <div class="container-fluid" id="headerContainer">
-        <div ng-if="showSlider" class="flexslider">
+        <div class="flexslider">
             <div class="box">
               <h2>Sin hogares de tránsito no podemos salvar galgos.</h2>
               <h2>Anotate en nuestra lista para ayudarlos.</h2>
@@ -90,8 +91,8 @@
         </ul>
       </div>
       <div id="header">
-        <img src="img/logo.png" alt="Adopta un Galgo en Argentina" width="150" height="151" id="logo" class="hidden-xs hidden-sm"/>
-        <img src="img/logo.png" alt="Adopta un Galgo en Argentina" width="112,5" height="113" id="logo" class="hidden-md hidden-lg"/>
+        <img src="img/logo.png" alt="Adopta un Galgo en Argentina" id="logo" class="hidden-xs hidden-sm"/>
+        <img src="img/logo.png" alt="Adopta un Galgo en Argentina" id="logo" class="hidden-md hidden-lg"/>
       </div>
 
     </div>
@@ -111,7 +112,8 @@
       </div>
     </div>
   </div>
-  </div>  </footer>
+  </div>
+    </footer>
 
 </body>
 </html>
