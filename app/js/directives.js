@@ -1,13 +1,7 @@
 'use strict';
 
-adopteitorApp.directive('menuLeft', function() {
+adopteitorApp.directive('mainMenu', function() {
   return {
-    templateUrl: 'views/menuLeft.html'
-  };
-});
-
-adopteitorApp.directive('menuRight', function() {
-  return {
-    templateUrl: 'views/menuRight.html'
+    templateUrl: 'views/main-menu.html'
   };
 });
