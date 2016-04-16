@@ -3,6 +3,38 @@ $color-male: #6babe5;
 $color-female: #ecadb8;
 $primary: #3EB4E5;
 $action: #FD8000;
+$macho: #3A95B0;
+$hembra: #C64191;
+$navbar-default-bg: transparent;
+$navbar-default-border: transparent;
+
+.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.fa{
+    &-facebook{
+        color: #3b5998;
+    }
+
+    &-twitter{
+        color: #55acee;
+    }
+    &-size{
+        &_small{
+            font-size: 1.5em;
+        }
+        &_medium{
+            font-size: 3em;
+        }
+        &_big{
+            font-size: 6em;
+        }
+    }
+}
+
+
 
 .vcenter {
   vertical-align: middle;
@@ -83,6 +115,17 @@ h1, h2, h3, h4{
     margin-left:0 !important;
 }
 
+.section{
+    &-header{
+        h1{
+            margin: 1em 0 2em;
+        }
+        p{
+            margin-bottom: 4em;
+            font-size: 1.2em;
+        }
+    }
+}
 #logo{
     position: absolute;
     top: 1em;
@@ -103,12 +146,18 @@ h1, h2, h3, h4{
     position: relative;
     bottom: 0;
     text-align: right;
-    padding: 0px;
+    padding: 15px 15px;
     width: 100%;
     float:right;
     left: 0;
     &-top{
-        padding: 30px 30px 0 0;
+        // padding: 30px 30px 0 0;
+        .fa{
+            margin: 0 2px;
+            &:last-of-type{
+                margin-right: 8px;
+            }
+        }
     }
     a:hover{
       text-decoration: none;
@@ -118,12 +167,19 @@ h1, h2, h3, h4{
         list-style-type: none;
         padding:0px;
         margin: 0px;
+        display: inline-block;
         li{
             display: inline-block;
             // font-family: 'chunkfiveroman', sans-serif;
             text-transform: uppercase;
             padding: 30px 0.4% 10px;
             text-align: right;
+        }
+    }
+    &-action{
+        display: inline-block;
+        .btn{
+            padding: 5px 16px;
         }
     }
 }
@@ -183,15 +239,28 @@ hr{
   margin-top: 5em;
 }
 
+.destacado{
+    padding: 3em 0 1em 0;
+    &-body{
+        // background-image: url('../img/adopcion/Yambao.jpg');
+        background-position: center;
+        background-size: cover;
+        padding: 0;
+    }
+    &-aside{
+        padding: 0;
+    }
+}
+
 #intro{
     .jumbotron{
         height: 457px;
         .btn{
-            // position: absolute;
+            position: absolute;
             // width: 27%;
-            // bottom: 0;
+            bottom: 30px;
             // left: 0;
-            // right: 0;
+            right: 20%;
         }
         .glyphicon{
             font-size: 2em;
@@ -199,15 +268,9 @@ hr{
     }
     margin-top: 2em;
     // font-family: 'delicious_smallcapsregular', sans-serif;
-    h1{
-        margin: 1em 0 2em;
-    }
+
     h2{
-        margin: 2em 0 1em;
-    }
-    p{
-        margin-bottom: 4em;
-        font-size: 1.2em;
+        margin: 0 0 2em 0;
     }
     .col-xs-4{
         padding: 0 7px;
@@ -278,6 +341,80 @@ hr{
   color:black;
 }
 
+.porquelosGalgos-img{
+    position: absolute;
+    bottom: 0;
+}
+.ultimos-rescates{
+    margin-bottom: 4em;
+    &-animal{
+            font-weight: bold;
+            text-align: center;
+            font-size: 2rem;
+            span{
+                padding-bottom: 5px;
+            }
+            img{
+                padding-bottom: 1em;
+            }
+            .macho{
+                color: $macho;
+                border-bottom: 5px solid $macho;
+                width: 100%;
+                display: block;
+            }
+            .hembra{
+                color: $hembra;
+                border-bottom: 5px solid $hembra;
+                width: 100%;
+                display: block;
+            }
+    }
+}
+.main-footer{
+    padding: 0;
+    color: white;
+    &-call-to-action{
+        background-color: #F1F4F9;
+        text-align: center;
+        padding: 30px 0;
+        color:black;
+        p{
+            margin-bottom: 25px;
+        }
+        .fa{
+            margin: 0 15px;
+        }
+
+    }
+    &-links{
+        background-color: #A0ADB5;
+        padding: 20px 0px;
+        ul{
+            text-align: left;
+            list-style-type: none;
+            padding:0px;
+            margin: 0px;
+            display: block;
+            li{
+                display: block;
+                text-transform: capitalize;
+                padding: 2px 0px;
+                text-align: left;
+                &:first-of-type{
+                    font-weight: bolder;
+                }
+            }
+        }
+   }
+   &-legales{
+       background-color: #919DA9;
+       p{
+           padding: 25px 0;
+       }
+   }
+
+}
 // @media all and (max-width: 420px){
 //   #footer div{
 //     margin-bottom: 1em;
@@ -361,6 +498,7 @@ hr{
 }
 
 
+
 //------------RESPONSIVENESS---------------//
 
 
@@ -368,7 +506,7 @@ hr{
 
     #main-content-container{
         // background-color: red;
-        width: 90%;
+        // width: 90%;
     }
 
 }
