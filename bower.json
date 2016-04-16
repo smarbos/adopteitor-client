@@ -16,7 +16,9 @@
     "flexslider": "https://github.com/woothemes/FlexSlider.git#^2.6.0",
     "PHPMailer": "https://github.com/PHPMailer/PHPMailer.git#~5.2.14",
     "jquery": "^2.2.2",
-    "angularUtils-pagination": "angular-utils-pagination#^0.11.1"
+    "angularUtils-pagination": "angular-utils-pagination#^0.11.1",
+    "sweetalert2": "^1.0.1",
+    "bootstrap-sass": "^3.3.6"
   },
   "moduleType": [],
   "keywords": [
