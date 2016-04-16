@@ -10,15 +10,21 @@ gulp.task('watch', function() {
 });
 
 gulp.task('css', function() {
-    return sass(config.sassPath + '/app.scss', {
+    return sass(config.sassPath + '/*.scss', {
             style: 'compressed',
             loadPath: [
                 './app/scss',
-                config.bowerDir + '/bootstrap-sass-official/assets/stylesheets',
+                config.bowerDir + '/bootstrap-sass/assets/stylesheets',
                 config.bowerDir + '/fontawesome/scss',
             ]
         })
         .pipe(gulp.dest('./app/css'));
 });
 
-gulp.task('default', ['css']);
+gulp.task('sass', function() {
+  return gulp.src('/**/*.scss')
+    .pipe(sass())
+    .pipe(gulp.dest('/app/css'));
+});
+
+gulp.task('default', ['watch']);
