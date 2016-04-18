@@ -72,8 +72,8 @@ adopteitorApp.controller('home', ['$scope', '$location', 'enAdopcion', 'ENV', 's
 ]);
 
 
-adopteitorApp.controller('GalgosEnAdopcion', ['$scope', '$location', 'enAdopcion', 'ModalService', 'ENV',
-    function ($scope, $location, enAdopcion, ModalService, ENV) {
+adopteitorApp.controller('GalgosEnAdopcion', ['$scope', '$location', 'enAdopcion', 'ENV',
+    function ($scope, $location, enAdopcion, ENV) {
 
         $scope.currentPage = 1;
         $scope.pageSize = 10;
@@ -84,17 +84,6 @@ adopteitorApp.controller('GalgosEnAdopcion', ['$scope', '$location', 'enAdopcion
               $scope.apiEndpoint = ENV.apiEndpoint;
 
               $scope.mostrarTarjetaEnAdopcion = function($galgoID){
-                  ModalService.showModal({
-          templateUrl: "views/modal-tarjeta-en-adopcion.html",
-          controller: "animalByID",
-          inputs: {
-            id: "1"
-          }
-        }).then( function(modal)
- {
-     modal.element.show();
- });
-
                 //   ModalService.showModal({
                 //     templateUrl: "views/modal-tarjeta-en-adopcion.html",
                 //     controller: "animalByID",
@@ -123,8 +112,8 @@ adopteitorApp.controller('GalgosEnAdopcion', ['$scope', '$location', 'enAdopcion
     }
 ]);
 
-adopteitorApp.controller('animalByID', ['$scope', '$location', 'getAnimalByID', 'ModalService', '$stateParams', 'ENV', 'id',
-    function ($scope, $location, getAnimalByID, ModalService, $stateParams, ENV, id) {
+adopteitorApp.controller('animalByID', ['$scope', '$location', 'getAnimalByID', '$stateParams', 'ENV', 'id',
+    function ($scope, $location, getAnimalByID, $stateParams, ENV, id) {
         $scope.apiEndpoint = ENV.apiEndpoint;
         $scope.animalByID = getAnimalByID.query({},{'id': id});
         $scope.animalByID.$promise.then(function(data) {
@@ -140,13 +129,6 @@ adopteitorApp.controller('animalByID', ['$scope', '$location', 'getAnimalByID', 
         }
         );
         $scope.mostrarFormularioAdopcion = function(id){
-            ModalService.showModal({
-              templateUrl: "views/formularioAdopcion.html",
-              controller: "formularioAdopcion",
-              inputs: {
-                id: id
-              }
-            });
         //   var modalInstance = $uibModal.open({
         //    animation: $scope.animationsEnabled,
         //    templateUrl: 'views/formularioAdopcion.html',
@@ -165,8 +147,8 @@ adopteitorApp.controller('animalByID', ['$scope', '$location', 'getAnimalByID', 
     }
 ]);
 
-adopteitorApp.controller('contacto', ['$scope', '$location', 'getAnimalByID', '$uibModal', '$stateParams', 'ENV',
-    function ($scope, $location, getAnimalByID, $uibModal, $stateParams, ENV) {
+adopteitorApp.controller('contacto', ['$scope', '$location', 'getAnimalByID', '$stateParams', 'ENV',
+    function ($scope, $location, getAnimalByID, $stateParams, ENV) {
         console.log("CONTACTO!");
 
         $scope.save = function(contactform){
@@ -175,8 +157,8 @@ adopteitorApp.controller('contacto', ['$scope', '$location', 'getAnimalByID', '$
     }
 ]);
 
-adopteitorApp.controller('formularioAdopcion', ['$scope', '$uibModalInstance', 'FormularioAdopcion', '$http', 'id',
-    function($scope, $modalInstance, FormularioAdopcion, $http, id) {
+adopteitorApp.controller('formularioAdopcion', ['$scope', 'FormularioAdopcion', '$http', 'id',
+    function($scope, FormularioAdopcion, $http, id) {
         $('#galgo').val(id);
         //console.log(id);
         $scope.result = 'hidden'
@@ -250,9 +232,6 @@ adopteitorApp.controller('formularioAdopcion', ['$scope', '$uibModalInstance', '
             console.log(formData);
         }
 
-        $scope.cancel = function () {
-            $modalInstance.dismiss('cancel');
-        }
     }
 ]);
 
