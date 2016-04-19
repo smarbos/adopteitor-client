@@ -3,10 +3,9 @@
         <h1>Galgos en Adopcion Responsable</h1>
     </div>
     <div class="text-center">
-        <div class="col-sm-3" dir-paginate="galgo in galgosEnAdopcion | filter:q | itemsPerPage: 8"  current-page="currentPage">
+            <div class="col-sm-3" dir-paginate="galgo in galgosEnAdopcion | filter:{ genero: params.filter } | itemsPerPage: 8"  current-page="currentPage">
           <div class="tarjetaEnAdopcion">
             <div id="edad" ng-class="{'m': 'macho', 'h': 'hembra'}[galgo.genero]">
-                <p></p>
             </div>
             <span class="img-circle fotoAnimal" style="background: url({{ apiEndpoint }}/static{{ galgo.fotos[0] }})"></span>
             <h2 ng-class="{'m': 'macho', 'h': 'hembra'}[galgo.genero]">{{galgo.nombre | limitTo : 9}}{{galgo.nombre.length > 9 ? '...' : ''}}</h2>

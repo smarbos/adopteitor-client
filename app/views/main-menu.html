@@ -18,23 +18,54 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-              <li><a ui-sref="home">Inicio</a></li>
-              <li><a ui-sref="mision">Mision</a></li>
-              <li><a ui-sref="en-adopcion">Galgos en Adopcion</a></li>
-              <li><a ui-sref="finales-felices">Finales Felices</a></li>
-              <li><a ui-sref="shop">Shop Solidario</a</li>
-              <li><a ui-sref="contacto">Contacto</a></li>
-              <li><a ui-sref="donaciones">Donaciones</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-              </ul>
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nosotros <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a ui-sref="mision">Mision</a></li>
+              <li><a ui-sref="not-found">Como trabajamos?</a></li>
+              <li><a ui-sref="not-found">Experiencias de voluntarios</a></li>
+              <li><a ui-sref="contacto">Contacto</a></li>
+            </ul>
             </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">En Adopcion <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a ui-sref="en-adopcion">Todos</a></li>
+                  <li><a ui-sref="en-adopcion({filter: 'a'})">Adultos</a></li>
+                  <li><a ui-sref="en-adopcion({filter: 'c'})">Cachorros</a></li>
+                  <li><a ui-sref="en-adopcion({filter: 'h'})">Hembras</a></li>
+                  <li><a ui-sref="en-adopcion({filter: 'm'})">Machos</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Como ayudo? <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a ui-sref="not-found">Transitar</a></li>
+                  <li><a ui-sref="not-found">Donar</a></li>
+                  <li><a ui-sref="not-found">Difundir</a></li>
+                  <li><a ui-sref="not-found">Comprar en el shop solidario</a></li>
+                  <li><a ui-sref="not-found">Ofrecer traslados</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Multimedia <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a ui-sref="not-found">Antes y despues</a></li>
+                  <li><a ui-sref="not-found">De los rescates</a></li>
+                  <li><a ui-sref="not-found">Material para prensa</a></li>
+                  <li><a ui-sref="not-found">Guias y descargas</a></li>
+                  <li><a ui-sref="not-found">Galerias de imagenes</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tengo un galgo <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a ui-sref="not-found">Sobre la raza</a></li>
+                  <li><a ui-sref="not-found">Los galgos y la salud</a></li>
+                  <li><a ui-sref="not-found">Recomendaciones</a></li>
+                </ul>
+            </li>
+            <li><a ui-sref="contacto">Contacto</a></li>
             <li class="main-menu-action"><a class="btn btn-primary btn-lg" href="#" role="button">Donar</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->

@@ -13,7 +13,7 @@ adopteitorApp.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'views/home.html'
         })
         .state('en-adopcion', {
-            url: '/en-adopcion',
+            url: '/en-adopcion/:filter',
             templateUrl: 'views/en-adopcion.html'
         })
         .state('mision', {
@@ -47,6 +47,10 @@ adopteitorApp.config(function($stateProvider, $urlRouterProvider) {
             url: '/perfilAnimal/:id',
             controller: 'animalByID',
             templateUrl: 'views/perfilAnimal.html'
+        })
+        .state('not-found', {
+            url: '/not-found',
+            templateUrl: 'views/not-found.html'
         });
 
         $urlRouterProvider.otherwise('/home');

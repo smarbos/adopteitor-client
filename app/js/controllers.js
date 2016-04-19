@@ -72,8 +72,8 @@ adopteitorApp.controller('home', ['$scope', '$location', 'enAdopcion', 'ENV', 's
 ]);
 
 
-adopteitorApp.controller('GalgosEnAdopcion', ['$scope', '$location', 'enAdopcion', 'ENV',
-    function ($scope, $location, enAdopcion, ENV) {
+adopteitorApp.controller('GalgosEnAdopcion', ['$scope', '$location', 'enAdopcion', 'ENV', '$stateParams',
+    function ($scope, $location, enAdopcion, ENV, $stateParams) {
 
         $scope.currentPage = 1;
         $scope.pageSize = 10;
@@ -83,6 +83,7 @@ adopteitorApp.controller('GalgosEnAdopcion', ['$scope', '$location', 'enAdopcion
               });
               $scope.apiEndpoint = ENV.apiEndpoint;
 
+              $scope.params = $stateParams;
               $scope.mostrarTarjetaEnAdopcion = function($galgoID){
                 //   ModalService.showModal({
                 //     templateUrl: "views/modal-tarjeta-en-adopcion.html",
