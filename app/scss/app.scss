@@ -152,6 +152,7 @@ h1, h2, h3, h4{
     left: 0;
     &-top{
         // padding: 30px 30px 0 0;
+        padding-right: 15px;
         .fa{
             margin: 0 2px;
             &:last-of-type{
@@ -180,6 +181,11 @@ h1, h2, h3, h4{
         display: inline-block;
         .btn{
             padding: 5px 16px;
+
+        }
+        a{
+            margin: 9px 0;
+            color: white !important;
         }
     }
 }
@@ -211,7 +217,7 @@ hr{
     .fotoAnimal{
         display: block;
         margin: 0 auto;
-        background-color: red;
+        // background-color: red;
         width: 140px;
         height: 140px;
         background-repeat: no-repeat !important;
