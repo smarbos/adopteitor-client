@@ -1,0 +1,22 @@
+.box{
+    background-color: white;
+    position: absolute;
+    width: 500px;
+    height: 275px;
+    top: 0;
+    right: 10em;
+    left: inherit;
+    bottom: 0;
+    overflow: hidden;
+    margin: auto;
+    opacity: 0.9;
+    text-align: center;
+    z-index: 999;
+
+    .btn{
+        background-color: $action;
+        border-color: $action;
+        font-weight: bolder;
+        margin-top: 1em;
+    }
+}

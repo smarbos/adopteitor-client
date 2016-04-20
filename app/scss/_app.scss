@@ -1,0 +1,315 @@
+@import "colors";
+
+//-------STYLE NAVBAR-----------//
+
+.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+//-------SOCIAL ICONS-----------//
+
+.fa{
+    &-facebook{
+        color: #3b5998;
+    }
+
+    &-twitter{
+        color: #55acee;
+    }
+    &-size{
+        &_small{
+            font-size: 1.5em;
+        }
+        &_medium{
+            font-size: 3em;
+        }
+        &_big{
+            font-size: 6em;
+        }
+    }
+}
+//-------SOCIAL ICONS-----------//
+.vcenter {
+  vertical-align: middle;
+  float: none;
+}
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  margin-left:0px;
+  margin-right:0px;
+  padding:0;
+  background-color: $background;
+}
+
+#header{
+    text-align: center;
+    background-position: center;
+}
+
+#headerContainer{
+  background-color: #00B9EF;
+  background-repeat: repeat-x;
+  background-position-y: -185px;
+  background-size: cover;
+  padding: 0;
+}
+
+
+h1, h2, h3, h4{
+  font-weight: bold;
+}
+
+.btn{
+  font-style: bold;
+}
+
+.row{
+    margin-right:0 !important;
+    margin-left:0 !important;
+}
+
+.section{
+    &-header{
+        h1{
+            margin: 1em 0 2em;
+        }
+        p{
+            margin-bottom: 4em;
+            font-size: 1.2em;
+        }
+    }
+}
+
+#logo{
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    margin: 0 auto;
+    z-index: 9999;
+    width: 180px;
+}
+
+
+#menu-container{
+    height: 100px;
+}
+
+hr{
+  border-color: black;
+}
+
+.separador{
+  margin-top: 4em;
+  margin-bottom: 2em;
+  .medio{
+    width: 50%;
+  }
+}
+
+
+
+.tarjetaEnAdopcion{
+    margin: 1em 0;
+
+    .fotoAnimal{
+        display: block;
+        margin: 0 auto;
+        width: 140px;
+        height: 140px;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        background-position: center !important;
+    }
+  .desc{
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .macho{
+    background-color: $color-male;
+  }
+
+  .hembra{
+    background-color: $color-female;
+  }
+
+}
+
+
+
+.destacado{
+    padding: 3em 0 1em 0;
+    &-body{
+        background-position: center;
+        background-size: cover;
+        padding: 0;
+    }
+    &-aside{
+        padding: 0;
+    }
+}
+
+#intro{
+    .jumbotron{
+        height: 457px;
+        .btn{
+            position: absolute;
+            bottom: 30px;
+            right: 20%;
+        }
+        .glyphicon{
+            font-size: 2em;
+        }
+    }
+    margin-top: 2em;
+
+    h2{
+        margin: 0 0 2em 0;
+    }
+    .col-xs-4{
+        padding: 0 7px;
+    }
+    .jumbotron{
+        padding:2em 2em;
+        background-color: #F1F4F9;
+        color: $action;
+        .glyphicon{
+            font-size: 4em;
+        }
+    }
+}
+
+#comoAyudar{
+  text-align: center;
+}
+
+.justificado{
+  text-align: justify;
+}
+
+#error404{
+  text-align: center;
+}
+
+#botonVerde{
+  background-color: #8caa73;
+  border-color: #637f4d;
+}
+
+#botonVioleta{
+  background-color: #7b61d8;
+  border-color: #644bbe;
+}
+
+#botonNaranja{
+  background-color: #e45141;
+  border-color: #b64134;
+}
+
+#botonAzul{
+  background-color: #477eec;
+  border-color: #3360bc;
+}
+
+#botonAmarillo{
+  background-color: #e5db30;
+  border-color: #c2b924;
+  color:black;
+}
+
+.porquelosGalgos-img{
+    position: absolute;
+    bottom: 0;
+}
+.ultimos-rescates{
+    margin-bottom: 4em;
+    .titulo{
+        margin-bottom: 1em;
+    }
+    &-animal{
+            font-weight: bold;
+            text-align: center;
+            font-size: 2rem;
+            span{
+                padding-bottom: 5px;
+            }
+            img{
+                padding-bottom: 1em;
+            }
+            .macho{
+                color: $macho;
+                border-bottom: 5px solid $macho;
+                width: 100%;
+                display: block;
+            }
+            .hembra{
+                color: $hembra;
+                border-bottom: 5px solid $hembra;
+                width: 100%;
+                display: block;
+            }
+    }
+}
+
+#donaciones{
+  text-align: center;
+}
+
+
+#perfilAnimal{
+    .genero, .edad{
+        font-size: 56px;
+    }
+}
+
+#formularioAdopcion, #formularioContacto, #queres-ofrecerte{
+    h1{
+        margin-bottom: 40px;
+    }
+    .form-group{
+        margin-bottom: 40px;
+    }
+    button{
+        margin-top: 40px;
+    }
+    .message{
+        opacity: 1;
+        z-index: 999;
+        position: absolute;
+        margin: 2em 2em;
+    }
+    .siendo-enviado{
+        opacity: 0.2;
+        cursor: wait;
+    }
+}
+
+.modal-content{
+    padding: 2em 0;
+
+}
+.center-modal {
+    position: fixed;
+    top: 10%;
+    left: 18.5%;
+    z-index: 1050;
+    width: 80%;
+    height: 80%;
+    margin-left: -10%;
+}
+
+#queres-ofrecerte, #que-implica-ser-casa-de-transito, #casa-de-transito{
+    margin-top: 2em;
+}
+
+#en-adopcion{
+    h1{
+        margin: 1em 0;
+    }
+    dir-pagination-controls{
+        margin-top: 2em;
+        display: block;
+    }
+}
