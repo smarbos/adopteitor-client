@@ -1,10 +1,11 @@
-<div class="container-fluid" ng-controller="GalgosEnAdopcion" id="formularioContacto">
+<div class="container-fluid" id="formularioContacto">
   <div class="row text-center">
     <div class="col-xs-12">
         <h1>Contactanos!</h1>
     </div>
   </div>
-  <form name="contactform" method="post" ng-submit="save(contactform)" class="ng-pristine">
+  <h1 class="message" ng-show="submitted">Aguarde un momento por favor...</h1>
+  <form name="contactform" method="post" ng-class="{ 'siendo-enviado': submitted}"ng-submit="save(formData, contactform)" class="ng-pristine">
       <div class="row">
         <div class="form-group">
             <div class="col-xs-4">
@@ -51,13 +52,13 @@
                 <label for="ciudad">Mensaje:</label>
             </div>
             <div class="col-xs-8">
-                <textarea type="" name="mensaje" id="mensaje" value="" ng-model="formData.mensaje" class="form-control"></textarea>
+                <textarea type="" name="mensaje" id="mensaje" value="" ng-model="formData.mensaje" class="form-control" required></textarea>
             </div>
         </div>
       </div>
       <div class="row text-center">
         <div class="col-xs-12">
-            <button type="submit" class="btn btn-success" ng-disabled="submitButtonDisabled">Enviar</button>
+            <button type="submit" class="btn btn-success" ng-disabled="submitButtonDisabled"><span ng-hide="submitted">Enviar</span><span ng-show="submitted">Enviando</span></button>
         </div>
       </div>
   </form>
