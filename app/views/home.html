@@ -53,36 +53,12 @@
             </a>
           </div>
         </div>
-         <div class="row ultimos-rescates">
+         <div class="row ultimos-rescates" ng-controller="ultimosRescates">
              <h1 class="titulo">Últimos rescates</h1>
-            <div class="col-xs-2 col-xs-offset-1">
+            <div class="col-xs-2" ng-class="{'col-xs-offset-1':$first}" ng-repeat="animal in animales | limitTo:-5 | orderBy:'time':true">
                 <div class="ultimos-rescates-animal">
-                    <img src="img/adopcion/Yambao.jpg" class="img-responsive" alt="" />
-                    <span class="hembra">Sapina</span>
-                </div>
-            </div>
-            <div class="col-xs-2">
-                <div class="ultimos-rescates-animal">
-                    <img src="img/adopcion/Yambao.jpg" class="img-responsive" alt="" />
-                    <span class="macho">Rolo</span>
-                </div>
-            </div>
-            <div class="col-xs-2">
-                <div class="ultimos-rescates-animal">
-                    <img src="img/adopcion/Yambao.jpg" class="img-responsive" alt="" />
-                    <span class="hembra">Rupia</span>
-                </div>
-            </div>
-            <div class="col-xs-2">
-                <div class="ultimos-rescates-animal">
-                    <img src="img/adopcion/Yambao.jpg" class="img-responsive" alt="" />
-                    <span class="hembra">Membrilla</span>
-                </div>
-            </div>
-            <div class="col-xs-2">
-                <div class="ultimos-rescates-animal">
-                    <img src="img/adopcion/Yambao.jpg" class="img-responsive" alt="" />
-                    <span class="macho">Shun</span>
+                    <img src="{{ apiEndpoint }}/static{{ animal.fotos[0] }}" class="img-responsive" alt="" />
+                    <span class="hembra">{{animal.nombre}}</span>
                 </div>
             </div>
          </div>
