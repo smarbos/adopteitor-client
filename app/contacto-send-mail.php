@@ -35,12 +35,12 @@ $mail->Password   = $master_piece;        // SMTP account password
     $mail->FromName = "notificaciones@adopteitor.com.ar";
 	//$mail->FromName = $_POST['inputName'];
     $mail->AddAddress('smarbos@gmail.com'); //recipient
-    $mail->Subject = "Nuevo formulario de transito";
+    $mail->Subject = "Nuevo formulario de contacto";
 
     $mail->Body = "
-        <h1>Nuevo formulario de transito</h1><br/>
+        <h1>Nuevo formulario de contacto</h1><br/>
         <br/>
-        <h2>Datos del ofreciendo: </h2><br/>
+        <h2>Datos del contactante: </h2><br/>
         <p><strong>Nombre: </strong>".  $_POST['nombre'] ."</p>
         <p><strong>Apellido: </strong>".  $_POST['apellido'] ."</p>
         <p><strong>Telefono: </strong>".  $_POST['telefono'] ."</p>
