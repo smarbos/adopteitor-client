@@ -8,9 +8,10 @@ Install NPM:
 
     nmp install
 
-Start NPM
+Install Bower:
 
-    npm start
+    bower install
+
 
 ## Installing MysqlDB
 
@@ -29,10 +30,4 @@ Works!
 ### Usage
 
 Run client:
-    cd client && npm start
-
-Run server:
-    cd server && workon venv && python manage.py runserver
-
-Run gulp:
-    cd client && gulp && gulp watch
+    cd adopteitor-client && gulp
