@@ -46,7 +46,7 @@ adopteitorApp.config(function($stateProvider, $urlRouterProvider) {
         .state('perfilAnimal', {
             url: '/perfilAnimal/:id',
             controller: 'animalByID',
-            templateUrl: 'views/perfilAnimal.html'
+            templateUrl: 'views/perfil-animal.html'
         })
         .state('not-found', {
             url: '/not-found',
