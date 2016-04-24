@@ -110,35 +110,6 @@ hr{
 
 
 
-.tarjetaEnAdopcion{
-    margin: 1em 0;
-
-    .fotoAnimal{
-        display: block;
-        margin: 0 auto;
-        width: 140px;
-        height: 140px;
-        background-repeat: no-repeat !important;
-        background-size: cover !important;
-        background-position: center !important;
-    }
-  .desc{
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .macho{
-    background-color: $color-male;
-  }
-
-  .hembra{
-    background-color: $color-female;
-  }
-
-}
-
-
-
 .destacado{
     padding: 3em 0 1em 0;
     &-body{
@@ -223,20 +194,22 @@ hr{
     position: absolute;
     bottom: 0;
 }
-.ultimos-rescates{
-    margin-bottom: 4em;
-    .titulo{
-        margin-bottom: 1em;
-    }
-    &-animal{
+
+.tarjeta-animal{
             font-weight: bold;
             text-align: center;
             font-size: 2rem;
+            margin: 1em 0;
+            a{
+                text-decoration: none;
+            }
             span{
                 padding-bottom: 5px;
             }
             img{
                 padding-bottom: 1em;
+                margin: 0 auto;
+                max-height: 300px;
             }
             .macho{
                 color: $macho;
@@ -250,6 +223,12 @@ hr{
                 width: 100%;
                 display: block;
             }
+}
+
+.ultimos-rescates{
+    margin-bottom: 4em;
+    .titulo{
+        margin-bottom: 1em;
     }
 }
 

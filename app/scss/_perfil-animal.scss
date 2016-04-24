@@ -30,6 +30,10 @@
     }
     &-badges{
         margin: 1em 0;
+        hr{
+            border-style: dashed;
+            border-color: #333;
+        }
     }
     &-badge{
         margin-right: 10px;
@@ -45,6 +49,23 @@
         &-titulo{
             display: block;
             margin-bottom: 1em;
+        }
+    }
+    &-footer{
+        margin: 3em 0;
+    }
+    &-texto{
+        .titulo{
+            margin-top: 0;
+
+        }
+        background-color: #F1F4F9;
+        padding: 30px;
+    }
+    &-navigation{
+        &-prev{
+        }
+        &-next{
         }
     }
 }
