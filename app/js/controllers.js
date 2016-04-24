@@ -113,10 +113,10 @@ adopteitorApp.controller('GalgosEnAdopcion', ['$scope', '$location', 'enAdopcion
     }
 ]);
 
-adopteitorApp.controller('animalByID', ['$scope', '$location', 'getAnimalByID', '$stateParams', 'ENV', 'id',
-    function ($scope, $location, getAnimalByID, $stateParams, ENV, id) {
+adopteitorApp.controller('animalByID', ['$scope', '$location', 'getAnimalByID', '$stateParams', 'ENV',
+    function ($scope, $location, getAnimalByID, $stateParams, ENV) {
         $scope.apiEndpoint = ENV.apiEndpoint;
-        $scope.animalByID = getAnimalByID.query({},{'id': id});
+        $scope.animalByID = getAnimalByID.query({},{'id': $stateParams.id});
         $scope.animalByID.$promise.then(function(data) {
             $scope.animal = data;
             if($scope.animal['genero']=='m'){

@@ -1,0 +1,75 @@
+.perfil-animal{
+    &-filtros{
+        padding: 1em 0;
+        width: 100%;
+        display: inline-block;
+    }
+    &-nombre{
+        margin:0 0 1em 0;
+    }
+    &-desc{
+        margin-bottom: 1em;
+    }
+    &-thumbnails{
+        div{
+            padding: 10px 5px 10px 10px;
+            &:last-of-type{
+                padding-right: 10px;
+            }
+        }
+    }
+    &-boton-adoptar{
+        width: 100%;
+        background-color: $action;
+        border-color: darken($action, 5%);
+        margin: 1em 0;
+    }
+    &-ayuda{
+        display: block;
+        margin: 1em 0;
+    }
+    &-badges{
+        margin: 1em 0;
+    }
+    &-badge{
+        margin-right: 10px;
+        background-color: transparent;
+        border: 1px solid #666;
+        color: #333;
+        border-radius: 0;
+        padding: 5px 10px;
+    }
+    &-compartir{
+        display: block;
+        margin: 1em 0;
+        &-titulo{
+            display: block;
+            margin-bottom: 1em;
+        }
+    }
+}
+
+.social-button{
+    width: 50px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    i{
+        color:white;
+    }
+    &-facebook{
+        background-color: #3b5998;
+    }
+    &-whatsapp{
+        background-color: #43d854;
+    }
+    &-twitter{
+        background-color: #55acee;
+    }
+    &-google{
+        background-color: #ea4335;
+    }
+    &-email{
+        background-color: #ff00bf;
+    }
+}
