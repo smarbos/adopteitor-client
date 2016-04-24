@@ -1,0 +1,93 @@
+<div class="" id="transitos">
+    <div class="row" id="casa-de-transito">
+      <div class="col-lg-2 col-lg-offset-1 hidden-xs hidden-sm">
+        <img src="img/portada/3.jpg" alt="" class="img-circle" width="250px" height="250px"/>
+      </div>
+      <div class="col-lg-6 col-lg-offset-1 col-xs-12">
+      <h1>Casa de Transito</h1>
+        <p class="lead justificado">Si no podes adoptar pero tenes la posibilidad para albergar uno de nuestros galgos hasta el momento de su adopcion, podes ofrecerte como <strong>CASA DE TRÁNSITO</strong></p>
+        <p class="lead justificado">De ese modo, el galgo se va preparando para su adopcion definitiva en un clima familiar y no en un refugio.</p>
+        <p class="lead justificado">Consideramos que estos perros que estan tan maltratados necesitan recuperarse en un lugar sereno.</p>
+        <p class="lead justificado">Nosotros nos haremos cargo de todos los gastos veterinarios necesarios para su recuperación.</p>
+      </div>
+    </div>
+    <div class="row" id="que-implica-ser-casa-de-transito">
+      <div class="col-lg-2 col-lg-offset-1 hidden-xs hidden-sm">
+        <img src="img/portada/2.jpg" alt="" class="img-circle" width="250px" height="250px"/>
+      </div>
+      <div class="col-lg-6 col-lg-offset-1 col-xs-12">
+      <h1>Que implica ser casa de transito? </h1>
+        <p class="lead justificado">Es darle un lugarcito a un Galgo para que pueda recuperarse física y emocionalmente, antes de ir con su familia adoptiva.</p>
+        <p class="lead justificado">Puede ser necesario que lo lleven al veterinario, pero no que se hagan cargo de los gastos, al igual que el alimento, eso queda a criterio de cada transito y se acuerda previamente con la asociación.
+    Se encargaran de darle los medicamentos cuando sea necesario, y sobre todo le demostraran que están a salvo para que recuperen la confianza.</p>
+        <p class="lead justificado">No necesitan mucho espacio, solo para ponerle un colchoncito y sacarlo las veces necesarias para hacer sus necesidades. Algunos Galgos necesitan tratamientos o cirugia y precisan una atención mas constante, en estos casos somos claras para que la gente sepa si puede dedicarles el tiempo que requieren. Siempre los instruimos y estamos disponibles para consultas y apoyo. </p>
+        <p class="lead justificado">El transito es casi indispensable en el cambio de vida que hacen y marca un nuevo comienzo para ellos.</p>
+      </div>
+    </div>
+    <div class="row" id="queres-ofrecerte">
+      <div class="col-lg-2 col-lg-offset-1 hidden-xs hidden-sm">
+        <img src="img/portada/1.jpg" alt="" class="img-circle" width="250px" height="250px"/>
+      </div>
+      <div class="col-lg-6 col-lg-offset-1 col-xs-12">
+      <h1>Queres ofrecerte?</h1>
+      <h1 class="message" ng-show="submitted">Aguarde un momento por favor...</h1>
+          <form name="contactform" method="post" ng-class="{ 'siendo-enviado': submitted}"ng-submit="save(formData, contactform)" class="ng-pristine">
+              <div class="row">
+                <div class="form-group">
+                    <div class="col-xs-4">
+                        <label for="nombre">Nombre:</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <input type="text" name="nombre" id="nombre" value="" ng-model="formData.nombre" class="form-control" required>
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                    <div class="col-xs-4">
+                        <label for="apellido">Apellido:</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <input type="text" name="apellido" id="apellido" value="" ng-model="formData.apellido" class="form-control" required>
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                    <div class="col-xs-4">
+                        <label for="telefono">Telefono:</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <input type="tel" name="telefono" id="telefono" value="" ng-model="formData.telefono" class="form-control">
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                    <div class="col-xs-4">
+                        <label for="email">Email:</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <input type="email" name="email" id="email" value="" ng-model="formData.email" class="form-control" required>
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                    <div class="col-xs-4">
+                        <label for="ciudad">Mensaje:</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <textarea type="" name="mensaje" id="mensaje" value="" ng-model="formData.mensaje" class="form-control"></textarea>
+                    </div>
+                </div>
+              </div>
+              <div class="row text-center">
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-success" ng-disabled="submitButtonDisabled"><span ng-hide="submitted">Enviar</span><span ng-show="submitted">Enviando</span></button>
+                </div>
+              </div>
+          </form>
+      </div>
+    </div>
+</div>

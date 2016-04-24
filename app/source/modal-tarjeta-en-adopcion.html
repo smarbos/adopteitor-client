@@ -1,0 +1,34 @@
+<div class="container-fluid text-center" ng-controller="GalgosEnAdopcion" id="perfilAnimal">
+    <div class="row">
+      <div class="col-xs-4">
+        <img src="{{ apiEndpoint }}/static{{ animal.fotos[0] }}" alt="Foto de perfil de {{ animal.nombre }}" class="img-circle img-responsive" width="250px" height="250px"/>
+        <h1>{{ animal.nombre }}</h1>
+      </div>
+      <div class="col-xs-8 text-left">
+          <h1 class="genero">{{ animal.genero }}</h1>
+          <h1 class="edad">{{ animal.edad }} años</h1>
+      </div>
+      <div class="col-xs-10 col-xs-offset-1 well">
+          <p class="lead justificado">{{ animal.desc }}</p>
+      </div>
+    </div>
+    <hr class="separador" />
+    <div class="row">
+        <div class="col-xs-3">
+            <img src="{{ apiEndpoint }}/static{{ animal.fotos[0] }}" alt="Foto de perfil de {{ animal.nombre }}" class="img-thumbnail" />
+        </div>
+        <div class="col-xs-3">
+            <img src="{{ apiEndpoint }}/static{{ animal.fotos[0] }}" alt="Foto de perfil de {{ animal.nombre }}" class="img-thumbnail" />
+        </div>
+        <div class="col-xs-3">
+            <img src="{{ apiEndpoint }}/static{{ animal.fotos[0] }}" alt="Foto de perfil de {{ animal.nombre }}" class="img-thumbnail" />
+        </div>
+        <div class="col-xs-3">
+            <img src="{{ apiEndpoint }}/static{{ animal.fotos[0] }}" alt="Foto de perfil de {{ animal.nombre }}" class="img-thumbnail" width="auto" height="50px" />
+        </div>
+    </div>
+    <div class="row text-center">
+      <hr class="separador medio" />
+      <span><a class="btn btn-primary" role="button" ng-click="mostrarFormularioAdopcion(animal.id)">Adoptar</a></span>
+    </div>
+</div>
