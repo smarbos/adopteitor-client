@@ -1,7 +1,8 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
-    autoprefixer = require('gulp-autoprefixer');
+    autoprefixer = require('gulp-autoprefixer'),
+    fileinclude = require("gulp-file-include");
 
 var output = "app/css/";
 var input = "app/scss/*.scss";
@@ -33,6 +34,15 @@ gulp.task('sass', function() {
     .pipe(gulp.dest(output));
 });
 
+gulp.task('fileinclude', function() {
+  gulp.src('app/source/*.html')
+    .pipe(fileinclude({
+      prefix: '@@',
+      basepath: '@file'
+    }))
+    .pipe(gulp.dest('./app/views/'));
+});
+
 gulp.task('watch', function() {
   return gulp
     // Watch the input folder for change,
@@ -45,4 +55,4 @@ gulp.task('watch', function() {
     });
 });
 
-gulp.task('default', ['sass', 'watch']);
+gulp.task('default', ['sass', 'watch', 'fileinclude']);
