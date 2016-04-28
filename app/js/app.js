@@ -2,7 +2,69 @@
 
 var adopteitorApp = angular.module('adopteitorApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'config', 'angularUtils.directives.dirPagination']);
 
+// Setup the filter
+adopteitorApp.filter('animalFilter', function($stateParams, $rootScope) {
 
+    switch($stateParams.filter){
+        case "a":
+            console.log("Adulto");
+            return function(input){
+              var out = [];
+              angular.forEach(input, function(etapa){
+                  if(etapa.etapa == "a"){
+                      console.log("ESTX ES UN ADULTO!");
+                      out.push(etapa);
+                  }
+
+              })
+              return out;
+            }
+            break;
+        case "c":
+            console.log("Cachorro");
+            return function(input){
+              var out = [];
+              angular.forEach(input, function(etapa){
+                  if(etapa.etapa == "c"){
+                      console.log("ESTX ES UN CACHARRO!");
+                      out.push(etapa);
+                  }
+
+              })
+              return out;
+            }
+            break;
+        case "h":
+            console.log("Hembra");
+            return function(input){
+              var out = [];
+              angular.forEach(input, function(etapa){
+                  if(etapa.genero == "h"){
+                      console.log("ESTX ES UN HEMBRA!");
+                      out.push(etapa);
+                  }
+
+              })
+              return out;
+            }
+            break;
+        case "m":
+            console.log("Macho");
+            return function(input){
+              var out = [];
+              angular.forEach(input, function(etapa){
+                  if(etapa.genero == "m"){
+                      console.log("ESTX ES UN MACHO!");
+                      out.push(etapa);
+                  }
+
+              })
+              return out;
+            }
+            break;
+    }
+
+});
 adopteitorApp.config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
@@ -14,6 +76,7 @@ adopteitorApp.config(function($stateProvider, $urlRouterProvider) {
         })
         .state('en-adopcion', {
             url: '/en-adopcion/:filter',
+            cache: false,
             templateUrl: 'views/en-adopcion.html'
         })
         .state('mision', {
