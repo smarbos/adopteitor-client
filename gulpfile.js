@@ -34,14 +34,14 @@ gulp.task('sass', function() {
     .pipe(gulp.dest(output));
 });
 
-gulp.task('fileinclude', function() {
-  gulp.src('app/source/*.html')
-    .pipe(fileinclude({
-      prefix: '@@',
-      basepath: '@file'
-    }))
-    .pipe(gulp.dest('./app/views/'));
-});
+// gulp.task('fileinclude', function() {
+//   gulp.src('app/source/*.html')
+//     .pipe(fileinclude({
+//       prefix: '@@',
+//       basepath: '@file'
+//     }))
+//     .pipe(gulp.dest('./app/views/'));
+// });
 
 gulp.task('watch', function() {
   return gulp
@@ -51,8 +51,8 @@ gulp.task('watch', function() {
     // When there is a change,
     // log a message in the console
     .on('change', function(event) {
-      console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+      console.log('File ' + event.path + ' was ' + event.type + ', Corriendo tareas... Amando a los animales <3');
     });
 });
 
-gulp.task('default', ['sass', 'watch', 'fileinclude']);
+gulp.task('default', ['sass', 'watch']);
