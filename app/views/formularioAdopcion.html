@@ -1,0 +1,77 @@
+<div class="container-fluid" ng-controller="GalgosEnAdopcion" id="formularioAdopcion">
+  <div class="row text-center">
+    <div class="col-xs-12">
+        <h1>Formulario Adopcion</h1>
+    </div>
+  </div>
+  <form name="contactform" method="post" ng-submit="save(formData, contactform)" class="ng-pristine">
+      <div class="row">
+        <div class="form-group">
+            <div class="col-xs-4">
+                <label for="nombre">Nombre:</label>
+            </div>
+            <div class="col-xs-8">
+                <input type="text" name="nombre" id="nombre" ng-model="formData.nombre" class="form-control" required>
+              <!--  <input type="text" name="galgo" id="galgo"  ng-model="formData.galgo" placeholder="{{ galgo }}" class="form-control"> -->
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+            <div class="col-xs-4">
+                <label for="apellido">Apellido:</label>
+            </div>
+            <div class="col-xs-8">
+                <input type="text" name="apellido" id="apellido" value="" ng-model="formData.apellido" class="form-control" required>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+            <div class="col-xs-4">
+                <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+            </div>
+            <div class="col-xs-8">
+                <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" value="" ng-model="formData.fecha_nacimiento" class="form-control">
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+            <div class="col-xs-4">
+                <label for="telefono">Telefono:</label>
+            </div>
+            <div class="col-xs-8">
+                <input type="tel" name="telefono" id="telefono" value="" ng-model="formData.telefono" class="form-control" required>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+            <div class="col-xs-4">
+                <label for="email">Email:</label>
+            </div>
+            <div class="col-xs-8">
+                <input type="email" name="email" id="email" value="" ng-model="formData.email" class="form-control" required>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+            <div class="col-xs-4">
+                <label for="ciudad">Ciudad:</label>
+            </div>
+            <div class="col-xs-8">
+                <input type="text" name="ciudad" id="ciudad" value="" ng-model="formData.ciudad" class="form-control" required>
+            </div>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-xs-12">
+            {{ submitButtonDisabled }}
+            <!-- <input type="button" name="name" value="Enviar" ng-disabled="submitButtonDisabled" ng-click="save(newFormularioAdopcion)" class="form-control"> -->
+            <button type="submit" class="btn btn-success" ng-disabled="submitButtonDisabled">Enviar</button>
+        </div>
+      </div>
+  </form>
+</div>

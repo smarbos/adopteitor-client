@@ -1,0 +1,50 @@
+<div class="row perfil-animal-footer">
+    <div class="col-xs-5 col-xs-offset-1">
+        <div class="perfil-animal-texto">
+            <h2 class="titulo">¿Como es el proceso de adopcion?</h2>
+            <p>
+                Primero sarasa  mayoría de las veces  nuestro contacto al resca primero sarasa  mayoría de las veces  nuestro contacto al resca primero sarasa  mayoría de las veces  nuestro contacto al resca primero sarasa  mayoría de las veces  nuestro contacto al resca
+                Primero sarasa  mayoría de las veces  nuestro contacto al resca primero sarasa  mayoría de las veces  nuestro contacto al resca primero sarasa  mayoría de las veces  nuestro contacto al resca primero sarasa  mayoría de las veces  nuestro contacto al resca
+            </p>
+        </div>
+    </div>
+    <div class="col-xs-5">
+        <div class="perfil-animal-texto">
+            <h2 class="titulo">&nbsp;</h2>
+            <p>
+                Primero sarasa  mayoría de las veces  nuestro contacto al resca primero sarasa  mayoría de las veces  nuestro contacto al resca primero sarasa  mayoría de las veces  nuestro contacto al resca primero sarasa  mayoría de las veces  nuestro contacto al resca
+                Primero sarasa  mayoría de las veces  nuestro contacto al resca primero sarasa  mayoría de las veces  nuestro contacto al resca primero sarasa  mayoría de las veces  nuestro contacto al resca primero sarasa  mayoría de las veces  nuestro contacto al resca
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" ng-controller="GalgosEnAdopcion" id="en-adopcion">
+    <div class="row text-center">
+        <h1>Galgos en Adopcion Responsable</h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="perfil-animal-filtros">Filtrar por: <a ui-sref="en-adopcion({filter: '*'})" ui-sref-opts="{reload: true, notify: true}">TODOS</a> | <a ui-sref="en-adopcion({filter: 'a'})" ui-sref-opts="{reload: true, notify: true}">ADULTOS</a> | <a ui-sref="en-adopcion({filter: 'c'})" ui-sref-opts="{reload: true, notify: true}">CACHORROS</a> | <a ui-sref="en-adopcion({filter: 'h'})" ui-sref-opts="{reload: true, notify: true}">HEMBRAS</a> | <a ui-sref="en-adopcion({filter: 'm'})" ui-sref-opts="{reload: true, notify: true}">MACHOS</a> </span>
+        </div>
+    </div>
+    <div class="text-center">
+        <div class="col-xs-3" dir-paginate="galgo in galgosEnAdopcion | itemsPerPage: 8"  current-page="currentPage">
+          <div class="tarjeta-animal">
+              <a ui-sref="perfilAnimal({id: {{galgo.id}}})" class="ultimos-rescates-animal">
+                  <img src="{{apiEndpoint}}/static{{ galgo.fotos[0] }}" class="img-responsive" alt="" />
+                  <span ng-class="{'m': 'macho', 'h': 'hembra'}[galgo.genero]">{{galgo.nombre}}</span>
+              </a>
+            <!-- <span class="fotoAnimal" style="background: url({{ apiEndpoint }}/static{{ galgo.fotos[0] }})"></span> -->
+            <!-- <h2 ng-class="{'m': 'macho', 'h': 'hembra'}[galgo.genero]">{{galgo.nombre | limitTo : 9}}{{galgo.nombre.length > 9 ? '...' : ''}}</h2> -->
+            <!-- <p class="desc">{{galgo.desc | limitTo : 30 }}{{galgo.desc.length > 30 ? '...' : ''}}</p> -->
+            <!-- <span><a class="btn btn-ssssdsprimary" role="button" ng-click="mostrarTarjetaEnAdopcion(galgo.id)">Saber mas!</a></span> -->
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="views/dirPagination.tpl.html"></dir-pagination-controls>
+        </div>
+    </div>
+</div>
