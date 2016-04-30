@@ -5,10 +5,26 @@ adopteitorApp.factory('enAdopcion', ['$resource', 'ENV', function($resource, ENV
     return $resource(ENV.apiEndpoint+'/Animal/', null, {'query':{method: 'GET', isArray: true}});
 }]);
 
+adopteitorApp.factory('enAdopcionFilter', ['$resource', 'ENV', function($resource, ENV){
+    return $resource(
+        ENV.apiEndpoint+'/Animal/?:filter/',
+        {filter:'@filter'},
+        {'query':{method: 'GET', isArray: true}}
+    );
+}]);
+
 adopteitorApp.factory('getAnimalByID', ['$resource', 'ENV', function($resource, ENV){
     return $resource(
         ENV.apiEndpoint+'/Animal/:id/',
         {id:'@id'},
+        {'query':{method: 'GET', isArray: false}}
+    );
+}]);
+
+adopteitorApp.factory('getAnimalByGenero', ['$resource', 'ENV', function($resource, ENV){
+    return $resource(
+        ENV.apiEndpoint+'/Animal/:genero/',
+        {genero:'@genero'},
         {'query':{method: 'GET', isArray: false}}
     );
 }]);
@@ -72,44 +88,33 @@ adopteitorApp.controller('home', ['$scope', '$location', 'enAdopcion', 'ENV', 's
 ]);
 
 
-adopteitorApp.controller('GalgosEnAdopcion', ['$scope', '$location', 'enAdopcion', 'ENV', '$stateParams',
+adopteitorApp.controller('GalgosEnAdopcion', ['$scope', '$location', 'enAdopcionFilter', 'ENV', '$stateParams',
     function ($scope, $location, enAdopcion, ENV, $stateParams) {
 
         $scope.currentPage = 1;
         $scope.pageSize = 10;
-                $scope.galgosEnAdopcion = enAdopcion.query();
+        var filter;
+        switch ($stateParams.filter) {
+            case "a":
+                filter = "galgo_etapa=a";
+                break;
+            case "c":
+                filter = "galgo_etapa=c";
+                break;
+            case "h":
+                filter = "galgo_genero=h";
+                break;
+            case "m":
+                filter = "galgo_genero=m";
+                break;
+        }
+              $scope.galgosEnAdopcion = enAdopcion.query({},{'filter': filter});
               $scope.galgosEnAdopcion.$promise.then(function(data) {
                   $scope.galgosEnAdopcionRes = data.results;
               });
               $scope.apiEndpoint = ENV.apiEndpoint;
-
               $scope.params = $stateParams;
-              $scope.mostrarTarjetaEnAdopcion = function($galgoID){
-                //   ModalService.showModal({
-                //     templateUrl: "views/modal-tarjeta-en-adopcion.html",
-                //     controller: "animalByID",
-                //      inputs: {
-                //        id: $galgoID
-                //      }
-                //   }).then(function(modal) {
-                //     modal.close.then(function(result) {
-                //       $scope.customResult = "All good!";
-                //     });
-                //   });
 
-
-            //     var modalInstance = $uibModal.open({
-            //      animation: $scope.animationsEnabled,
-            //      templateUrl: 'views/modal-tarjeta-en-adopcion.html',
-            //      controller: 'animalByID',
-            //      windowClass: 'center-modal',
-            //      resolve: {
-            //        id: function () {
-            //          return $galgoID;
-            //        }
-            //      }
-            //    });
-              }
     }
 ]);
 
