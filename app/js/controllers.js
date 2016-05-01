@@ -111,31 +111,22 @@ adopteitorApp.controller('animalByID', ['$scope', '$location', 'getAnimalByID', 
         $scope.animalByID = getAnimalByID.query({},{'id': $stateParams.id});
         $scope.animalByID.$promise.then(function(data) {
             $scope.animal = data;
+            console.log(data);
+            console.log($scope.animal['genero']);
             if($scope.animal['genero']=='m'){
-                $scope.animal['genero'] = 'macho';
+                $scope.animal.genero = 'macho';
+                console.log($scope.animal['genero']);
+                $scope.genero = "m";
             }
             else{
-                $scope.animal['genero'] = 'hembra';
+                $scope.animal.genero = 'hembra';
+                console.log($scope.animal['genero']);
+                $scope.genero = "h"
             }
         }, function(error) {
             console.log('error', error);
         }
         );
-        $scope.mostrarFormularioAdopcion = function(id){
-        //   var modalInstance = $uibModal.open({
-        //    animation: $scope.animationsEnabled,
-        //    templateUrl: 'views/formularioAdopcion.html',
-        //    windowClass: 'center-modal',
-        //    controller: 'formularioAdopcion',
-        //    resolve: {
-        //      items: function () {
-        //        return $scope.items;
-        //    },
-        //      id: function () {
-        //        return id;
-        //      }
-        //    }
-        //  });
-        }
+
     }
 ]);
