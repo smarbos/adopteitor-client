@@ -7,7 +7,6 @@ adopteitorApp.controller('contacto', ['$scope', '$location', 'getAnimalByID', '$
         $scope.newFormularioAdopcion;
         $scope.save = function(contactform, formData) {
             $scope.submitted = true;
-            console.log($scope.formData);
             event.preventDefault();
             $scope.submitButtonDisabled = true;
             if (formData.$valid) {

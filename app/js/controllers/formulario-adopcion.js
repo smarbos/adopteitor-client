@@ -1,77 +1,63 @@
-adopteitorApp.controller('formularioAdopcion', ['$scope', 'FormularioAdopcion', '$http', 'id',
-    function($scope, FormularioAdopcion, $http, id) {
-        $('#galgo').val(id);
-        //console.log(id);
-        $scope.result = 'hidden'
+adopteitorApp.controller('formularioAdopcion', ['$scope', 'FormularioAdopcion', '$http', 'getAnimalByID', 'ENV', '$stateParams', '$state',
+    function($scope, FormularioAdopcion, $http, getAnimalByID, ENV, $stateParams, $state) {
+        $scope.apiEndpoint = ENV.apiEndpoint;
+        $scope.animalByID = getAnimalByID.query({},{'id': $stateParams.id});
+        $scope.animalByID.$promise.then(function(data) {
+            $scope.animal = data;
+            if($scope.animal['genero']=='m'){
+                $scope.animal['genero'] = 'macho';
+            }
+            else{
+                $scope.animal['genero'] = 'hembra';
+            }
+        }, function(error) {
+            console.log('error', error);
+        }
+        );
+        id = $stateParams.id;
+        $scope.success = false;
         $scope.resultMessage;
         $scope.formData; //formData is an object holding the name, email, subject, and message
-	    console.log("currenlty show id ");
-	    console.log(id);
-        $scope.submitButtonDisabled = false;
         $scope.submitted = false; //used so that form errors are shown only after the form has been submitted
         $scope.newFormularioAdopcion;
-        $scope.galgo=id;
-        // $scope.newFormularioAdopcion.nombre="carlitos";
         $scope.save = function(contactform, formData) {
-        console.log("---contactform---");
-        console.log(contactform);
-        console.log("---formdata---");
-        console.log(formData);
-	    contactform.id = id;
-        console.log("---new---contactoform----");
-        console.log(contactform);
-            console.log("Submit");
-
-            var newFormularioAdopcion = new FormularioAdopcion(formularioAdopcion);
-            //console.log(newFormularioAdopcion);
-            //console.log(formularioAdopcion);
-    		newFormularioAdopcion.$save(
-                function(formularioAdopcion, putResponseHeaders) {
-                    $scope.FormulariosAdopcion.push(formularioAdopcion);
-                    console.info("SAVED OK");
-                },
-                function(err){
-                    console.error(err);
-                }
-            );
-
-
-            event.preventDefault();
             $scope.submitted = true;
+            event.preventDefault();
             $scope.submitButtonDisabled = true;
+            $scope.formData.animal_id = id;
             if (formData.$valid) {
-                console.log("Valid"+formData.$valid);
-                console.log(formData);
-                console.log($.param(contactform));
                 $http({
                     method  : 'POST',
-                    url     : 'send-mail.php',
-                    data    : $.param(contactform),  //param method from jQuery
+                    url     : 'adopcion-send-mail.php',
+                    data    : $.param($scope.formData),  //param method from jQuery
                     headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  //set the headers so angular passing info as form data (not request payload)
                 }).success(function(data){
-                    if (data.success) { //success comes from the return json object
-                        console.log("success");
-                        console.log(data);
+                    if (data.success) {
                         $scope.submitButtonDisabled = true;
-                        $scope.resultMessage = data.message;
-                        $scope.result='bg-success';
+                        $scope.success = true;
+                        swal({
+                          title: 'Formulario enviado!',
+                          text: data.message,
+                          type: 'success',
+                          showCancelButton: false,
+                          confirmButtonText: 'Continuar!',
+                        }).then(function(isConfirm) {
+                          if (isConfirm === true) {
+                            $state.transitionTo('home');
+                          } else {
+                            $state.transitionTo('home');
+                          }
+                        });
                     } else {
-                        console.log(data);
-                        console.log(data.message);
-                        console.log("failure");
+                        $scope.submitted = false;
                         $scope.submitButtonDisabled = false;
-                        $scope.resultMessage = data.message;
-                        $scope.result='bg-danger';
                     }
+                    $scope.resultMessage = data.message;
                 });
             } else {
-                console.log("invalid");
-                $scope.submitButtonDisabled = false;
-                $scope.resultMessage = 'Failed <img src="http://www.chaosm.net/blog/wp-includes/images/smilies/icon_sad.gif" alt=":(" class="wp-smiley">  Please fill out all the fields.';
-                $scope.result='bg-danger';
+                $scope.submitted = false;
             }
-            console.log(formData);
+        }
         }
 
-    }
 ]);

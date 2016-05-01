@@ -19,7 +19,7 @@
         <div class="col-xs-5">
             <h1 class="perfil-animal-nombre" ng-class="{'hembra':animal.genero=hembra}">{{ animal.nombre }}</h1>
             <p class="lead perfil-animal-desc">{{ animal.desc }}</p>
-            <span><a class="btn btn-primary perfil-animal-boton-adoptar" href="#" role="button" ng-click="mostrarFormularioAdopcion(galgo.id)">Comenzar proceso de adopcion</a></span>
+            <span><a class="btn btn-primary perfil-animal-boton-adoptar" ui-sref="formulario-adopcion({id: animal.id})" ui-sref-opts="{reload: true, notify: true}">Comenzar proceso de adopcion</a></span>
             <a href="#" class="perfil-animal-ayuda">¿Como es el proceso de adopcion?</a>
             <div class="perfil-animal-badges">
                 <span class="badge perfil-animal-badge perfil-animal-badge-cachorro">Cachorro</span><span class="badge perfil-animal-badge perfil-animal-badge-hembra">Hembra</span>

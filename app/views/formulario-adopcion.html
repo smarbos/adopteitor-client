@@ -1,0 +1,100 @@
+<div class="container-fluid formulario-adopcion" id="formularioAdopcion">
+  <div class="row text-center">
+    <div class="col-xs-12">
+        <h1>Formulario Adopcion</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">
+        <div class="row">
+            <div class="col-xs-12">
+                <img src="{{ apiEndpoint }}/static{{ animal.fotos[0] }}" alt="Foto de perfil de {{ animal.nombre }}" class="img-responsive perfil-animal-foto"/>
+            </div>
+            <div class="col-xs-12 text-center">
+                <h2 ng-click="set()">{{animal.nombre}}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-9">
+        <h1 class="message" ng-show="submitted">Aguarde un momento por favor...</h1>
+        <form name="contactform" method="post" ng-class="{ 'siendo-enviado': submitted}" ng-submit="save(formData, contactform)" class="ng-pristine">
+            <div class="row">
+              <div class="form-group">
+                  <div class="col-xs-4">
+                      <label for="nombre">Nombre:</label>
+                  </div>
+                  <div class="col-xs-8">
+                      <input type="text" name="nombre" id="nombre" ng-model="formData.nombre" class="form-control" ng-click="set()" required>
+                  </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group">
+                  <div class="col-xs-4">
+                      <label for="apellido">Apellido:</label>
+                  </div>
+                  <div class="col-xs-8">
+                      <input type="text" name="apellido" id="apellido" value="" ng-model="formData.apellido" class="form-control" required>
+                  </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group">
+                  <div class="col-xs-4">
+                      <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+                  </div>
+                  <div class="col-xs-8">
+                      <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" value="" ng-model="formData.fecha_nacimiento" class="form-control" required>
+                  </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group">
+                  <div class="col-xs-4">
+                      <label for="telefono">Telefono:</label>
+                  </div>
+                  <div class="col-xs-8">
+                      <input type="tel" name="telefono" id="telefono" value="" ng-model="formData.telefono" class="form-control" required>
+                  </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group">
+                  <div class="col-xs-4">
+                      <label for="email">Email:</label>
+                  </div>
+                  <div class="col-xs-8">
+                      <input type="email" name="email" id="email" value="" ng-model="formData.email" class="form-control" required>
+                  </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group">
+                  <div class="col-xs-4">
+                      <label for="ciudad">Ciudad:</label>
+                  </div>
+                  <div class="col-xs-8">
+                      <input type="text" name="ciudad" id="ciudad" value="" ng-model="formData.ciudad" class="form-control" required>
+                  </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group">
+                  <div class="col-xs-4">
+                      <label for="ciudad">Mensaje:</label>
+                  </div>
+                  <div class="col-xs-8">
+                      <textarea type="" name="mensaje" id="mensaje" value="" ng-model="formData.mensaje" class="form-control"></textarea>
+                  </div>
+              </div>
+            </div>
+            <div class="row text-center">
+              <div class="col-xs-12">
+                  <button type="submit" class="btn btn-success" ng-disabled="submitButtonDisabled"><span ng-hide="submitted">Enviar</span><span ng-show="submitted">Enviando</span></button>
+              </div>
+            </div>
+        </form>
+    </div>
+  </div>
+
+</div>

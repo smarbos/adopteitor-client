@@ -114,6 +114,11 @@ adopteitorApp.config(function($stateProvider, $urlRouterProvider) {
         .state('not-found', {
             url: '/not-found',
             templateUrl: 'views/not-found.html'
+        })
+        .state('formulario-adopcion', {
+            url: '/formulario-adopcion/:id',
+            controller: 'formularioAdopcion',
+            templateUrl: 'views/formulario-adopcion.html'
         });
 
         $urlRouterProvider.otherwise('/home');
