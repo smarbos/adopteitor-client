@@ -9,10 +9,10 @@
             <span class="perfil-animal-navigation-prev"><a ui-sref="perfilAnimal({id: animal.id-1})" ng-show="animal.id > 1"><</a></span>
         </div>
         <div class="col-xs-5">
-            <img src="{{ apiEndpoint }}/static{{ animal.fotos[0] }}" alt="Foto de perfil de {{ animal.nombre }}" class="img-responsive perfil-animal-foto"/>
+            <img src="{{ apiEndpoint }}/static{{ currentImage }}" alt="Foto de perfil de {{ animal.nombre }}" class="img-responsive perfil-animal-foto"/>
             <div class="row perfil-animal-thumbnails">
                 <div class="col-xs-2" ng-repeat="foto in animal.fotos">
-                    <img src="{{ apiEndpoint }}/static{{ foto }}" alt="Foto de perfil de {{ animal.nombre }}" class="img-responsive perfil-animal-thumbnail"/>
+                    <img src="{{ apiEndpoint }}/static{{ foto }}" ng-click="showImage(foto)" alt="Foto de perfil de {{ animal.nombre }}" class="img-responsive perfil-animal-thumbnail"/>
                 </div>
             </div>
         </div>

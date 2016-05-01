@@ -110,23 +110,27 @@ adopteitorApp.controller('animalByID', ['$scope', '$location', 'getAnimalByID', 
         $scope.apiEndpoint = ENV.apiEndpoint;
         $scope.animalByID = getAnimalByID.query({},{'id': $stateParams.id});
         $scope.animalByID.$promise.then(function(data) {
+
             $scope.animal = data;
-            console.log(data);
-            console.log($scope.animal['genero']);
+            $scope.currentImage = $scope.animal.fotos[0];
             if($scope.animal['genero']=='m'){
                 $scope.animal.genero = 'macho';
-                console.log($scope.animal['genero']);
                 $scope.genero = "m";
             }
             else{
                 $scope.animal.genero = 'hembra';
-                console.log($scope.animal['genero']);
                 $scope.genero = "h"
             }
         }, function(error) {
             console.log('error', error);
         }
         );
+        // $scope.currentImage = $scope.animal.fotos[0];
+
+
+        $scope.showImage = function(image) {
+            $scope.currentImage = image;
+        }
 
     }
 ]);
