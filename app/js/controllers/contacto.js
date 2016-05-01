@@ -1,5 +1,7 @@
-adopteitorApp.controller('contacto', ['$scope', '$location', 'getAnimalByID', '$stateParams', 'ENV', '$http', '$state',
-    function ($scope, $location, getAnimalByID, $stateParams, ENV, $http, $state) {
+adopteitorApp.controller('contacto', ['$scope', '$location', 'getAnimalByID', '$stateParams', 'ENV', '$http', '$state', 'sliderService',
+    function ($scope, $location, getAnimalByID, $stateParams, ENV, $http, $state, sliderService) {
+        sliderService.updateStatus(false);
+        $scope.$emit('checkSliderStatus');
         $scope.success = false;
         $scope.resultMessage;
         $scope.formData; //formData is an object holding the name, email, subject, and message

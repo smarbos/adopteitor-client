@@ -1,5 +1,7 @@
-adopteitorApp.controller('formularioAdopcion', ['$scope', 'FormularioAdopcion', '$http', 'getAnimalByID', 'ENV', '$stateParams', '$state',
-    function($scope, FormularioAdopcion, $http, getAnimalByID, ENV, $stateParams, $state) {
+adopteitorApp.controller('formularioAdopcion', ['$scope', 'FormularioAdopcion', '$http', 'getAnimalByID', 'ENV', '$stateParams', '$state', 'sliderService',
+    function($scope, FormularioAdopcion, $http, getAnimalByID, ENV, $stateParams, $state, sliderService) {
+        sliderService.updateStatus(false);
+        $scope.$emit('checkSliderStatus');
         $scope.apiEndpoint = ENV.apiEndpoint;
         $scope.animalByID = getAnimalByID.query({},{'id': $stateParams.id});
         $scope.animalByID.$promise.then(function(data) {

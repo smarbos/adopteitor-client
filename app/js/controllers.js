@@ -40,57 +40,42 @@ adopteitorApp.factory('FormularioAdopcion', ['$resource', 'ENV', function($resou
 );
 }]);
 
-adopteitorApp.factory('sliderService',[function(newStatus){
+adopteitorApp.service('sliderService', function() {
 
-    'use strict';
+    var status;
 
-    var statusSlider = [];
-
-    statusSlider.update = function(newStatus){
-        this.status = newStatus;
+    this.updateStatus = function (newStatus) {
+        status = newStatus;
+        console.log(status);
+        return status;
     }
 
-    statusSlider.checkStatus = function(){
-        angular.element(document).ready(function () {
-        console.log(statusSlider.status);
-        return "statusSlider";
-        });
+    this.checkStatus = function () {
+        console.log(status);
+        return status;
     }
-    return statusSlider;
+});
 
-}]);
-
-adopteitorApp.controller('body', ['$scope', '$location', 'enAdopcion', 'ENV', 'sliderService',
-    function ($scope, $location, enAdopcion, ENV, sliderService) {
-          //your magic here
-        angular.element(document).ready(function () {
-            $scope.sliderService = sliderService;
-            console.log("body!");
-            console.log($scope.sliderService);
-            console.log($scope.showSlider);
-            $scope.showSlider = sliderService;
-            console.log($scope.showSlider.statusSlider);
-            console.log("end body!");
-            console.log(sliderService.checkStatus());
-        });
+adopteitorApp.controller('body', ['$scope', '$location', 'enAdopcion', 'ENV', 'sliderService', '$rootScope',
+    function ($scope, $location, enAdopcion, ENV, sliderService, $rootScope) {
+            $rootScope.$on('checkSliderStatus', function(event, mass) {
+                 $scope.showSlider = sliderService.checkStatus();
+             });
     }
 ]);
 
 adopteitorApp.controller('home', ['$scope', '$location', 'enAdopcion', 'ENV', 'sliderService',
     function ($scope, $location, enAdopcion, ENV, sliderService) {
-        sliderService.update(true);
-        angular.element(document).ready(function () {
-        console.log("home!");
-        console.log(sliderService);
-        console.log("end home!");
-        });
+        sliderService.updateStatus(true);
+        $scope.$emit('checkSliderStatus');
     }
 ]);
 
 
-adopteitorApp.controller('GalgosEnAdopcion', ['$scope', '$location', 'enAdopcionFilter', 'ENV', '$stateParams',
-    function ($scope, $location, enAdopcion, ENV, $stateParams) {
-
+adopteitorApp.controller('GalgosEnAdopcion', ['$scope', '$location', 'enAdopcionFilter', 'ENV', '$stateParams', 'sliderService',
+    function ($scope, $location, enAdopcion, ENV, $stateParams, sliderService) {
+        sliderService.updateStatus(false);
+        $scope.$emit('checkSliderStatus');
         $scope.currentPage = 1;
         $scope.pageSize = 10;
         var filter;
@@ -118,8 +103,10 @@ adopteitorApp.controller('GalgosEnAdopcion', ['$scope', '$location', 'enAdopcion
     }
 ]);
 
-adopteitorApp.controller('animalByID', ['$scope', '$location', 'getAnimalByID', '$stateParams', 'ENV',
-    function ($scope, $location, getAnimalByID, $stateParams, ENV) {
+adopteitorApp.controller('animalByID', ['$scope', '$location', 'getAnimalByID', '$stateParams', 'ENV', 'sliderService',
+    function ($scope, $location, getAnimalByID, $stateParams, ENV, sliderService) {
+        sliderService.updateStatus(false);
+        $scope.$emit('checkSliderStatus');
         $scope.apiEndpoint = ENV.apiEndpoint;
         $scope.animalByID = getAnimalByID.query({},{'id': $stateParams.id});
         $scope.animalByID.$promise.then(function(data) {
