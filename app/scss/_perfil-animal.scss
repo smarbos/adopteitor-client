@@ -46,6 +46,11 @@
     &-compartir{
         display: block;
         margin: 1em 0;
+        a{
+            &:hover{
+                text-decoration: none;
+            }
+        }
         &-titulo{
             display: block;
             margin-bottom: 1em;
