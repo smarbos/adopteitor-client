@@ -20,6 +20,7 @@
   <script src="bower_components/angular-resource/angular-resource.js"></script>
   <script src="bower_components/flexslider/jquery.flexslider.js"></script>
   <script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
+  <script src="bower_components/angular-socialshare/dist/angular-socialshare.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <script src="bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
   <script src="js/app.js"></script>
@@ -41,7 +42,8 @@
   <script type="text/javascript" charset="utf-8">
   $(window).load(function() {
     $('.flexslider').flexslider({
-        controlNav: false
+        controlNav: false,
+        directionNav: false
     });
   });
 </script>
@@ -143,8 +145,8 @@
             <div class="col-xs-2">
                 <ul>
                     <li>¿Como ayudo?</li>
-                    <li><a ui-sref="not-found">Transitar</a></li>
-                    <li><a ui-sref="not-found">Donar</a></li>
+                    <li><a ui-sref="transitos">Transitar</a></li>
+                    <li><a ui-sref="donaciones">Donar</a></li>
                     <li><a ui-sref="not-found">Difundir</a></li>
                     <li><a ui-sref="not-found">Comprar en el shop solidario</a></li>
                     <li><a ui-sref="not-found">Ofrecer traslados</a></li>
