@@ -1,6 +1,6 @@
 'use strict';
 
-var adopteitorApp = angular.module('adopteitorApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'config', 'angularUtils.directives.dirPagination']);
+var adopteitorApp = angular.module('adopteitorApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'config', 'angularUtils.directives.dirPagination', '720kb.socialshare']);
 
 // Setup the filter
 adopteitorApp.filter('animalFilter', function($stateParams, $rootScope) {
@@ -67,6 +67,9 @@ adopteitorApp.filter('animalFilter', function($stateParams, $rootScope) {
 });
 adopteitorApp.config(function($stateProvider, $urlRouterProvider) {
 
+    // $rootScope.$on('$stateChangeError', function(event) {
+    //   $state.go('404');
+    // });
     $stateProvider
 
         .state('home', {
