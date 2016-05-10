@@ -43,7 +43,7 @@
                 socialshare-text="{{ animal.nombre }} esta en adopcion! Tiene {{ animal.edad }} años y es un {{ animal.genero }}."
                 socialshare-description="{{ animal.nombre }} esta en adopcion! Tiene {{ animal.edad }} años y es un {{ animal.genero }}."
                 socialshare-hashtags="{{ animal.genero }}, {{ animal.nombre }}, adopta, adoptaungalgoenargentina"
-                socialshare-media="http://adopteitor.mutantlab.com.ar/img/adopcion/Yambao.jpg"
+                socialshare-media="{{ apiEndpoint }}/static{{ currentImage }}"
                 socialshare-from="adoptaungalgoenargentina"
                 socialshare-type="feed"
                 socialshare-url="http://www.adopteitor.local/#/perfilAnimal/{{animal.id}}">
