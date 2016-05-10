@@ -18,7 +18,8 @@
     "jquery": "^2.2.2",
     "angularUtils-pagination": "angular-utils-pagination#^0.11.1",
     "sweetalert2": "^1.0.1",
-    "bootstrap-sass": "^3.3.6"
+    "bootstrap-sass": "^3.3.6",
+    "angular-socialshare": "angularjs-socialshare#^2.1.4"
   },
   "moduleType": [],
   "keywords": [
