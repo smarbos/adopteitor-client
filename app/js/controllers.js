@@ -103,8 +103,8 @@ adopteitorApp.controller('GalgosEnAdopcion', ['$scope', '$location', 'enAdopcion
     }
 ]);
 
-adopteitorApp.controller('animalByID', ['$scope', '$location', 'getAnimalByID', '$stateParams', 'ENV', 'sliderService',
-    function ($scope, $location, getAnimalByID, $stateParams, ENV, sliderService) {
+adopteitorApp.controller('animalByID', ['$scope', '$location', 'getAnimalByID', '$stateParams', 'ENV', 'sliderService', 'enAdopcionFilter',
+    function ($scope, $location, getAnimalByID, $stateParams, ENV, sliderService, enAdopcionFilter) {
         sliderService.updateStatus(false);
         $scope.$emit('checkSliderStatus');
         $scope.apiEndpoint = ENV.apiEndpoint;
@@ -121,6 +121,15 @@ adopteitorApp.controller('animalByID', ['$scope', '$location', 'getAnimalByID', 
                 $scope.animal.genero = 'hembra';
                 $scope.genero = "h"
             }
+        }, function(error) {
+            console.log('error', error);
+        }
+        );
+
+        $scope.allAnimals = enAdopcionFilter.query({},{'filter': "*"});
+        $scope.allAnimals.$promise.then(function(data) {
+
+            $scope.totalAnimalAmount = data.length;
         }, function(error) {
             console.log('error', error);
         }

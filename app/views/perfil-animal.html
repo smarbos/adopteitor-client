@@ -75,7 +75,7 @@
             </div>
         </div>
         <div class="col-xs-1 perfil-animal-navigation">
-            <span class="perfil-animal-navigation-next"><a ui-sref="perfilAnimal({id: animal.id+1})">></a></span>
+            <span class="perfil-animal-navigation-next"><a ui-sref="perfilAnimal({id: animal.id+1})" ng-show="animal.id < totalAnimalAmount">></a></span>
         </div>
     </div>
     <div class="row perfil-animal-footer">
