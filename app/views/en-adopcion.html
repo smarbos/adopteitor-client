@@ -25,7 +25,7 @@
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <span class="perfil-animal-filtros">Filtrar por: <a ui-sref="en-adopcion({filter: '*'})" ui-sref-opts="{reload: true, notify: true}">TODOS</a> | <a ui-sref="en-adopcion({filter: 'a'})" ui-sref-opts="{reload: true, notify: true}">ADULTOS</a> | <a ui-sref="en-adopcion({filter: 'c'})" ui-sref-opts="{reload: true, notify: true}">CACHORROS</a> | <a ui-sref="en-adopcion({filter: 'h'})" ui-sref-opts="{reload: true, notify: true}">HEMBRAS</a> | <a ui-sref="en-adopcion({filter: 'm'})" ui-sref-opts="{reload: true, notify: true}">MACHOS</a> </span>
+            <span class="perfil-animal-filtros">Filtrar por: <a ui-sref="en-adopcion({filter: '*'})" ui-sref-opts="{reload: true, notify: true}" ng-class="{'active': currentFilter == '*'}">TODOS</a> | <a ui-sref="en-adopcion({filter: 'a'})" ng-class="{'active': currentFilter == 'a'}">ADULTOS</a> | <a ui-sref="en-adopcion({filter: 'c'})" ui-sref-opts="{reload: true, notify: true}" ng-class="{'active': currentFilter == 'c'}">CACHORROS</a> | <a ui-sref="en-adopcion({filter: 'h'})" ui-sref-opts="{reload: true, notify: true}" ng-class="{'active': currentFilter == 'h'}">HEMBRAS</a> | <a ui-sref="en-adopcion({filter: 'm'})" ui-sref-opts="{reload: true, notify: true}" ng-class="{'active': currentFilter == 'm'}">MACHOS</a> </span>
         </div>
     </div>
     <div class="text-center">

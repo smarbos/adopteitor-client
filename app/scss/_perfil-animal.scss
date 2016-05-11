@@ -3,6 +3,9 @@
         padding: 1em 0;
         width: 100%;
         display: inline-block;
+        .active{
+            font-weight: bolder;
+        }
     }
     &-nombre{
         margin:0 0 1em 0;

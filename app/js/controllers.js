@@ -78,6 +78,10 @@ adopteitorApp.controller('home', ['$scope', '$location', 'enAdopcion', 'ENV', 's
 
 adopteitorApp.controller('GalgosEnAdopcion', ['$scope', '$location', 'enAdopcionFilter', 'ENV', '$stateParams', 'sliderService',
     function ($scope, $location, enAdopcion, ENV, $stateParams, sliderService) {
+
+        //Give current filtering option to mark it as active in the menu//
+        $scope.currentFilter = $stateParams.filter;
+
         sliderService.updateStatus(false);
         $scope.$emit('checkSliderStatus');
         $scope.currentPage = 1;
@@ -109,6 +113,7 @@ adopteitorApp.controller('GalgosEnAdopcion', ['$scope', '$location', 'enAdopcion
 
 adopteitorApp.controller('animalByID', ['$scope', '$location', 'getAnimalByID', '$stateParams', 'ENV', 'sliderService', 'enAdopcionFilter',
     function ($scope, $location, getAnimalByID, $stateParams, ENV, sliderService, enAdopcionFilter) {
+
         sliderService.updateStatus(false);
         $scope.$emit('checkSliderStatus');
         $scope.apiEndpoint = ENV.apiEndpoint;
