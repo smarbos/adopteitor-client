@@ -56,11 +56,15 @@ adopteitorApp.service('sliderService', function() {
     }
 });
 
-adopteitorApp.controller('body', ['$scope', '$location', 'enAdopcion', 'ENV', 'sliderService', '$rootScope',
-    function ($scope, $location, enAdopcion, ENV, sliderService, $rootScope) {
-            $rootScope.$on('checkSliderStatus', function(event, mass) {
-                 $scope.showSlider = sliderService.checkStatus();
-             });
+adopteitorApp.controller('body', ['$scope', '$location', 'enAdopcion', 'ENV', 'sliderService', '$rootScope', '$document',
+    function ($scope, $location, enAdopcion, ENV, sliderService, $rootScope, $document) {
+        $rootScope.$on('$stateChangeSuccess', function() {
+           $document[0].body.scrollTop = $document[0].documentElement.scrollTop = 0;
+           console.log("TEST");
+        });
+        $rootScope.$on('checkSliderStatus', function(event, mass) {
+             $scope.showSlider = sliderService.checkStatus();
+         });
     }
 ]);
 
