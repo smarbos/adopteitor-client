@@ -1,6 +1,6 @@
 'use strict';
 
-var adopteitorApp = angular.module('adopteitorApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'config', 'angularUtils.directives.dirPagination', '720kb.socialshare']);
+var adopteitorApp = angular.module('adopteitorApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'config', 'angularUtils.directives.dirPagination', '720kb.socialshare', 'ngCookies']);
 
 // Setup the filter
 adopteitorApp.filter('animalFilter', function($stateParams, $rootScope) {
@@ -117,6 +117,18 @@ adopteitorApp.config(function($stateProvider, $urlRouterProvider) {
         .state('not-found', {
             url: '/not-found',
             templateUrl: 'views/not-found.html'
+        })
+        .state('register', {
+            url: '/register',
+            templateUrl: 'views/register.html',
+            controller: 'register',
+            controllerAs: 'vm'
+        })
+        .state('login', {
+            url: '/login',
+            templateUrl: 'views/login.html',
+            controller: 'LoginController',
+            controllerAs: 'vm'
         })
         .state('formulario-adopcion', {
             url: '/formulario-adopcion/:id',

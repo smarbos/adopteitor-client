@@ -29,16 +29,103 @@ adopteitorApp.factory('getAnimalByGenero', ['$resource', 'ENV', function($resour
     );
 }]);
 
-adopteitorApp.factory('FormularioAdopcion', ['$resource', 'ENV', function($resource, ENV){
+adopteitorApp.factory('FormularioAdopcionFactory', ['$resource', 'ENV', function($resource, ENV){
     return $resource(
         ENV.apiEndpoint+'/FormularioAdopcion/',
         {id:'@id'},
-        {'query':{method: 'GET', isArray: false},
+        {'query':{method: 'POST', isArray: false},
         'update':
         { method:'PUT' }
     }
 );
 }]);
+
+adopteitorApp.factory('Authentication', ['$cookies', '$http', 'ENV', function Authentication($cookies, $http, ENV) {
+  var Authentication = {
+    getAuthenticatedAccount: getAuthenticatedAccount,
+    isAuthenticated: isAuthenticated,
+    login: login,
+    logout: logout,
+    register: register,
+    setAuthenticatedAccount: setAuthenticatedAccount,
+    unauthenticate: unauthenticate
+  };
+  return Authentication;
+
+  function register(email, password, username) {
+    return $http.post(ENV.apiEndpoint+'/accounts/', {
+      username: username,
+      password: password,
+      email: email
+    }).then(registerSuccessFn, registerErrorFn);
+
+    /**
+    * @name registerSuccessFn
+    * @desc Log the new user in
+    */
+    function registerSuccessFn(data, status, headers, config) {
+      Authentication.login(email, password);
+    }
+
+    function registerErrorFn(data, status, headers, config) {
+      console.error('Epic failure!');
+    }
+  }
+
+    function login(email, password) {
+        return $http.post(ENV.apiEndpoint+'/login/', {
+            email: email, password: password
+        }).then(loginSuccessFn, loginErrorFn);
+
+        function loginSuccessFn(data, status, headers, config) {
+            Authentication.setAuthenticatedAccount(data.data);
+            // window.location = '/';
+            console.log(data.data);
+        }
+
+        function loginErrorFn(data, status, headers, config) {
+            console.error('Epic failure!');
+        }
+    }
+
+    function logout() {
+      return $http.post(ENV.apiEndpoint+'/logout/')
+        .then(logoutSuccessFn, logoutErrorFn);
+
+      function logoutSuccessFn(data, status, headers, config) {
+        Authentication.unauthenticate();
+
+        window.location = '/';
+      }
+
+      function logoutErrorFn(data, status, headers, config) {
+        console.error('Epic failure!');
+      }
+    }
+
+  function getAuthenticatedAccount() {
+    if (!$cookies.authenticatedAccount) {
+      return;
+    }
+
+    return JSON.parse($cookies.authenticatedAccount);
+  }
+
+  function isAuthenticated() {
+    return !!$cookies.authenticatedAccount;
+  }
+
+  function setAuthenticatedAccount(account) {
+    $cookies.authenticatedAccount = JSON.stringify(account);
+  }
+
+  function unauthenticate() {
+    delete $cookies.authenticatedAccount;
+  }
+}]);
+
+
+
 
 adopteitorApp.service('sliderService', function() {
 
@@ -150,5 +237,61 @@ adopteitorApp.controller('animalByID', ['$scope', '$location', 'getAnimalByID', 
             $scope.currentImage = image;
         }
 
+    }
+]);
+
+adopteitorApp.controller('register', ['$location', '$scope', 'Authentication',
+    function ($location, $scope, Authentication) {
+      var vm = this;
+
+      vm.register = register;
+
+      function register() {
+        Authentication.register(vm.email, vm.password, vm.username);
+      }
+
+      activate();
+
+        function activate() {
+          // If the user is authenticated, they should not be here.
+          if (Authentication.isAuthenticated()) {
+            $location.url('/');
+          }
+        }
+    }
+]);
+
+adopteitorApp.controller('LoginController', ['$location', '$scope', 'Authentication', '$cookies',
+    function ($location, $scope, Authentication, $cookies) {
+
+        $scope.cookieData = $cookies.getAll();
+      var vm = this;
+
+      vm.login = login;
+
+      activate();
+
+      function activate() {
+        // If the user is authenticated, they should not be here.
+        if (Authentication.isAuthenticated()) {
+          $location.url('/');
+        }
+      }
+
+      function login() {
+        Authentication.login(vm.email, vm.password);
+      }
+    }
+]);
+
+adopteitorApp.controller('MainMenuController', ['$scope', 'Authentication', '$cookies',
+    function ($scope, Authentication, $cookies) {
+    var vm = this;
+
+    vm.logout = logout;
+
+    function logout() {
+      Authentication.logout();
+    }
     }
 ]);

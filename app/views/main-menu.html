@@ -1,4 +1,4 @@
-<div class="main-menu">
+<div class="main-menu" ng-controller="MainMenuController as vm">
     <div class="main-menu-top">
         <a href="https://www.facebook.com/adoptaungalgoenargentina/" target="_blank"><i class="fa fa-size_small fa-facebook" aria-hidden="true"></i></a>
         <a href="https://twitter.com/adoptaungalgo" target="_blank"><i class="fa fa-size_small fa-twitter" aria-hidden="true"></i></a>
@@ -68,6 +68,9 @@
                 </ul>
             </li>
             <li><a ui-sref="contacto">Contacto</a></li>
+            <!-- <li><a ui-sref="register">Registro</a></li>
+            <li><a ui-sref="login">Login</a></li>
+            <li><a href="javascript:void(0)" ng-click="vm.logout()">Logout</a></li> -->
             <li class="main-menu-action"><a class="btn btn-primary btn-lg" href="#" role="button">Donar</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
