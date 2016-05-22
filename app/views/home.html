@@ -57,7 +57,9 @@
              <h1 class="titulo">Últimos rescates</h1>
             <div class="col-xs-6 col-sm-2" ng-class="{'col-xs-offset-3 col-sm-offset-1':$first}" ng-repeat="animal in animales | limitTo:-5 | orderBy:'time':true">
                 <a ui-sref="perfilAnimal({id: {{animal.id}}})" class="ultimos-rescates-animal">
-                    <img src="{{ apiEndpoint }}/static{{ animal.fotos[0] }}" class="img-responsive" alt="" />
+                    <div class="squared-thumbnail">
+                        <img src="{{ apiEndpoint }}/static{{ animal.fotos[0] }}" class="portrait" alt="Image" />
+                      </div>
                     <span class="hembra">{{animal.nombre}}</span>
                 </a>
             </div>
