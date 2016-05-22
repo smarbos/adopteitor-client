@@ -1,9 +1,12 @@
-'use strict';
+// 'use strict';
+
+//------------------------------------------------------------------------------------------------------------//
 
 var adopteitorApp = angular.module('adopteitorApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'config', 'angularUtils.directives.dirPagination', '720kb.socialshare', 'ngCookies']);
 
-// Setup the filter
-adopteitorApp.filter('animalFilter', function($stateParams, $rootScope) {
+//------------------------------------------------------------------------------------------------------------//
+
+function animalFilter($stateParams, $rootScope) {
 
     switch($stateParams.filter){
         case "a":
@@ -64,8 +67,11 @@ adopteitorApp.filter('animalFilter', function($stateParams, $rootScope) {
             break;
     }
 
-});
-adopteitorApp.config(function($stateProvider, $urlRouterProvider) {
+}
+adopteitorApp.filter('animalFilter', animalFilter);
+
+//------------------------------------------------------------------------------------------------------------//
+function routes($stateProvider, $urlRouterProvider) {
 
     // $rootScope.$on('$stateChangeError', function(event) {
     //   $state.go('404');
@@ -138,4 +144,8 @@ adopteitorApp.config(function($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise('/home');
 
-});
+}
+routes.$inject = ['$stateProvider', '$urlRouterProvider'];
+adopteitorApp.config(routes);
+
+//------------------------------------------------------------------------------------------------------------//

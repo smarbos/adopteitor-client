@@ -2,10 +2,12 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
     autoprefixer = require('gulp-autoprefixer'),
-    fileinclude = require("gulp-file-include");
+    fileinclude = require("gulp-file-include"),
+    minify = require('gulp-minify'),
+    rename = require('gulp-rename');
 
-var output = "app/css/";
-var input = "app/scss/*.scss";
+var input = "app/src/scss/*.scss";
+var output = "app/dist/css/";
 
 var sassOptions = {
   errLogToConsole: false,
@@ -34,6 +36,56 @@ gulp.task('sass', function() {
     .pipe(gulp.dest(output));
 });
 
+gulp.task('compress_js', function() {
+  gulp.src('app/src/js/*.js')
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(minify({
+        ext:{
+            src:'-debug.js',
+            min:'.js'
+        },
+        exclude: ['tasks'],
+        ignoreFiles: ['.combo.js', '-min.js']
+    }))
+
+    .pipe(gulp.dest('app/dist/js/'))
+});
+
+gulp.task('compress_controllers_js', function() {
+  gulp.src('app/src/js/controllers/*.js')
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(minify({
+        ext:{
+            src:'-debug.js',
+            min:'.js'
+        },
+        exclude: ['tasks'],
+        ignoreFiles: ['.combo.js', '-min.js']
+    }))
+
+    .pipe(gulp.dest('app/dist/js/controllers'))
+});
+
+gulp.task('compress_services_js', function() {
+  gulp.src('app/src/js/services/*.js')
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(minify({
+        ext:{
+            src:'-debug.js',
+            min:'.js'
+        },
+        exclude: ['tasks'],
+        ignoreFiles: ['.combo.js', '-min.js']
+    }))
+
+    .pipe(gulp.dest('app/dist/js/services'))
+});
 // gulp.task('fileinclude', function() {
 //   gulp.src('app/source/*.html')
 //     .pipe(fileinclude({
@@ -55,4 +107,4 @@ gulp.task('watch', function() {
     });
 });
 
-gulp.task('default', ['sass', 'watch']);
+gulp.task('default', ['sass', 'watch', 'compress_js', 'compress_controllers_js', 'compress_services_js']);
