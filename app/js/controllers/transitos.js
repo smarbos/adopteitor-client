@@ -1,12 +1,11 @@
-adopteitorApp.controller('transitos', ['$scope', 'FormularioAdopcion', '$http', '$state', 'sliderService',
-    function($scope, FormularioAdopcion, $http, $state, sliderService) {
+adopteitorApp.controller('transitos', ['$scope', '$http', '$state', 'sliderService',
+    function($scope, $http, $state, sliderService) {
         sliderService.updateStatus(false);
         $scope.$emit('checkSliderStatus');
         $scope.success = false;
         $scope.resultMessage;
         $scope.formData; //formData is an object holding the name, email, subject, and message
         $scope.submitted = false; //used so that form errors are shown only after the form has been submitted
-        $scope.newFormularioAdopcion;
         $scope.save = function(contactform, formData) {
             $scope.submitted = true;
 

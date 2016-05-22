@@ -124,11 +124,12 @@ hr{
 
 #intro{
     .jumbotron{
+        position: relative;
         height: 457px;
         .btn{
-            position: absolute;
-            bottom: 30px;
-            right: 20%;
+            // position: absolute;
+            // bottom: 30px;
+            // right: 20%;
         }
         .glyphicon{
             font-size: 2em;
@@ -266,6 +267,9 @@ hr{
         opacity: 0.2;
         cursor: wait;
     }
+    .fa-paper-plane-o{
+        font-size: 12vw;
+    }
 }
 
 .modal-content{
@@ -294,4 +298,32 @@ hr{
         margin-top: 2em;
         display: block;
     }
+}
+
+
+.squared-thumbnail {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.squared-thumbnail img {
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+.squared-thumbnail img.portrait {
+  width: 100%;
+  height: auto;
+}
+
+.seccion{
+    margin: 3em 0;
 }
