@@ -4,3 +4,5 @@ app/css/
 app/bower_components/
 app/config.php
 app/js/config.js
+allstyles.css
+alljavascript.js
