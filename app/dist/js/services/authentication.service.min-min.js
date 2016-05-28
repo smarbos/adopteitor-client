@@ -1,0 +1,1 @@
+!function(){"use strict";function t(t,r){function e(t,e,n){return r.post("/api/v1/accounts/",{username:n,password:e,email:t})}var n={register:e};return n}angular.module("adopteitorApp").factory("",t),t.$inject=["$cookies","$http"]}();

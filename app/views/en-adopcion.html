@@ -29,19 +29,13 @@
         </div>
     </div>
     <div class="text-center">
-        <div class="col-xs-3" dir-paginate="galgo in galgosEnAdopcion | itemsPerPage: 8"  current-page="currentPage">
-          <div class="tarjeta-animal">
-              <a ui-sref="perfilAnimal({id: {{galgo.id}}})" class="ultimos-rescates-animal">
-                  <div class="squared-thumbnail">
-                      <img src="{{apiEndpoint}}/static{{ galgo.fotos[0] }}" class="portrait" alt="Image" />
-                    </div>
-                  <span ng-class="{'m': 'macho', 'h': 'hembra'}[galgo.genero]">{{galgo.nombre}}</span>
-              </a>
-            <!-- <span class="fotoAnimal" style="background: url({{ apiEndpoint }}/static{{ galgo.fotos[0] }})"></span> -->
-            <!-- <h2 ng-class="{'m': 'macho', 'h': 'hembra'}[galgo.genero]">{{galgo.nombre | limitTo : 9}}{{galgo.nombre.length > 9 ? '...' : ''}}</h2> -->
-            <!-- <p class="desc">{{galgo.desc | limitTo : 30 }}{{galgo.desc.length > 30 ? '...' : ''}}</p> -->
-            <!-- <span><a class="btn btn-ssssdsprimary" role="button" ng-click="mostrarTarjetaEnAdopcion(galgo.id)">Saber mas!</a></span> -->
-          </div>
+        <div class="tarjeta-animal" dir-paginate="galgo in galgosEnAdopcion | itemsPerPage: 8"  current-page="currentPage">
+          <a ui-sref="perfilAnimal({id: {{galgo.id}}})" class="ultimos-rescates-animal">
+              <div class="squared-thumbnail">
+                  <img src="{{apiEndpoint}}/static{{ galgo.fotos[0] }}" class="portrait" alt="Image" />
+                </div>
+              <span ng-class="{'m': 'macho', 'h': 'hembra'}[galgo.genero]">{{galgo.nombre}}</span>
+          </a>
         </div>
     </div>
     <div class="row">

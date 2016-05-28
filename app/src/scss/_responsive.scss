@@ -13,7 +13,7 @@
         // background-color: green;
         #intro{
             .jumbotron{
-                height: 455px;
+                // height: 455px;
                 .btn{
                     // position: absolute;
                     // width: 27%;
@@ -41,6 +41,13 @@
         height: 275px;
     }
 
+    #comoAyudar{
+      text-align: center;
+      .caja{
+          padding: 3em 0;
+      }
+    }
+
 }
 
 @media only screen and (max-width : 979px) {
@@ -49,7 +56,7 @@
         // background-color: red;
         #intro{
             .jumbotron{
-                height: 377px;
+                // height: 377px;
                 .btn{
                     // position: absolute;
                     // width: 27%;
@@ -67,6 +74,16 @@
             }
             p{
                 font-size: 18px;
+            }
+            .media{
+                &-body{
+                    width: 100%;
+
+                }
+                &-right{
+                    display: none;
+                    width: 100%;
+                }
             }
         }
     }
@@ -109,8 +126,17 @@
     }
 
     #logo{
-        width: 90px;
-        top:10em;
+        width: 130px;
+        top:15px;
+    }
+
+    .navbar-default{
+        display: inline-block;
+        margin: 0;
+        vertical-align: middle;
+        .navbar-toggle{
+            margin-right: 0;
+        }
     }
 
     .main-menu{
@@ -120,6 +146,10 @@
             float: right;
             margin-right: 30px;
             margin-bottom: 30px;
+        }
+        &-top{
+            display: inline-block;
+            vertical-align: middle;
         }
     }
 
@@ -152,24 +182,47 @@
 
 @media only screen and (max-width : 480px) {
 
+    #logo{
+        width: 130px;
+        top:15px;
+    }
+
     #main-content-container{
         // background-color: yellow;
     }
 
     .main-menu{
         // background-color: yellow;
+        .email-label{
+            display: none;
+        }
     }
 
     .box{
         // background-color: yellow;
-        width: 500px;
-        height: 275px;
+        // width: 500px;
+        // height: 275px;
+        h2:last-of-type{
+            display: none;
+        }
+    }
+
+    #comoAyudar{
+      text-align: center;
+      .caja{
+          width: 100%;
+          margin: 0;
+      }
     }
 
 }
 
 @media only screen and (max-width : 320px) {
 
+    #logo{
+        width: 53px;
+    }
+
     #main-content-container{
         // background-color: purple;
     }
@@ -179,8 +232,8 @@
     }
     .box{
         // background-color: purple;
-        width: 500px;
-        height: 275px;
+        // width: 500px;
+        // height: 275px;
     }
 
 }

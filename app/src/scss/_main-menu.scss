@@ -10,6 +10,7 @@
     left: 0;
     &-top{
         padding-right: 15px;
+        margin-bottom: 5px;
         .fa{
             margin: 0 2px;
             &:last-of-type{
@@ -37,7 +38,7 @@
         display: inline-block;
         .btn{
             padding: 5px 16px;
-
+            margin: 0;
         }
         a{
             margin: 9px 0;

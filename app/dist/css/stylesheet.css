@@ -1,6 +1,12 @@
 .navbar-default {
   background-color: transparent;
   border-color: transparent;
+  min-height: 0;
+  margin-bottom: 0;
+}
+
+.navbar-default .nav a {
+  padding: 7.5px;
 }
 
 .fa-facebook {
@@ -76,7 +82,7 @@ h1, h2, h3, h4 {
   top: 1em;
   left: 1em;
   margin: 0 auto;
-  z-index: 9999;
+  z-index: 999999;
   width: 180px;
 }
 
@@ -117,7 +123,6 @@ hr {
 
 #intro .jumbotron {
   position: relative;
-  height: 457px;
 }
 
 #intro .jumbotron .glyphicon {
@@ -125,7 +130,7 @@ hr {
 }
 
 #intro h2 {
-  margin: 0 0 2em 0;
+  margin: 0 0 1em 0;
 }
 
 #intro .col-xs-4 {
@@ -140,6 +145,32 @@ hr {
 
 #intro .jumbotron .glyphicon {
   font-size: 4em;
+}
+
+#intro .media-body {
+  width: 50%;
+  color: white;
+  padding: 3em;
+  background: url("../../img/adopcion/pepito_azul.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+#intro .media-body .lead {
+  font-size: 16px;
+}
+
+#intro .media-right {
+  width: 50%;
+  background: url("../../img/adopcion/Yambao.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+#intro .media-heading {
+  padding-bottom: 0.5em;
 }
 
 #comoAyudar {
@@ -186,6 +217,8 @@ hr {
 }
 
 .tarjeta-animal {
+  width: 25%;
+  display: inline-block;
   font-weight: bold;
   text-align: center;
   font-size: 2rem;
@@ -209,15 +242,21 @@ hr {
 .tarjeta-animal .macho {
   color: #3A95B0;
   border-bottom: 5px solid #3A95B0;
-  width: 100%;
+  width: 18vw;
+  margin: 0 auto;
   display: block;
 }
 
 .tarjeta-animal .hembra {
   color: #C64191;
   border-bottom: 5px solid #C64191;
-  width: 100%;
+  width: 18vw;
+  margin: 0 auto;
   display: block;
+}
+
+.tarjeta-animal-home {
+  width: 20%;
 }
 
 .ultimos-rescates {
@@ -225,7 +264,8 @@ hr {
 }
 
 .ultimos-rescates .titulo {
-  margin-bottom: 1em;
+  margin: 1em 0;
+  text-align: left;
 }
 
 #donaciones {
@@ -297,10 +337,15 @@ hr {
 
 .squared-thumbnail {
   position: relative;
-  width: 200px;
+  width: 18vw;
   height: 200px;
   overflow: hidden;
   margin: 0 auto;
+}
+
+.squared-thumbnail-perfil {
+  height: 45vh;
+  width: auto;
 }
 
 .squared-thumbnail img {
@@ -437,6 +482,7 @@ hr {
 
 .main-menu-top {
   padding-right: 15px;
+  margin-bottom: 5px;
 }
 
 .main-menu-top .fa {
@@ -472,6 +518,7 @@ hr {
 
 .main-menu-action .btn {
   padding: 5px 16px;
+  margin: 0;
 }
 
 .main-menu-action a {
@@ -545,9 +592,6 @@ hr {
 }
 
 @media only screen and (max-width: 1200px) {
-  #main-content-container #intro .jumbotron {
-    height: 455px;
-  }
   #main-content-container #intro .jumbotron .glyphicon {
     font-size: 3em;
   }
@@ -558,12 +602,15 @@ hr {
     width: 500px;
     height: 275px;
   }
+  #comoAyudar {
+    text-align: center;
+  }
+  #comoAyudar .caja {
+    padding: 3em 0;
+  }
 }
 
 @media only screen and (max-width: 979px) {
-  #main-content-container #intro .jumbotron {
-    height: 377px;
-  }
   #main-content-container #intro .jumbotron .glyphicon {
     font-size: 2em;
   }
@@ -573,6 +620,13 @@ hr {
   }
   #main-content-container #intro p {
     font-size: 18px;
+  }
+  #main-content-container #intro .media-body {
+    width: 100%;
+  }
+  #main-content-container #intro .media-right {
+    display: none;
+    width: 100%;
   }
   #logo {
     width: 130px;
@@ -599,14 +653,26 @@ hr {
 
 @media only screen and (max-width: 767px) {
   #logo {
-    width: 90px;
-    top: 10em;
+    width: 130px;
+    top: 15px;
+  }
+  .navbar-default {
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+  }
+  .navbar-default .navbar-toggle {
+    margin-right: 0;
   }
   .main-menu-links {
     width: 75%;
     float: right;
     margin-right: 30px;
     margin-bottom: 30px;
+  }
+  .main-menu-top {
+    display: inline-block;
+    vertical-align: middle;
   }
   .box {
     display: -webkit-box;
@@ -636,16 +702,28 @@ hr {
 }
 
 @media only screen and (max-width: 480px) {
-  .box {
-    width: 500px;
-    height: 275px;
+  #logo {
+    width: 130px;
+    top: 15px;
+  }
+  .main-menu .email-label {
+    display: none;
+  }
+  .box h2:last-of-type {
+    display: none;
+  }
+  #comoAyudar {
+    text-align: center;
+  }
+  #comoAyudar .caja {
+    width: 100%;
+    margin: 0;
   }
 }
 
 @media only screen and (max-width: 320px) {
-  .box {
-    width: 500px;
-    height: 275px;
+  #logo {
+    width: 53px;
   }
 }
 
@@ -730,6 +808,34 @@ hr {
 
 .perfil-animal-texto .titulo {
   margin-top: 0;
+}
+
+.perfil-animal-navigation {
+  position: absolute;
+  height: 100%;
+  padding: 0;
+}
+
+.perfil-animal-navigation-prev {
+  left: 0;
+}
+
+.perfil-animal-navigation-next {
+  right: 0;
+}
+
+.perfil-animal-navigation span {
+  top: 50%;
+  margin-top: -25px;
+  position: absolute;
+  text-align: right;
+  width: 100%;
+  text-align: center;
+  font-size: 4em;
+}
+
+.perfil-animal-navigation span a {
+  text-decoration: none;
 }
 
 .social-button {

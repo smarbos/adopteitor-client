@@ -71,9 +71,26 @@
         padding: 30px;
     }
     &-navigation{
+        position: absolute;
+        height: 100%;
+        padding: 0;
         &-prev{
+            left: 0;
         }
         &-next{
+            right: 0;
+        }
+        span{
+            top: 50%;
+            margin-top: -25px;
+            position: absolute;
+            text-align: right;
+            width: 100%;
+            text-align: center;
+            font-size: 4em;
+            a{
+                text-decoration: none;
+            }
         }
     }
 }

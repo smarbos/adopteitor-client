@@ -4,7 +4,9 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     fileinclude = require("gulp-file-include"),
     minify = require('gulp-minify'),
-    rename = require('gulp-rename');
+    rename = require('gulp-rename'),
+    concat = require('gulp-concat'),
+    concatCss = require('gulp-concat-css');
 
 var input = "app/src/scss/*.scss";
 var output = "app/dist/css/";
@@ -76,10 +78,6 @@ gulp.task('compress_services_js', function() {
       suffix: '.min'
     }))
     .pipe(minify({
-        ext:{
-            src:'-debug.js',
-            min:'.js'
-        },
         exclude: ['tasks'],
         ignoreFiles: ['.combo.js', '-min.js']
     }))
@@ -107,4 +105,16 @@ gulp.task('watch', function() {
     });
 });
 
-gulp.task('default', ['sass', 'watch', 'compress_js', 'compress_controllers_js', 'compress_services_js']);
+gulp.task('scripts', function() {
+  return gulp.src(['app/dist/**/*.js', '!app/dist/**/*.min-debug.js'])
+    .pipe(concat('alljavascript.js'))
+    .pipe(gulp.dest('app/'));
+});
+
+gulp.task('styles', function() {
+  return gulp.src(['app/bower_components/angular-bootstrap/ui-bootstrap-csp.css', 'app/bower_components/components-font-awesome/css/font-awesome.css', 'app/bower_components/flexslider/flexslider.css', 'app/dist/css/stylesheet.css', 'app/bower_components/sweetalert2/dist/sweetalert2.css'])
+    .pipe(concatCss('allstyles.css'))
+    .pipe(gulp.dest('app/'));
+});
+
+gulp.task('default', ['sass', 'watch', 'compress_js', 'compress_controllers_js', 'compress_services_js', 'scripts', 'styles']);

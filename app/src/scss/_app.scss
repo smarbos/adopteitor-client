@@ -5,6 +5,14 @@
 .navbar-default {
     background-color: transparent;
     border-color: transparent;
+    min-height: 0;
+    margin-bottom: 0;
+    .nav{
+        a{
+            padding: 7.5px;
+        }
+    }
+
 }
 
 //-------SOCIAL ICONS-----------//
@@ -87,7 +95,7 @@ h1, h2, h3, h4{
     top: 1em;
     left: 1em;
     margin: 0 auto;
-    z-index: 9999;
+    z-index: 999999;
     width: 180px;
 }
 
@@ -125,7 +133,7 @@ hr{
 #intro{
     .jumbotron{
         position: relative;
-        height: 457px;
+        // height: 457px;
         .btn{
             // position: absolute;
             // bottom: 30px;
@@ -138,7 +146,7 @@ hr{
     margin-top: 2em;
 
     h2{
-        margin: 0 0 2em 0;
+        margin: 0 0 1em 0;
     }
     .col-xs-4{
         padding: 0 7px;
@@ -149,6 +157,30 @@ hr{
         color: $action;
         .glyphicon{
             font-size: 4em;
+        }
+    }
+    .media{
+        &-body{
+            width: 50%;
+            color:white;
+            padding: 3em;
+            background: url('../../img/adopcion/pepito_azul.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            .lead{
+                font-size: 16px;
+            }
+        }
+        &-right{
+            width: 50%;
+            background: url('../../img/adopcion/Yambao.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+        &-heading{
+            padding-bottom: 0.5em;
         }
     }
 }
@@ -197,39 +229,47 @@ hr{
 }
 
 .tarjeta-animal{
-            font-weight: bold;
-            text-align: center;
-            font-size: 2rem;
-            margin: 1em 0;
-            a{
-                text-decoration: none;
-            }
-            span{
-                padding-bottom: 5px;
-            }
-            img{
-                padding-bottom: 1em;
-                margin: 0 auto;
-                max-height: 300px;
-            }
-            .macho{
-                color: $macho;
-                border-bottom: 5px solid $macho;
-                width: 100%;
-                display: block;
-            }
-            .hembra{
-                color: $hembra;
-                border-bottom: 5px solid $hembra;
-                width: 100%;
-                display: block;
-            }
+    width: 25%;
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    font-size: 2rem;
+    margin: 1em 0;
+    a{
+        text-decoration: none;
+    }
+    span{
+        padding-bottom: 5px;
+    }
+    img{
+        padding-bottom: 1em;
+        margin: 0 auto;
+        max-height: 300px;
+    }
+    .macho{
+        color: $macho;
+        border-bottom: 5px solid $macho;
+        width: 18vw;
+        margin: 0 auto;
+        display: block;
+    }
+    .hembra{
+        color: $hembra;
+        border-bottom: 5px solid $hembra;
+        width: 18vw;
+        margin: 0 auto;
+        display: block;
+    }
+    &-home{
+        width: 20%;
+    }
 }
 
 .ultimos-rescates{
     margin-bottom: 4em;
     .titulo{
-        margin-bottom: 1em;
+        margin: 1em 0;
+        text-align: left;
     }
 }
 
@@ -303,10 +343,14 @@ hr{
 
 .squared-thumbnail {
   position: relative;
-  width: 200px;
+  width: 18vw;
   height: 200px;
   overflow: hidden;
   margin: 0 auto;
+  &-perfil{
+      height: 45vh;
+      width: auto;
+  }
 }
 .squared-thumbnail img {
 

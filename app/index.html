@@ -4,27 +4,16 @@
   <base href="/index.html">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css">
-  <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css">
+
+  <!-- <link rel="stylesheet" href="allstyles.css"> -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" href="bower_components/flexslider/flexslider.css">
-  <link rel="stylesheet" href="dist/css/stylesheet.css">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="bower_components/sweetalert2/dist/sweetalert2.css">
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <script>
-       $(document).ready(function(){
-          $('.dropdown-toggle').dropdown()
-      });
-  </script>
-  <script type="text/javascript" charset="utf-8">
-  $(window).load(function() {
-    $('.flexslider').flexslider({
-        controlNav: false,
-        directionNav: false
-    });
-  });
-</script>
+  <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="bower_components/flexslider/flexslider.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="dist/css/stylesheet.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="bower_components/sweetalert2/dist/sweetalert2.css" media="screen" title="no title" charset="utf-8">
+  <script async src="bower_components/jquery/dist/jquery.min.js"></script>
+
 </head>
 <body ng-controller="body">
     <div class="row menu-container">
@@ -169,14 +158,19 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
-    <script src="dist/js/app.min.js"></script>
-    <script src="dist/js/config.min.js"></script>
-    <script src="dist/js/controllers.min.js"></script>
-    <script src="dist/js/controllers/contacto.min.js"></script>
-    <script src="dist/js/controllers/transitos.min.js"></script>
-    <script src="dist/js/controllers/formulario-adopcion.min.js"></script>
-    <script src="dist/js/controllers/ultimos-rescates.min.js"></script>
-    <script src="dist/js/services.min.js"></script>
-    <script src="dist/js/directives.min.js"></script>
+    <script src="alljavascript.js"></script>
+    <script>
+         $(document).ready(function(){
+            $('.dropdown-toggle').dropdown()
+        });
+    </script>
+    <script type="text/javascript" charset="utf-8">
+    $(window).load(function() {
+      $('.flexslider').flexslider({
+          controlNav: false,
+          directionNav: false
+      });
+    });
+  </script>
 </body>
 </html>
