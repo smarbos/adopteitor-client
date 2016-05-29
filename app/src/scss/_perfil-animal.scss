@@ -1,16 +1,23 @@
 .perfil-animal{
     &-filtros{
+        color:#818181; font-family: 'Source Sans Pro', sans-serif; font-weight: 700; font-size:15px; text-ransform: uppercase;
         padding: 1em 0;
         width: 100%;
         display: inline-block;
         .active{
             font-weight: bolder;
+            color: black;
+        }
+        a{
+            text-decoration: none;
         }
     }
     &-nombre{
+        font-family: 'Source Sans Pro', sans-serif; font-weight: 700; font-size:28px;
         margin:0 0 1em 0;
     }
     &-desc{
+        font-family: 'Source Sans Pro', sans-serif; font-weight: 400; font-size:18px;
         margin-bottom: 1em;
     }
     &-thumbnails{
@@ -26,6 +33,7 @@
         background-color: $action;
         border-color: darken($action, 5%);
         margin: 1em 0;
+        font-family: 'Source Sans Pro', sans-serif; font-weight: 700;
     }
     &-ayuda{
         display: block;
@@ -45,6 +53,14 @@
         color: #333;
         border-radius: 0;
         padding: 5px 10px;
+        &-hembra{
+            color: $color-female;
+            border-color: $color-female;
+        }
+        &-macho{
+            color: $color-male;
+            border-color: $color-male;
+        }
     }
     &-compartir{
         display: block;
@@ -65,7 +81,7 @@
     &-texto{
         .titulo{
             margin-top: 0;
-
+            font-family: 'Source Sans Pro', sans-serif; font-weight: 700; font-size:28px; text-transform:uppercase;
         }
         background-color: #F1F4F9;
         padding: 30px;

@@ -7,6 +7,8 @@
 
   <!-- <link rel="stylesheet" href="allstyles.css"> -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300,400italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css" media="screen" title="no title" charset="utf-8">
   <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" media="screen" title="no title" charset="utf-8">
   <link rel="stylesheet" href="bower_components/flexslider/flexslider.css" media="screen" title="no title" charset="utf-8">
@@ -28,9 +30,9 @@
     <div class="container-fluid" id="headerContainer">
         <div class="flexslider" ng-class="{'flexslider-compact': !showSlider}">
             <div class="box" ng-show="showSlider">
-              <h2>Sin hogares de tránsito no podemos salvar galgos.</h2>
+              <h2>Sin <strong>hogares de tránsito</strong> no podemos salvar galgos.</h2>
               <h2>Anotate en nuestra lista para ayudarlos.</h2>
-              <p><a class="btn btn-primary btn-lg" ui-sref="transitos" role="button">Quiero saber mas</a></p>
+              <a class="btn btn-primary btn-lg" ui-sref="transitos" role="button">Quiero saber mas</a>
             </div>
         <ul class="slides">
           <li ng-repeat="slide in slides">

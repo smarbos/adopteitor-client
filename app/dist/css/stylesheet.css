@@ -35,11 +35,29 @@
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
   margin-left: 0px;
   margin-right: 0px;
   padding: 0;
   background-color: #FAFAFA;
+}
+
+body {
+  -webkit-animation-delay: 0.1s;
+  -webkit-animation-name: fontfix;
+  -webkit-animation-duration: 0.1s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes fontfix {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 #header {
@@ -123,6 +141,13 @@ hr {
 
 #intro .jumbotron {
   position: relative;
+  padding: 2em 2em;
+  background-color: #f2f5f8;
+  color: #f98017;
+}
+
+#intro .jumbotron .glyphicon {
+  font-size: 4em;
 }
 
 #intro .jumbotron .glyphicon {
@@ -130,21 +155,11 @@ hr {
 }
 
 #intro h2 {
-  margin: 0 0 1em 0;
+  margin: 0.5em 0 0.5em 0;
 }
 
 #intro .col-xs-4 {
   padding: 0 7px;
-}
-
-#intro .jumbotron {
-  padding: 2em 2em;
-  background-color: #F1F4F9;
-  color: #FD8000;
-}
-
-#intro .jumbotron .glyphicon {
-  font-size: 4em;
 }
 
 #intro .media-body {
@@ -163,7 +178,7 @@ hr {
 
 #intro .media-right {
   width: 50%;
-  background: url("../../img/adopcion/Yambao.jpg");
+  background: url("../../img/foto-home.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -368,7 +383,7 @@ hr {
 }
 
 .box {
-  background-color: white;
+  background-color: #f2f5f8;
   position: absolute;
   width: 500px;
   height: 275px;
@@ -381,13 +396,30 @@ hr {
   opacity: 0.9;
   text-align: center;
   z-index: 999;
+  padding: 1em;
+}
+
+.box h2 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 100;
+  line-height: 30px;
+  text-transform: uppercase;
 }
 
 .box .btn {
-  background-color: #FD8000;
-  border-color: #FD8000;
+  background-color: #f98017;
+  border-color: #f98017;
   font-weight: bolder;
   margin-top: 1em;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 58px;
+  padding: 0 40px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin: 20px auto;
+  margin: 0;
 }
 
 .flexslider {
@@ -728,6 +760,11 @@ hr {
 }
 
 .perfil-animal-filtros {
+  color: #818181;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  text-ransform: uppercase;
   padding: 1em 0;
   width: 100%;
   display: inline-block;
@@ -735,13 +772,24 @@ hr {
 
 .perfil-animal-filtros .active {
   font-weight: bolder;
+  color: black;
+}
+
+.perfil-animal-filtros a {
+  text-decoration: none;
 }
 
 .perfil-animal-nombre {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
   margin: 0 0 1em 0;
 }
 
 .perfil-animal-desc {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
   margin-bottom: 1em;
 }
 
@@ -755,9 +803,11 @@ hr {
 
 .perfil-animal-boton-adoptar {
   width: 100%;
-  background-color: #FD8000;
-  border-color: #e47300;
+  background-color: #f98017;
+  border-color: #f07306;
   margin: 1em 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 700;
 }
 
 .perfil-animal-ayuda {
@@ -781,6 +831,16 @@ hr {
   color: #333;
   border-radius: 0;
   padding: 5px 10px;
+}
+
+.perfil-animal-badge-hembra {
+  color: #e00c9d;
+  border-color: #e00c9d;
+}
+
+.perfil-animal-badge-macho {
+  color: #00a3e5;
+  border-color: #00a3e5;
 }
 
 .perfil-animal-compartir {
@@ -808,6 +868,10 @@ hr {
 
 .perfil-animal-texto .titulo {
   margin-top: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  text-transform: uppercase;
 }
 
 .perfil-animal-navigation {

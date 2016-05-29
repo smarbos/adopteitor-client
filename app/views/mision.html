@@ -31,25 +31,31 @@
               </div>
             </div>
             <div class="row">
-                <div class="col-sm-4 col-xs-6 caja">
-                  <img class="img-circle" src="img/icons/money-donate.png" alt="Generic placeholder image" width="140" height="140">
-                  <h2>Donaciones</h2>
-                  <p >Aceptamos donaciones de dinero, alimento balanceado, medicamentos y mas.</p>
-                  <a class="btn btn-lg btn-primary" ui-sref="donaciones" role="button" id="botonVerde">Donar!</a>
-                </div><!-- /.col-lg-4 -->
-                <div class="col-sm-4 col-xs-6 caja">
-                  <img class="img-circle" src="img/icons/heart-adopt.png" alt="Generic placeholder image" width="140" height="140">
-                  <h2>Adopciones</h2>
-                  <p>Conoce a nuestros galguitos en adopcion responsable!</p>
-                  <a class="btn btn-lg btn-primary" ui-sref="en-adopcion({filter: '*'})" role="button" id="botonVioleta">Adoptar!</a>
-                </div><!-- /.col-lg-4 -->
-                <div class="col-sm-4 col-xs-6 col-xs-offset-3 col-sm-offset-0 caja">
-                  <img class="img-circle" src="img/icons/Arrow-reload.png" alt="Generic placeholder image" width="140" height="140">
-                  <h2>Transitos</h2>
-                  <p>Hay muchos galgos buscando un hogar de transito donde poder recuperarse hasta ser adoptados.</p>
-                  <a class="btn btn-lg btn-primary" ui-sref="transitos" role="button" id="botonNaranja">Ofrecerse!</a>
-                </div><!-- /.col-lg-4 -->
-              </div><!-- /.row -->
+                <div class="col-xs-12 col-sm-4 caja">
+                  <div class="jumbotron text-center">
+                    <img src="img/icons/ico-transito.png" alt="Casa de transito" />
+                    <h2>Dar transito a un galgo</h2>
+                    <p>Hay muchos galgos buscando un hogar de transito donde poder recuperarse hasta ser adoptados.</p>
+                    <a class="btn btn-primary btn-lg" ui-sref="transitos" role="button">Mas informacion</a>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 caja">
+                  <div class="jumbotron text-center">
+                    <img src="img/icons/ico-corazon.png" alt="Adopta un galgo" />
+                    <h2>Adoptar o difundir</h2>
+                    <p>¡Conoce a nuestros galguitos en adopcion responsable! Si no podes adoptar difundelos.</p>
+                    <a class="btn btn-primary btn-lg" ui-sref="en-adopcion({filter: '*'})" role="button">Quiero conocerlos</a>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 caja">
+                  <div class="jumbotron text-center">
+                    <img src="img/icons/ico-donacion.png" alt="Ayudanos donando" />
+                    <h2>Hacer una donacion</h2>
+                    <p>Aceptamos donaciones de dinero, alimento balanceado, medicamentos y mas.</p>
+                    <a class="btn btn-primary btn-lg" ui-sref="donaciones" role="button">Saber más</a>
+                  </div>
+                </div>
+            </div>
               <hr id="separador" />
               <div class="row">
               <div class="col-lg-11 col-lg-offset-1">

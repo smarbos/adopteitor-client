@@ -44,11 +44,26 @@
 }
 
 body{
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif; font-weight: 400;
+  // font-family: sans-serif;
+  // font-family: 'Indie Flower', cursive;
   margin-left:0px;
   margin-right:0px;
   padding:0;
   background-color: $background;
+}
+
+body {
+    -webkit-animation-delay: 0.1s;
+    -webkit-animation-name: fontfix;
+    -webkit-animation-duration: 0.1s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes fontfix {
+    from { opacity: 1; }
+    to   { opacity: 1; }
 }
 
 #header{
@@ -57,6 +72,7 @@ body{
 }
 
 #headerContainer{
+  // min-height: 421px;
   background-color: #00B9EF;
   background-repeat: repeat-x;
   background-position-y: -185px;
@@ -134,6 +150,12 @@ hr{
     .jumbotron{
         position: relative;
         // height: 457px;
+        padding:2em 2em;
+        background-color: $gris-azulado;
+        color: $action;
+        .glyphicon{
+            font-size: 4em;
+        }
         .btn{
             // position: absolute;
             // bottom: 30px;
@@ -146,18 +168,10 @@ hr{
     margin-top: 2em;
 
     h2{
-        margin: 0 0 1em 0;
+        margin: 0.5em 0 0.5em 0;
     }
     .col-xs-4{
         padding: 0 7px;
-    }
-    .jumbotron{
-        padding:2em 2em;
-        background-color: #F1F4F9;
-        color: $action;
-        .glyphicon{
-            font-size: 4em;
-        }
     }
     .media{
         &-body{
@@ -174,7 +188,7 @@ hr{
         }
         &-right{
             width: 50%;
-            background: url('../../img/adopcion/Yambao.jpg');
+            background: url('../../img/foto-home.jpg');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;

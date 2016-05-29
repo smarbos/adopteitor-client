@@ -1,5 +1,5 @@
 .box{
-    background-color: white;
+    background-color: $gris-azulado;
     position: absolute;
     width: 500px;
     height: 275px;
@@ -12,11 +12,24 @@
     opacity: 0.9;
     text-align: center;
     z-index: 999;
+    padding: 1em;
+    h2{
+        font-family: 'Source Sans Pro', sans-serif; font-weight: 100;  line-height:30px;
+        text-transform: uppercase;
+    }
 
     .btn{
         background-color: $action;
         border-color: $action;
         font-weight: bolder;
         margin-top: 1em;
+        font-family: 'Source Sans Pro', sans-serif; font-weight: 700;
+        font-size:24px;
+        line-height: 58px;
+        padding: 0 40px;
+        text-transform: uppercase;
+        display:inline-block;
+        margin:20px auto;
+        margin: 0;
     }
 }
