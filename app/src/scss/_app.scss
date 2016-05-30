@@ -174,11 +174,12 @@ hr{
         padding: 0 7px;
     }
     .media{
+        margin: 0 -15px;
         &-body{
             width: 50%;
             color:white;
             padding: 3em;
-            background: url('../../img/adopcion/pepito_azul.jpg');
+            background: url('../../img/homeblue.jpg');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -188,7 +189,7 @@ hr{
         }
         &-right{
             width: 50%;
-            background: url('../../img/foto-home.jpg');
+            background: url('../../img/home.jpg');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
