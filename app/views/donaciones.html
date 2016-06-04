@@ -1,5 +1,5 @@
-<div class="seccion" id="donaciones">
-    <div class="row">
+<div class="seccion" id="donaciones" ng-controller="donaciones">
+    <!-- <div class="row">
       <div class="col-lg-11 col-lg-offset-1">
         <h1>Gracias por ayudarnos!</h1>
         <p class="lead">
@@ -7,29 +7,22 @@
           A continuacion te mostramos las formas en que podes ayudarnos.
         </p>
       </div>
-    </div>
-    <hr id="separador" />
+    </div> -->
     <div class="row" id="donarDinero">
       <div class="col-lg-2 col-lg-offset-1">
         <img src="img/icons/money-donate.png" alt="" class="img-circle hidden-xs hidden-sm" width="250px" height="250px"/>
       </div>
-      <div class="col-lg-7 col-lg-offset-1">
+      <div class="col-lg-7 col-lg-offset-1  text-left">
         <h1>Donar dinero</h1>
-        <p class="lead">
-          Para poder continuar con nuestra accion, necesitamos de tu ayuda. La mayoria de los galgos rescatados llegan en muy malas condiciones y se necesita de visitas veterinarias, medicaciones y en muchos casos, operaciones.<br/>
-          Por esta razon agradeceremos enormemente cualquier ayuda que puedas brindarnos.
+        <p class="lead text-left">
+            Para poder continuar con nuestra acción, necesitamos de tu ayuda. La mayoría de los galgos rescatados llegan en muy malas condiciones y se necesita de visitas veterinarias, medicaciones y en muchos casos, operaciones. Además de castraciones, vacunación, desparasitación y alimentación de cada uno de los rescatados.
+            Por esta razón agradecemos enormemente cualquier ayuda que puedas brindarnos.
         </p>
       </div>
     </div>
     <hr id="separador" />
     <div class="row" id="comoAyudar">
-        <div class="col-sm-4 col-xs-6 col-sm-offset-0 caja">
-          <img class="img-circle" src="img/icons/Bank-icon.png" alt="Generic placeholder image" width="140" height="140">
-          <h2>Transferencia / Deposito</h2>
-          <p>Es inmediata y gratuita, es la mejor opcion!</p>
-          <a class="btn btn-lg btn-primary" href="contacto.php?a=transito" role="button" id="botonVerde">Donar!</a>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-sm-4 col-xs-6 col-sm-offset-0 caja">
+        <div class="col-sm-4 col-xs-6 col-sm-offset-0 caja caja-donacion">
           <img class="img-circle" src="img/icons/dineroMail.png" alt="Generic placeholder image" width="140" height="140">
           <h2>DineroYa</h2>
           <p>Por cada donacion, se nos descuenta el 5% por gastos del servicio.</p>
@@ -38,8 +31,16 @@
           <br/> <br/>
           <a class="btn btn-lg btn-primary" href="enadopcion.php" role="button" id="botonVioleta">Donar!</a>
           </form>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-sm-4 col-xs-6 col-xs-offset-3  col-sm-offset-0 caja">
+        </div>
+
+        <div class="col-sm-4 col-xs-6 col-sm-offset-0 caja caja-donacion caja-donacion-destacado">
+          <img class="img-circle" src="img/icons/Bank-icon.png" alt="Generic placeholder image" width="140" height="140">
+          <h2>Transferencia / Deposito</h2>
+          <p>Es inmediata y gratuita, es la mejor opcion!</p>
+          <a class="btn btn-lg btn-primary" ng-click="donarDeposito()" role="button" id="botonVerde">Donar!</a>
+        </div>
+
+        <div class="col-sm-4 col-xs-6 col-xs-offset-3  col-sm-offset-0 caja caja-donacion">
           <img class="img-circle" src="img/icons/mercadoPago.png" alt="Generic placeholder image" width="140" height="140">
           <h2>MercadoPago</h2>
           <p>Por cada donacion, se nos descuenta el 7% por gastos del servicio.</p>
@@ -48,6 +49,6 @@
           <br/> <br/>
           <a class="btn btn-lg btn-primary" href="donar.php" role="button" id="botonAzul">Donar!</a>
           </form>
-        </div><!-- /.col-lg-4 -->
-    </div><!-- /.row -->
+        </div>
+    </div>
     </div></div>

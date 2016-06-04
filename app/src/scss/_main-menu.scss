@@ -39,10 +39,14 @@
         .btn{
             padding: 5px 16px;
             margin: 0;
+
         }
         a{
             margin: 9px 0;
             color: white !important;
+            &:hover, :active, :visited, :link{
+                background-color: #2e6da4 !important;
+            }
         }
     }
 }

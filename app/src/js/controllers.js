@@ -171,7 +171,6 @@ adopteitorApp.service('sliderService', sliderService);
 function body($scope, $location, enAdopcion, ENV, sliderService, $rootScope, $document) {
     $rootScope.$on('$stateChangeSuccess', function() {
        $document[0].body.scrollTop = $document[0].documentElement.scrollTop = 0;
-       console.log("TEST");
     });
     $rootScope.$on('checkSliderStatus', function(event, mass) {
          $scope.showSlider = sliderService.checkStatus();
@@ -226,6 +225,19 @@ GalgosEnAdopcion.$inject = ['$scope', '$location', 'enAdopcionFilter', 'ENV', '$
 adopteitorApp.controller('GalgosEnAdopcion', GalgosEnAdopcion);
 
 //------------------------------------------------------------------------------------------------------------//
+
+function notFound($scope, $location, getAnimalByID, $stateParams, ENV, sliderService) {
+
+    // sliderService.updateStatus(false);
+    // console.log("XX");
+    // $scope.$emit('checkSliderStatus');
+    // $scope.$apply();
+}
+notFound.$inject = ['$scope', '$location', 'getAnimalByID', '$stateParams', 'ENV', 'sliderService'];
+adopteitorApp.controller('notFound', notFound);
+
+//------------------------------------------------------------------------------------------------------------//
+
 function animalByID($scope, $location, getAnimalByID, $stateParams, ENV, sliderService, enAdopcionFilter) {
 
     sliderService.updateStatus(false);

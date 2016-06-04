@@ -1,9 +1,10 @@
 <?php
+//localidad
 require_once 'bower_components/PHPMailer/PHPMailerAutoload.php';
 require_once 'config.php';
- if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['telefono']) && isset($_POST['email']) && isset($_POST['mensaje'])) {
+ if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['telefono']) && isset($_POST['email']) && isset($_POST['mensaje']) && isset($_POST['localidad'])) {
 
-    if (empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['telefono']) || empty($_POST['email']) || empty($_POST['mensaje'])) {
+    if (empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['telefono']) || empty($_POST['email']) || empty($_POST['mensaje']) || empty($_POST['localidad'])) {
         $data = array('success' => false, 'message' => 'Por favor, completa correctamente el formulario.');
         exit;
     }
@@ -43,6 +44,7 @@ $mail->Password   = $master_piece;        // SMTP account password
         <h2>Datos del ofreciendo: </h2><br/>
         <p><strong>Nombre: </strong>".  $_POST['nombre'] ."</p>
         <p><strong>Apellido: </strong>".  $_POST['apellido'] ."</p>
+        <p><strong>Localidad: </strong>".  $_POST['localidad'] ."</p>
         <p><strong>Telefono: </strong>".  $_POST['telefono'] ."</p>
         <p><strong>Email: </strong>".  $_POST['email'] ."</p>
         <p><strong>Mensaje: </strong>".  $_POST['mensaje'] ."</p>

@@ -14,6 +14,10 @@
   color: #3b5998;
 }
 
+.fa-instagram {
+  color: #517fa4;
+}
+
 .fa-twitter {
   color: #55acee;
 }
@@ -195,6 +199,14 @@ hr {
 
 #comoAyudar {
   text-align: center;
+}
+
+#comoAyudar .caja {
+  padding: 3em 0;
+}
+
+#comoAyudar .caja-donacion-destacado {
+  zoom: 1.5;
 }
 
 .justificado {
@@ -561,6 +573,10 @@ hr {
 .main-menu-action a {
   margin: 9px 0;
   color: white !important;
+}
+
+.main-menu-action a:hover, .main-menu-action a :active, .main-menu-action a :visited, .main-menu-action a :link {
+  background-color: #2e6da4 !important;
 }
 
 .media {

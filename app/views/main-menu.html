@@ -2,6 +2,7 @@
     <div class="main-menu-top">
         <a href="https://www.facebook.com/adoptaungalgoenargentina/" target="_blank"><i class="fa fa-size_small fa-facebook" aria-hidden="true"></i></a>
         <a href="https://twitter.com/adoptaungalgo" target="_blank"><i class="fa fa-size_small fa-twitter" aria-hidden="true"></i></a>
+        <a href="https://www.instagram.com/adoptaungalgo/" target="_blank"><i class="fa  fa-size_small fa-instagram" aria-hidden="true"></i></a>
         <a href="mailto:info@adoptaungalgoenargentina.com.ar" target="_blank"><i class="fa fa-size_small fa-envelope" aria-hidden="true"></i> <span class="email-label">info@adoptaungalgoenargentina.com.ar</span></a>
     </div>
     <nav class="navbar navbar-default ">
@@ -25,8 +26,8 @@
             <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nosotros <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a ui-sref="mision">Mision</a></li>
-              <li><a ui-sref="not-found">Como trabajamos?</a></li>
-              <li><a ui-sref="not-found">Experiencias de voluntarios</a></li>
+              <li><a ui-sref="como-trabajamos">Como trabajamos?</a></li>
+              <li><a ui-sref="experiencia-de-voluntarios">Experiencias de voluntarios</a></li>
               <li><a ui-sref="contacto">Contacto</a></li>
             </ul>
             </li>
@@ -45,9 +46,9 @@
                 <ul class="dropdown-menu">
                   <li><a ui-sref="transitos">Transitar</a></li>
                   <li><a ui-sref="donaciones">Donar</a></li>
-                  <li><a ui-sref="not-found">Difundir</a></li>
+                  <li><a ui-sref="Difundir">Difundir</a></li>
                   <li><a href="https://www.facebook.com/ShopSolidarioAdoptaunGalgoenArgentina/?fref=ts" target="_blank">Comprar en el shop solidario</a></li>
-                  <li><a ui-sref="not-found">Ofrecer traslados</a></li>
+                  <li><a ui-sref="donar-insumos">Donar insumos o alimentos</a></li>
                 </ul>
             </li>
             <li class="dropdown">
@@ -72,7 +73,7 @@
             <!-- <li><a ui-sref="register">Registro</a></li>
             <li><a ui-sref="login">Login</a></li>
             <li><a href="javascript:void(0)" ng-click="vm.logout()">Logout</a></li> -->
-            <li class="main-menu-action"><a class="btn btn-primary btn-lg" href="#" role="button">Donar</a></li>
+            <li class="main-menu-action"><a class="btn btn-primary btn-lg" ui-sref="donaciones" role="button">Donar</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

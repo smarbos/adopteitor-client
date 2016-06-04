@@ -23,6 +23,10 @@
         color: #3b5998;
     }
 
+    &-instagram{
+        color: #517fa4;
+    }
+
     &-twitter{
         color: #55acee;
     }
@@ -203,6 +207,14 @@ hr{
 
 #comoAyudar{
   text-align: center;
+  .caja{
+      padding: 3em 0;
+      &-donacion{
+          &-destacado{
+              zoom:1.5;
+          }
+      }
+  }
 }
 
 .justificado{

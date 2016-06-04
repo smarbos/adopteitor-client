@@ -92,6 +92,22 @@ function routes($stateProvider, $urlRouterProvider) {
             url: '/mision',
             templateUrl: 'views/mision.html'
         })
+        .state('como-trabajamos', {
+            url: '/como-trabajamos',
+            templateUrl: 'views/como-trabajamos.html'
+        })
+        .state('experiencia-de-voluntarios', {
+            url: '/experiencia-de-voluntarios',
+            templateUrl: 'views/experiencia-de-voluntarios.html'
+        })
+        .state('difundir', {
+            url: '/difundir',
+            templateUrl: 'views/difundir.html'
+        })
+        .state('donar-insumos', {
+            url: '/donar-insumos',
+            templateUrl: 'views/donar-insumos.html'
+        })
         .state('transitos', {
             url: '/transitos',
             controller: 'transitos',
@@ -122,6 +138,7 @@ function routes($stateProvider, $urlRouterProvider) {
         })
         .state('not-found', {
             url: '/not-found',
+            controller: 'notFound',
             templateUrl: 'views/not-found.html'
         })
         .state('register', {
