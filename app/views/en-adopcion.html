@@ -25,7 +25,6 @@
     <div class="text-center">
         <div class="tarjeta-animal" dir-paginate="galgo in galgosEnAdopcion | itemsPerPage: 8"  current-page="currentPage">
             <span ng-if="!galgosEnAdopcion"><h2>No hay resultados para su busqueda.</h2></span>
-            {{galgosEnAdopcion | json}}
           <a ui-sref="perfilAnimal({id: {{galgo.id}}})" class="ultimos-rescates-animal">
               <div class="squared-thumbnail" style="background: url({{apiEndpoint}}/static{{ galgo.fotos[0] }}) no-repeat center center; background-size:cover;">
                   <!-- <img src="" class="portrait" alt="Image" /> -->
