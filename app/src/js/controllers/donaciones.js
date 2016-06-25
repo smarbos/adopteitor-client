@@ -1,9 +1,12 @@
 
 //------------------------------------------------------------------------------------------------------------//
-function donaciones($scope, $location, getAnimalByID, $stateParams, ENV, $http, $state, sliderService) {
-    console.log("DONACIONES");
+
+function donaciones($scope, $http, $state, sliderService, $log) {
+    $log.debug('[donaciones.js]');
+    sliderService.updateStatus(false);
+    $scope.$emit('checkSliderStatus');
 }
-donaciones.$inject = ['$scope', '$location', 'getAnimalByID', '$stateParams', 'ENV', '$http', '$state', 'sliderService'];
-adopteitorApp.controller('donaciones', donaciones);
+donaciones.$inject = ['$scope', '$http', '$state', 'sliderService'];
+adopteitorApp.controller('donaciones', transitos);
 
 //------------------------------------------------------------------------------------------------------------//
