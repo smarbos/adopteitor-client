@@ -85,27 +85,33 @@ function routes($stateProvider, $urlRouterProvider) {
         })
         .state('en-adopcion', {
             url: '/en-adopcion/:filter',
+            controller: 'GalgosEnAdopcion',
             cache: false,
             templateUrl: 'views/en-adopcion.html'
         })
         .state('mision', {
             url: '/mision',
+            controller: 'mision',
             templateUrl: 'views/mision.html'
         })
         .state('como-trabajamos', {
             url: '/como-trabajamos',
+            controller: 'comoTrabajamos',
             templateUrl: 'views/como-trabajamos.html'
         })
         .state('experiencia-de-voluntarios', {
             url: '/experiencia-de-voluntarios',
+            controller: 'experienciaVoluntarios',
             templateUrl: 'views/experiencia-de-voluntarios.html'
         })
         .state('difundir', {
             url: '/difundir',
+            controller: 'difundir',
             templateUrl: 'views/difundir.html'
         })
         .state('donar-insumos', {
             url: '/donar-insumos',
+            controller: 'donarInsumos',
             templateUrl: 'views/donar-insumos.html'
         })
         .state('transitos', {
@@ -114,7 +120,7 @@ function routes($stateProvider, $urlRouterProvider) {
             templateUrl: 'views/transitos.html'
         })
         .state('finales-felices', {
-            controller: 'finales-felices',
+            controller: 'finalesFelices',
             url: '/finales-felices',
             templateUrl: 'views/finales-felices.html'
         })
@@ -129,6 +135,7 @@ function routes($stateProvider, $urlRouterProvider) {
         })
         .state('donaciones', {
             url: '/donaciones',
+            controller: 'donaciones',
             templateUrl: 'views/donaciones.html'
         })
         .state('perfilAnimal', {

@@ -189,7 +189,7 @@ home.$inject = ['$scope', '$location', 'enAdopcion', 'ENV', 'sliderService'];
 adopteitorApp.controller('home', home);
 
 //------------------------------------------------------------------------------------------------------------//
-function GalgosEnAdopcion($scope, $location, enAdopcion, ENV, $stateParams, sliderService) {
+function GalgosEnAdopcion($scope, $location, enAdopcionFilter, ENV, $stateParams, sliderService) {
 
     //Give current filtering option to mark it as active in the menu//
     $scope.currentFilter = $stateParams.filter;
@@ -213,7 +213,7 @@ function GalgosEnAdopcion($scope, $location, enAdopcion, ENV, $stateParams, slid
             filter = "galgo_genero=m";
             break;
     }
-          $scope.galgosEnAdopcion = enAdopcion.query({},{'filter': filter});
+          $scope.galgosEnAdopcion = enAdopcionFilter.query({},{'filter': filter});
           $scope.galgosEnAdopcion.$promise.then(function(data) {
               $scope.galgosEnAdopcionRes = data.results;
           });
