@@ -2,7 +2,7 @@
 
 //------------------------------------------------------------------------------------------------------------//
 
-var adopteitorApp = angular.module('adopteitorApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'config', 'angularUtils.directives.dirPagination', '720kb.socialshare', 'ngCookies']);
+var adopteitorApp = angular.module('adopteitorApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'config', 'angularUtils.directives.dirPagination', '720kb.socialshare', 'ngCookies', 'angulartics', 'angulartics.google.analytics']);
 
 //------------------------------------------------------------------------------------------------------------//
 
