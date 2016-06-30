@@ -24,3 +24,8 @@ ExpiresDefault "access 1 month"
 RewriteEngine On
 RewriteCond %{HTTP_HOST} !^www\.
 RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^(.+)\.adoptaungalgoenargentina\.com$   [NC]
+RewriteCond %{HTTP_HOST} !^www\.adoptaungalgoenargentina\.com$  [NC]
+RewriteRule ^ http://adoptaungalgoenargentina.com/suberror  [L,R]
