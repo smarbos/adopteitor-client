@@ -2,7 +2,7 @@
 
 //------------------------------------------------------------------------------------------------------------//
 
-var adopteitorApp = angular.module('adopteitorApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'config', 'angularUtils.directives.dirPagination', '720kb.socialshare', 'ngCookies', 'angulartics', 'angulartics.google.analytics']);
+var adopteitorApp = angular.module('adopteitorApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'config', 'angularUtils.directives.dirPagination', '720kb.socialshare', 'ngCookies']);
 
 //------------------------------------------------------------------------------------------------------------//
 
@@ -65,6 +65,35 @@ function animalFilter($stateParams, $rootScope) {
               return out;
             }
             break;
+        // case "buenos-aires":
+        //     console.log("buenos-aires");
+        //     return function(input){
+        //       var out = [];
+        //       angular.forEach(input, function(etapa){
+        //           if(etapa.ubicacion == "buenos-aires"){
+        //               console.log("buenos-aires!");
+        //               out.push(etapa);
+        //           }
+        //
+        //       })
+        //       return out;
+        //     }
+        //     break;
+        // case "neuquen":
+        //     console.log("neuquen");
+        //     return function(input){
+        //       var out = [];
+        //       angular.forEach(input, function(etapa){
+        //           console.log("etapa");
+        //           if(etapa.ubicacion == "neuquen"){
+        //               console.log("neuquen!");
+        //               out.push(etapa);
+        //           }
+        //
+        //       })
+        //       return out;
+        //     }
+        //     break;
     }
 
 }

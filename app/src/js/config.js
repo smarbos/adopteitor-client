@@ -3,11 +3,12 @@
 angular.module('config', [])
   .constant('ENV', {
 
-    'name': 'development',
-    'apiEndpoint': 'http://www.adopteitor.local:8080',
-    //'apiEndpoint': 'http://adopteitor.mutantlab.com.ar:8080',
-    //'apiEndpoint': 'http://adopteitor.mutantlab.com.ar:8080',
-    'mainDomain': ''
+    'name': 'produccion',
+    'apiEndpoint': 'http://www.adoptaungalgoenargentina.com:8080'
+
+    //'name': 'development',
+    //'apiEndpoint': 'http://www.adopteitor.local:8080',
+    //'mainDomain': ''
 
   });
 

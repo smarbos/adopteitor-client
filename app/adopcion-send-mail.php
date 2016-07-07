@@ -12,7 +12,7 @@ require_once 'config.php';
     $mail = new PHPMailer();
 
 $mail->IsSMTP(); // telling the class to use SMTP
-$mail->Host       = "mail.moravitali.com.ar"; // SMTP server
+$mail->Host       = "mail.adoptaungalgoenargentina.com"; // SMTP server
 $mail->SMTPDebug  = 0;                     // enables SMTP debug information (for testing)
 // 1 = errors and messages
 // 2 = messages only
@@ -25,22 +25,22 @@ $mail->SMTPOptions = array(
 );
 
 $mail->SMTPAuth   = true;                  // enable SMTP authentication
-$mail->Host       = "mail.moravitali.com.ar"; // sets the SMTP server
+$mail->Host       = "mail.adoptaungalgoenargentina.com"; // sets the SMTP server
 $mail->Port       = 25;                    // set the SMTP port for the GMAIL server
-$mail->Username   = "hola@moravitali.com.ar"; // SMTP account username
+$mail->Username   = "info@adoptaungalgoenargentina.com"; // SMTP account username
 $mail->Password   = $master_piece;        // SMTP account password
 
     $mail->From = $mail->Username;
 	//$mail->From = $_POST['inputEmail'];
-    $mail->FromName = "notificaciones@adopteitor.com.ar";
+    $mail->FromName = "info@adoptaungalgoenargentina.com";
 	//$mail->FromName = $_POST['inputName'];
-    $mail->AddAddress('smarbos@gmail.com'); //recipient
+    $mail->AddAddress('info@adoptaungalgoenargentina.com'); //recipient
     $mail->Subject = "Nuevo formulario de adopcion";
 
     $mail->Body = "
         <h1>Nuevo formulario de adopcion</h1><br/>
         <br/>
-        <h2><strong>Solicitud: </strong></h2> <a href=\"http://www.adopteitor.local:8080/Animal/" . $_POST['animal_id'] . "\">Galgo ID: N° 000[" . $_POST['animal_id'] . "]</a><br/>
+        <h2><strong>Solicitud: </strong></h2> <a href=\"http://www.adoptaungalgoenargentina.com:8080/Animal/" . $_POST['animal_id'] . "\">Galgo ID: N° 000[" . $_POST['animal_id'] . "]</a><br/>
         <br/>
         <h2>Datos del postulante: </h2><br/>
         <p><strong>Nombre: </strong>".  $_POST['nombre'] ."</p>

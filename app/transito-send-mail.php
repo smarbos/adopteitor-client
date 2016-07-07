@@ -13,7 +13,7 @@ require_once 'config.php';
     $mail = new PHPMailer();
 
 $mail->IsSMTP(); // telling the class to use SMTP
-$mail->Host       = "mail.moravitali.com.ar"; // SMTP server
+$mail->Host       = "mail.adoptaungalgoenargentina.com"; // SMTP server
 $mail->SMTPDebug  = 0;                     // enables SMTP debug information (for testing)
 // 1 = errors and messages
 // 2 = messages only
@@ -26,16 +26,16 @@ $mail->SMTPOptions = array(
 );
 
 $mail->SMTPAuth   = true;                  // enable SMTP authentication
-$mail->Host       = "mail.moravitali.com.ar"; // sets the SMTP server
+$mail->Host       = "mail.adoptaungalgoenargentina.com"; // sets the SMTP server
 $mail->Port       = 25;                    // set the SMTP port for the GMAIL server
-$mail->Username   = "hola@moravitali.com.ar"; // SMTP account username
+$mail->Username   = "info@adoptaungalgoenargentina.com"; // SMTP account username
 $mail->Password   = $master_piece;        // SMTP account password
 
     $mail->From = $mail->Username;
 	//$mail->From = $_POST['inputEmail'];
-    $mail->FromName = "notificaciones@adopteitor.com.ar";
+    $mail->FromName = "info@adoptaungalgoenargentina.com";
 	//$mail->FromName = $_POST['inputName'];
-    $mail->AddAddress('smarbos@gmail.com'); //recipient
+    $mail->AddAddress('info@adoptaungalgoenargentina.com'); //recipient
     $mail->Subject = "Nuevo formulario de transito";
 
     $mail->Body = "
