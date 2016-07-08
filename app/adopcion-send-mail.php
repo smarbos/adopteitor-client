@@ -47,7 +47,7 @@ $mail->Password   = $master_piece;        // SMTP account password
         <p><strong>Apellido: </strong>".  $_POST['apellido'] ."</p>
         <p><strong>Telefono: </strong>".  $_POST['telefono'] ."</p>
         <p><strong>Email: </strong>".  $_POST['email'] ."</p>
-        <p><strong>Fecha de nacimiento: </strong>".  $_POST['fecha_nacimiento'] ."</p>
+        <p><strong>Localidad: </strong>".  $_POST['localidad'] ."</p>
         <p><strong>Mensaje: </strong>".  $_POST['mensaje'] ."</p>
     ";
 
