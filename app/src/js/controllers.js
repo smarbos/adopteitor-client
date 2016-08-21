@@ -214,10 +214,10 @@ function GalgosEnAdopcion($scope, $location, enAdopcionFilter, ENV, $stateParams
             filter = "galgo_genero=m";
             break;
         case "buenos-aires":
-            filter = "galgo_genero=m";
+            filter = "galgo_filter=buenos-aires";
             break;
         case "neuquen":
-            filter = "galgo_genero=h";
+            filter = "galgo_filter=neuquen";
             break;
     }
           $scope.galgosEnAdopcion = enAdopcionFilter.query({},{'filter': filter});
