@@ -7,6 +7,6 @@ function difundir($scope, $http, $state, sliderService, $log) {
     $scope.$emit('checkSliderStatus');
 }
 difundir.$inject = ['$scope', '$http', '$state', 'sliderService'];
-adopteitorApp.controller('difundir', transitos);
+adopteitorApp.controller('difundir', difundir);
 
 //------------------------------------------------------------------------------------------------------------//

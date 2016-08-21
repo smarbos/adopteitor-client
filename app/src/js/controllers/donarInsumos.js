@@ -7,6 +7,6 @@ function donarInsumos($scope, $http, $state, sliderService, $log) {
     $scope.$emit('checkSliderStatus');
 }
 donarInsumos.$inject = ['$scope', '$http', '$state', 'sliderService'];
-adopteitorApp.controller('donarInsumos', transitos);
+adopteitorApp.controller('donarInsumos', donarInsumos);
 
 //------------------------------------------------------------------------------------------------------------//

@@ -7,6 +7,6 @@ function mision($scope, $http, $state, sliderService, $log) {
     $scope.$emit('checkSliderStatus');
 }
 mision.$inject = ['$scope', '$http', '$state', 'sliderService'];
-adopteitorApp.controller('mision', transitos);
+adopteitorApp.controller('mision', mision);
 
 //------------------------------------------------------------------------------------------------------------//

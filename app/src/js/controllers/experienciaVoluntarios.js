@@ -7,6 +7,6 @@ function experienciaVoluntarios($scope, $http, $state, sliderService, $log) {
     $scope.$emit('checkSliderStatus');
 }
 experienciaVoluntarios.$inject = ['$scope', '$http', '$state', 'sliderService'];
-adopteitorApp.controller('experienciaVoluntarios', transitos);
+adopteitorApp.controller('experienciaVoluntarios', experienciaVoluntarios);
 
 //------------------------------------------------------------------------------------------------------------//
