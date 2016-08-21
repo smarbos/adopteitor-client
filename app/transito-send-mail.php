@@ -11,25 +11,25 @@ require_once 'config.php';
 
     //create an instance of PHPMailer
     $mail = new PHPMailer();
+    $mail->CharSet = 'UTF-8';
+    $mail->IsSMTP(); // telling the class to use SMTP
+    $mail->Host       = "mail.adoptaungalgoenargentina.com"; // SMTP server
+    $mail->SMTPDebug  = 0;                     // enables SMTP debug information (for testing)
+    // 1 = errors and messages
+    // 2 = messages only
+    $mail->SMTPOptions = array(
+        'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+        )
+    );
 
-$mail->IsSMTP(); // telling the class to use SMTP
-$mail->Host       = "mail.adoptaungalgoenargentina.com"; // SMTP server
-$mail->SMTPDebug  = 0;                     // enables SMTP debug information (for testing)
-// 1 = errors and messages
-// 2 = messages only
-$mail->SMTPOptions = array(
-    'ssl' => array(
-        'verify_peer' => false,
-        'verify_peer_name' => false,
-        'allow_self_signed' => true
-    )
-);
-
-$mail->SMTPAuth   = true;                  // enable SMTP authentication
-$mail->Host       = "mail.adoptaungalgoenargentina.com"; // sets the SMTP server
-$mail->Port       = 25;                    // set the SMTP port for the GMAIL server
-$mail->Username   = "info@adoptaungalgoenargentina.com"; // SMTP account username
-$mail->Password   = $master_piece;        // SMTP account password
+    $mail->SMTPAuth   = true;                  // enable SMTP authentication
+    $mail->Host       = "mail.adoptaungalgoenargentina.com"; // sets the SMTP server
+    $mail->Port       = 25;                    // set the SMTP port for the GMAIL server
+    $mail->Username   = "info@adoptaungalgoenargentina.com"; // SMTP account username
+    $mail->Password   = $master_piece;        // SMTP account password
 
     $mail->From = $mail->Username;
 	//$mail->From = $_POST['inputEmail'];
