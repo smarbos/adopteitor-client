@@ -191,6 +191,7 @@ adopteitorApp.controller('home', home);
 //------------------------------------------------------------------------------------------------------------//
 function GalgosEnAdopcion($scope, $location, enAdopcionFilter, ENV, $stateParams, sliderService) {
 
+    console.log("[GalgosEnAdopcion]");
     //Give current filtering option to mark it as active in the menu//
     $scope.currentFilter = $stateParams.filter;
 
@@ -211,6 +212,12 @@ function GalgosEnAdopcion($scope, $location, enAdopcionFilter, ENV, $stateParams
             break;
         case "m":
             filter = "galgo_genero=m";
+            break;
+        case "buenos-aires":
+            filter = "galgo_genero=m";
+            break;
+        case "neuquen":
+            filter = "galgo_genero=h";
             break;
     }
           $scope.galgosEnAdopcion = enAdopcionFilter.query({},{'filter': filter});
