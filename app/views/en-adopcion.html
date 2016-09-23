@@ -20,7 +20,6 @@
     <div class="row">
         <div class="col-xs-12">
             <span class="perfil-animal-filtros">
-                [{{currentFilter}}]
                 Filtrar por:
                 <a ui-sref="en-adopcion({filter: '*'})" ui-sref-opts="{reload: true, notify: true}" ng-class="{'active': currentFilter == '*'}">TODOS</a> |
                 <a ui-sref="en-adopcion({filter: 'a'})" ui-sref-opts="{reload: true, notify: true}" ng-class="{'active': currentFilter == 'a'}">ADULTOS</a> |
