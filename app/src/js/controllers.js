@@ -250,19 +250,20 @@ function animalByID($scope, $location, getAnimalByID, $stateParams, ENV, sliderS
     sliderService.updateStatus(false);
     $scope.$emit('checkSliderStatus');
     $scope.apiEndpoint = ENV.apiEndpoint;
+    $scope.currentDomain = ENV.currentDomain;
     $scope.animalByID = getAnimalByID.query({},{'id': $stateParams.id});
     $scope.animalByID.$promise.then(function(data) {
-
         $scope.animal = data;
         $scope.currentImage = $scope.animal.fotos[0];
+
         if($scope.animal['genero']=='m'){
-            $scope.animal.genero = 'macho';
             $scope.genero = "m";
         }
         else{
-            $scope.animal.genero = 'hembra';
             $scope.genero = "h"
         }
+
+
     }, function(error) {
         console.log('error', error);
     }
