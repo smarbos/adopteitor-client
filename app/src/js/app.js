@@ -189,6 +189,11 @@ function routes($stateProvider, $urlRouterProvider) {
             controller: 'LoginController',
             controllerAs: 'vm'
         })
+        .state('privacypolicy', {
+            url: '/privacypolicy',
+            templateUrl: 'views/privacypolicy.html',
+            controller: 'privacypolicy',
+        })
         .state('formulario-adopcion', {
             url: '/formulario-adopcion/:id',
             controller: 'formularioAdopcion',
