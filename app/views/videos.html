@@ -1,0 +1,29 @@
+<div class="container-fluid seccion" id="formularioContacto">
+  <div class="row">
+      <div class="col-sm-3">
+          <span ng-repeat="video in videos">
+              <a >
+              <div class="media media-video">
+                  <a ui-sref="videos({code: '{{video.code}}'})" class="media-left">
+                      <img class="media-object" src="http://www.adopteitor.local/img/logo.png" alt="Generic placeholder image">
+                  </a>
+                  <div class="media-body">
+                      <h4 class="media-heading">{{video.code}} | {{video.titulo}}</h4>
+                      {{video.desc}}
+                  </div>
+              </div>
+          </a>
+        </span>
+      </div>
+      <div class="col-sm-9">
+          <div class="row text-center">
+            <div class="col-xs-12">
+                <h1>Videos {{ videoCode }}</h1>
+            </div>
+            <div class="video-player">
+                <youtube-video video-url="anotherGoodOne"></youtube-video>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
