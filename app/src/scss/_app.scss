@@ -371,7 +371,7 @@ hr{
 
 .squared-thumbnail {
   position: relative;
-  width: 18vw;
+  width: 200px;
   height: 200px;
   overflow: hidden;
   margin: 0 auto;
@@ -392,10 +392,55 @@ hr{
           transform: translate(-50%,-50%);
 }
 .squared-thumbnail img.portrait {
-  width: 100%;
-  height: auto;
+  height: 100%;
+  width: auto;
 }
 
 .seccion{
     margin: 3em 0;
+}
+
+.video-item{
+    padding: 1em;
+    border-radius: 20px;
+    background-color: rgba(51, 122, 183, 0.51);
+    border-color: #2e6da4;
+    margin: 1em;
+
+    h4{
+        font-size: 18px;
+    }
+    p{
+        font-size: 14px;
+    }
+    img{
+        width: 100px;
+        height: 100px;
+        margin-bottom: 1em;
+    }
+
+    &:hover{
+        -webkit-box-shadow: 4px 4px 20px 0px rgba(0,0,0,0.75);
+          -moz-box-shadow: 4px 4px 20px 0px rgba(0,0,0,0.75);
+          box-shadow: 4px 4px 20px 0px rgba(0,0,0,0.75);
+          background-color: rgba(51, 122, 183, 0.70);
+    }
+}
+
+
+.perfil-animal-thumbnail{
+    background-color: red;
+    width: 75px;
+    height: 75px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.thumbnail-container{
+    margin: 0 auto;
+    position: absolute;
+}
+
+.squared-thumbnail-perfil{
+    height: 450px !important;
 }

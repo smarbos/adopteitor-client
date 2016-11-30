@@ -195,7 +195,7 @@ function routes($stateProvider, $urlRouterProvider) {
             controller: 'privacypolicy',
         })
         .state('videos', {
-            url: '/videos/:code',
+            url: '/videos/:id',
             templateUrl: 'views/videos.html',
             controller: 'videos',
             controllerAs: 'vm'

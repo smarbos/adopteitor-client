@@ -1,27 +1,32 @@
 <div class="container-fluid seccion" id="formularioContacto">
   <div class="row">
-      <div class="col-sm-3">
-          <span ng-repeat="video in videos">
-              <a >
-              <div class="media media-video">
-                  <a ui-sref="videos({code: '{{video.code}}'})" class="media-left">
-                      <img class="media-object" src="http://www.adopteitor.local/img/logo.png" alt="Generic placeholder image">
-                  </a>
-                  <div class="media-body">
-                      <h4 class="media-heading">{{video.code}} | {{video.titulo}}</h4>
-                      {{video.desc}}
+      <div class="col-sm-3 video-playlist">
+          <div ng-repeat="video in videos" class="row video-item">
+              <a ui-sref="videos({id: '{{video.id}}'})" class="media-left">
+                  <div class="col-sm-12 text-center">
+                      <img class="img-circle img-thumbnail" src="img/{{video.img}}" alt="Generic placeholder image">
                   </div>
-              </div>
-          </a>
-        </span>
+                  <div class="col-sm-12 text-center">
+                      <h4 class="media-heading">{{video.titulo}}</h4>
+                  </div>
+                  <!-- <div class="col-sm-12">
+                      <p>
+                          {{video.desc}}
+                      </p>
+                  </div> -->
+              </a>
+          </div>
       </div>
       <div class="col-sm-9">
           <div class="row text-center">
-            <div class="col-xs-12">
-                <h1>Videos {{ videoCode }}</h1>
+            <div  ng-if="!currentVideo" class="col-xs-12">
+                <h1>Videos</h1>
+            </div>
+            <div ng-if="currentVideo" class="col-xs-12">
+                <h1>{{currentVideo.titulo}}</h1>
             </div>
             <div class="video-player">
-                <youtube-video video-url="anotherGoodOne"></youtube-video>
+                <youtube-video video-url="videoUrl"></youtube-video>
             </div>
           </div>
       </div>
