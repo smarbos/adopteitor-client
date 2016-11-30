@@ -5,7 +5,36 @@
   &:first-child {
     margin-top: 0;
   }
+  &-video{
+      padding: 1em;
+      border-radius: 20px;
+      background-color: rgba(51, 122, 183, 0.51);
+      border-color: #2e6da4;
+
+      img{
+          width: 100px;
+      }
+      span.media-left{
+          margin: 0px !important;
+          display: block;
+      }
+      .media-heading{
+          font-size: 18px;
+      }
+
+      .media-body{
+          font-size: 14px !important;
+      }
+
+      &:hover{
+          -webkit-box-shadow: 4px 4px 20px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 4px 4px 20px 0px rgba(0,0,0,0.75);
+            box-shadow: 4px 4px 20px 0px rgba(0,0,0,0.75);
+            background-color: rgba(51, 122, 183, 0.70);
+      }
+  }
 }
+
 
 .media,
 .media-body {
@@ -16,7 +45,6 @@
 
 .media-body {
   width: 10000px;
-  // background-color: red;
   padding: 15px;
   font-size: 19px !important;
 

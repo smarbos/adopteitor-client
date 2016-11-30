@@ -2,7 +2,7 @@
 
 //------------------------------------------------------------------------------------------------------------//
 
-var adopteitorApp = angular.module('adopteitorApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'config', 'angularUtils.directives.dirPagination', '720kb.socialshare', 'ngCookies', 'angulartics', 'angulartics.google.analytics']]);
+var adopteitorApp = angular.module('adopteitorApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'config', 'angularUtils.directives.dirPagination', '720kb.socialshare', 'ngCookies', 'youtube-embed']);
 
 //------------------------------------------------------------------------------------------------------------//
 
@@ -187,6 +187,17 @@ function routes($stateProvider, $urlRouterProvider) {
             url: '/login',
             templateUrl: 'views/login.html',
             controller: 'LoginController',
+            controllerAs: 'vm'
+        })
+        .state('privacypolicy', {
+            url: '/privacypolicy',
+            templateUrl: 'views/privacypolicy.html',
+            controller: 'privacypolicy',
+        })
+        .state('videos', {
+            url: '/videos/:id',
+            templateUrl: 'views/videos.html',
+            controller: 'videos',
             controllerAs: 'vm'
         })
         .state('formulario-adopcion', {

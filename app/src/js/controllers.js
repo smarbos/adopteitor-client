@@ -191,6 +191,7 @@ adopteitorApp.controller('home', home);
 //------------------------------------------------------------------------------------------------------------//
 function GalgosEnAdopcion($scope, $location, enAdopcionFilter, ENV, $stateParams, sliderService) {
 
+    console.log("[GalgosEnAdopcion]");
     //Give current filtering option to mark it as active in the menu//
     $scope.currentFilter = $stateParams.filter;
 
@@ -211,6 +212,12 @@ function GalgosEnAdopcion($scope, $location, enAdopcionFilter, ENV, $stateParams
             break;
         case "m":
             filter = "galgo_genero=m";
+            break;
+        case "buenos-aires":
+            filter = "galgo_genero=m";
+            break;
+        case "neuquen":
+            filter = "galgo_genero=h";
             break;
     }
           $scope.galgosEnAdopcion = enAdopcionFilter.query({},{'filter': filter});
@@ -243,19 +250,20 @@ function animalByID($scope, $location, getAnimalByID, $stateParams, ENV, sliderS
     sliderService.updateStatus(false);
     $scope.$emit('checkSliderStatus');
     $scope.apiEndpoint = ENV.apiEndpoint;
+    $scope.currentDomain = ENV.currentDomain;
     $scope.animalByID = getAnimalByID.query({},{'id': $stateParams.id});
     $scope.animalByID.$promise.then(function(data) {
-
         $scope.animal = data;
         $scope.currentImage = $scope.animal.fotos[0];
+
         if($scope.animal['genero']=='m'){
-            $scope.animal.genero = 'macho';
             $scope.genero = "m";
         }
         else{
-            $scope.animal.genero = 'hembra';
             $scope.genero = "h"
         }
+
+
     }, function(error) {
         console.log('error', error);
     }

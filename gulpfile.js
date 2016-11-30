@@ -78,6 +78,10 @@ gulp.task('compress_services_js', function() {
       suffix: '.min'
     }))
     .pipe(minify({
+        ext:{
+            src:'-debug.js',
+            min:'.js'
+        },
         exclude: ['tasks'],
         ignoreFiles: ['.combo.js', '-min.js']
     }))

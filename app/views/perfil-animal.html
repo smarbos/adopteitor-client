@@ -26,10 +26,10 @@
         <div class="col-xs-12 col-sm-5 col-xs-offset-1">
             <div class="squared-thumbnail squared-thumbnail-perfil">
                 <img src="{{ apiEndpoint }}/static{{ currentImage }}" class="portrait" alt="Image" />
-              </div>
+             </div>
             <div class="row perfil-animal-thumbnails">
-                <div class="col-xs-2" ng-repeat="foto in animal.fotos">
-                    <img src="{{ apiEndpoint }}/static{{ foto }}" ng-click="showImage(foto)" alt="Foto de perfil de {{ animal.nombre }}" class="img-responsive perfil-animal-thumbnail"/>
+                <div class="thumbnail-container">
+                    <div class="col-xs-2 perfil-animal-thumbnail" ng-repeat="foto in animal.fotos"  alt="Foto de perfil de {{ animal.nombre }}" ng-click="showImage(foto)" style="background: url({{ apiEndpoint }}/static{{ foto }}); background-size: cover;"></div>
                 </div>
             </div>
         </div>
@@ -50,43 +50,44 @@
                 <a class="visible-xs" href="" style="display:inline-block!important"
                 socialshare
                 socialshare-provider="whatsapp"
-                socialshare-text="{{ animal.nombre }} esta en adopcion! Tiene {{ animal.edad }} años y es un {{ animal.genero }}."
-                socialshare-url="http://www.adopteitor.local/#/perfilAnimal/{{animal.id}}">
+                socialshare-text="{{ animal.nombre }} esta en adopcion!"
+                socialshare-url="{{ currentDomain }}/perfilAnimal/{{animal.id}}">
                     <span class="social-button social-button-whatsapp"><i class="fa fa-size_small fa-whatsapp" aria-hidden="true"></i></span>
                 </a>
                 <a href=""
                 socialshare
                 socialshare-provider="facebook"
-                socialshare-text="{{ animal.nombre }} esta en adopcion! Tiene {{ animal.edad }} años y es un {{ animal.genero }}."
-                socialshare-description="{{ animal.nombre }} esta en adopcion! Tiene {{ animal.edad }} años y es un {{ animal.genero }}."
-                socialshare-hashtags="{{ animal.genero }}, {{ animal.nombre }}, adopta, adoptaungalgoenargentina"
+                socialshare-via="235955076772407"
+                socialshare-text="{{ animal.nombre }} esta en adopcion!"
+                socialshare-description="{{ animal.nombre }} esta en adopcion!"
+                socialshare-hashtags="{{ genero }}, {{ animal.nombre }}, adopta, adoptaungalgoenargentina, galgosEnAdopcion, stopGalgueros"
                 socialshare-media="{{ apiEndpoint }}/static{{ currentImage }}"
                 socialshare-from="adoptaungalgoenargentina"
                 socialshare-type="feed"
-                socialshare-url="http://www.adopteitor.local/#/perfilAnimal/{{animal.id}}">
+                socialshare-url="{{ currentDomain }}/perfilAnimal/{{ animal.id }}">
                     <span class="social-button social-button-facebook"><i class="fa fa-size_small fa-facebook" aria-hidden="true"></i></span>
                 </a>
                 <a href=""
                 socialshare
                 socialshare-provider="twitter"
-                socialshare-text="{{ animal.nombre }} esta en adopcion! Tiene {{ animal.edad }} años y es un {{ animal.genero }}."
+                socialshare-text="{{ animal.nombre }} esta en adopcion!"
                 socialshare-hashtags="{{ animal.genero }}, {{ animal.nombre }}, adopta, adoptaungalgoenargentina"
-                socialshare-url="http://www.adopteitor.local/#/perfilAnimal/{{animal.id}}">
+                socialshare-url="{{ currentDomain }}/perfilAnimal/{{animal.id}}">
                 <span class="social-button social-button-twitter"><i class="fa fa-size_small fa-twitter" aria-hidden="true"></i></span>
                 </a>
                 <a href=""
                 socialshare
                 socialshare-provider="google"
-                socialshare-url="http://www.adopteitor.local/#/perfilAnimal/{{animal.id}}">
+                socialshare-url="{{ currentDomain }}/perfilAnimal/{{animal.id}}">
                     <span class="social-button social-button-google"><i class="fa fa-size_small fa-google" aria-hidden="true"></i></span>
                 </a>
                 <a href=""
                 socialshare
                 socialshare-provider="email"
-                socialshare-body="{{ animal.nombre }} esta en adopcion! Tiene {{ animal.edad }} años y es un {{ animal.genero }}.<br>Para mas informacion visita: http://www.adopteitor.local/#/perfilAnimal/{{animal.id}}"
-                socialshare-subject="Mira que hermoso animal en adopcion!"
+                socialshare-body="{{ animal.nombre }} esta en adopcion!<br>Para mas informacion visita: {{ currentDomain }}/perfilAnimal/{{animal.id}}"
+                socialshare-subject="Mira que hermoso galgui en adopcion!"
                 socialshare-cc="info@adoptaungalgoenargentina.com.ar"
-                socialshare-url="http://www.adopteitor.local/#/perfilAnimal/{{animal.id}}">
+                socialshare-url="{{ currentDomain }}/perfilAnimal/{{animal.id}}">
                     <span class="social-button social-button-email"><i class="fa fa-size_small fa-envelope" aria-hidden="true"></i></span>
                 </a>
             </div>
