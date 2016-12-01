@@ -1,196 +1,199 @@
-<!doctype html>
-<html lang="en" ng-app="adopteitorApp">
-<head>
-  <base href="/index.html">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!doctype html>
+    <html lang="en" ng-app="adopteitorApp">
+    <head>
+      <base href="/index.html">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+      <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+      <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 
-  <!-- <link rel="stylesheet" href="allstyles.css"> -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300,400italic' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="bower_components/flexslider/flexslider.css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="dist/css/stylesheet.css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="bower_components/sweetalert2/dist/sweetalert2.css" media="screen" title="no title" charset="utf-8">
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+      <!-- <link rel="stylesheet" href="allstyles.css"> -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+      <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300,400italic' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css" media="screen" title="no title" charset="utf-8">
+      <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" media="screen" title="no title" charset="utf-8">
+      <link rel="stylesheet" href="bower_components/flexslider/flexslider.css" media="screen" title="no title" charset="utf-8">
+      <link rel="stylesheet" href="dist/css/stylesheet.css" media="screen" title="no title" charset="utf-8">
+      <link rel="stylesheet" href="bower_components/sweetalert2/dist/sweetalert2.css" media="screen" title="no title" charset="utf-8">
+      <link rel="stylesheet" href="bower_components/lightbox2/dist/css/lightbox.min.css" media="screen" title="no title" charset="utf-8">
+      <script src="bower_components/jquery/dist/jquery.min.js"></script>
 
-  <meta property="og:url"           content="http://www.adoptaungalgoenargentina.com" />
-  <meta property="og:type"          content="website" />
-  <meta property="og:title"         content="Adopta un galgo en Argentina." />
-  <meta property="og:description"   content="Sitio web oficial de Adopta un galgo en Argentina." />
-  <meta property="og:image"         content="http://www.adoptaungalgoenargentina.com/img/logo.png" />
+      <meta property="og:url"           content="http://www.adoptaungalgoenargentina.com" />
+      <meta property="og:type"          content="website" />
+      <meta property="og:title"         content="Adopta un galgo en Argentina." />
+      <meta property="og:description"   content="Sitio web oficial de Adopta un galgo en Argentina." />
+      <meta property="og:image"         content="http://www.adoptaungalgoenargentina.com/img/logo.png" />
 
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-79881062-1', 'auto');
-  ga('send', 'pageview');
+      ga('create', 'UA-79881062-1', 'auto');
+      ga('send', 'pageview');
 
-</script>
-
-</head>
-<body ng-controller="body">
-    <div class="row menu-container">
-        <main-Menu></main-Menu>
-    </div>
-    <div class="container-fluid" id="headerContainer">
-        <div class="flexslider" ng-class="{'flexslider-compact': !showSlider}">
-            <div class="box" ng-show="showSlider">
-              <h2>Sin hogares de tránsito no podemos <strong>rescatar</strong> galgos.</h2>
-              <h2>Sumate y se parte de sus nuevas vidas!</h2>
-              <a class="btn btn-primary btn-lg" ui-sref="transitos" role="button">Quiero saber mas</a>
-            </div>
-        <ul class="slides">
-          <li ng-repeat="slide in slides">
-            <img src="/img/slider/01.jpg" />
-          </li>
-          <li>
-            <img src="/img/slider/02.jpg" />
-          </li>
-          <li>
-            <img src="/img/slider/03.jpg" />
-          </li>
-          <li>
-            <img src="/img/slider/04.jpg" />
-          </li>
-        </ul>
-      </div>
-      <div id="header">
-        <a ui-sref="home">
-            <img src="img/logo.png" alt="Adopta un Galgo en Argentina" id="logo" class="hidden-xs hidden-sm"/>
-        </a>
-        <a ui-sref="home">
-            <img src="img/logo.png" alt="Adopta un Galgo en Argentina" id="logo" class="hidden-md hidden-lg"/>
-        </a>
-
-      </div>
-
-    </div>
-    <div class="container-fluid" id="main-content-container" autoscroll="false" ui-view></div>
-    <footer>
-    <div class="container-fluid main-footer">
-        <div class="main-footer-call-to-action">
-            <p>
-                No te pierdas las ultimas <strong>novedades</strong>, rescates y encuentros <strong>¡Seguinos en las redes sociales!</strong>
-            </p>
-            <a href="https://www.facebook.com/adoptaungalgoenargentina/" target="_blank"><i class="fa  fa-size_medium fa-facebook" aria-hidden="true"></i></a>
-            <a href="https://twitter.com/adoptaungalgo" target="_blank"><i class="fa  fa-size_medium fa-twitter" aria-hidden="true"></i></a>
-            <a href="https://www.instagram.com/adoptaungalgo/" target="_blank"><i class="fa  fa-size_medium fa-instagram" aria-hidden="true"></i></a>
-        </div>
-        <div class="row main-footer-links">
-            <div class="col-xs-12 col-sm-2 col-sm-offset-1">
-                <ul>
-                    <li>Nosostros</li>
-                    <li><a ui-sref="mision">Mision</a></li>
-                    <li><a ui-sref="como-trabajamos">Como trabajamos?</a></li>
-                    <li><a ui-sref="experiencia-de-voluntarios">Experiencias de voluntarios</a></li>
-                    <li><a ui-sref="contacto">Contacto</a></li>
-                </ul>
-            </div>
-            <div class="col-xs-12 col-sm-2">
-                <ul>
-                    <li>En adopcion</li>
-                    <li><a ui-sref="en-adopcion">Todos</a></li>
-                    <li><a ui-sref="en-adopcion({filter: 'a'})">Adultos</a></li>
-                    <li><a ui-sref="en-adopcion({filter: 'c'})">Cachorros</a></li>
-                    <li><a ui-sref="en-adopcion({filter: 'h'})">Hembras</a></li>
-                    <li><a ui-sref="en-adopcion({filter: 'm'})">Machos</a></li>
-                </ul>
-            </div>
-            <div class="col-xs-12 col-sm-2">
-                <ul>
-                    <li>¿Como ayudo?</li>
-                    <li><a ui-sref="transitos">Transitar</a></li>
-                    <li><a ui-sref="donaciones" analytics-on="click" analytics-event="Donar">Donar</a></li>
-                    <li><a ui-sref="difundir">Difundir</a></li>
-                    <li><a ui-sref="not-found">Comprar en el shop solidario</a></li>
-                    <li><a ui-sref="donar-insumos">Donar insumos o alimentos</a></li>
-                </ul>
-            </div>
-            <!-- <div class="col-xs-12 col-sm-2">
-                <ul>
-                    <li>Multimedia</li>
-                    <li><a ui-sref="not-found">Antes y despues</a></li>
-                    <li><a ui-sref="not-found">De los rescates</a></li>
-                    <li><a ui-sref="not-found">Material para prensa</a></li>
-                    <li><a ui-sref="not-found">Guias y descargas</a></li>
-                    <li><a ui-sref="not-found">Galerias de imagenes</a></li>
-                </ul>
-            </div>
-            <div class="col-xs-12 col-sm-2">
-                <ul>
-                    <li>Tengo un galgo</li>
-                    <li><a ui-sref="not-found">Sobre la raza</a></li>
-                    <li><a ui-sref="not-found">Los galgos y la salud</a></li>
-                    <li><a ui-sref="not-found">Recomendaciones</a></li>
-                </ul>
-            </div> -->
-        </div>
-        <div class="row text-center main-footer-legales">
-            <p>
-                2016 Adopta un galgo Argentina. Todos los derechos reservados.
-            </p>
-        </div>
-    </div>
-    </footer>
-
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-ui/build/angular-ui.min.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
-    <script src="bower_components/flexslider/jquery.flexslider-min.js"></script>
-    <script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
-    <script src="bower_components/angular-socialshare/dist/angular-socialshare.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script src="bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
-    <script src="bower_components/angulartics/dist/angulartics.min.js"></script>
-    <script src="bower_components/angulartics-google-analytics/dist/angulartics-google-analytics.min.js"></script>
-    <script src="https://www.youtube.com/iframe_api"></script>
-    <script src="bower_components/angular-youtube-mb/dist/angular-youtube-embed.min.js"></script>
-    <!-- <script src="alljavascript.js"></script> -->
-    <script type="text/javascript" src="src/js/app.js"></script>
-    <script type="text/javascript" src="src/js/config.js"></script>
-    <script type="text/javascript" src="src/js/controllers.js"></script>
-    <script type="text/javascript" src="src/js/controllers/comoTrabajamos.js"></script>
-    <script type="text/javascript" src="src/js/controllers/contacto.js"></script>
-    <script type="text/javascript" src="src/js/controllers/difundir.js"></script>
-    <script type="text/javascript" src="src/js/controllers/donaciones.js"></script>
-    <script type="text/javascript" src="src/js/controllers/donarinsumos.js"></script>
-    <script type="text/javascript" src="src/js/controllers/experienciaVoluntarios.js"></script>
-    <script type="text/javascript" src="src/js/controllers/finalesFelices.js"></script>
-    <script type="text/javascript" src="src/js/controllers/formulario-adopcion.js"></script>
-    <script type="text/javascript" src="src/js/controllers/mision.js"></script>
-    <script type="text/javascript" src="src/js/controllers/transitos.js"></script>
-    <script type="text/javascript" src="src/js/controllers/ultimos-rescates.js"></script>
-    <script type="text/javascript" src="src/js/controllers/privacypolicy.js"></script>
-    <script type="text/javascript" src="src/js/controllers/videos.js"></script>
-    <script type="text/javascript" src="src/js/directives.js"></script>
-    <script type="text/javascript" src="src/js/services.js"></script>
-
-
-    <script>
-         $(document).ready(function(){
-            $('.dropdown-toggle').dropdown()
-        });
     </script>
-    <script type="text/javascript" charset="utf-8">
-    $(window).load(function() {
-      $('.flexslider').flexslider({
-          controlNav: false,
-          directionNav: false
-      });
-    });
-  </script>
-</body>
-</html>
+
+    </head>
+    <body ng-controller="body">
+        <div class="row menu-container">
+            <main-Menu></main-Menu>
+        </div>
+        <div class="container-fluid" id="headerContainer">
+            <div class="flexslider" ng-class="{'flexslider-compact': !showSlider}">
+                <div class="box" ng-show="showSlider">
+                  <h2>Sin hogares de tránsito no podemos <strong>rescatar</strong> galgos.</h2>
+                  <h2>Sumate y se parte de sus nuevas vidas!</h2>
+                  <a class="btn btn-primary btn-lg" ui-sref="transitos" role="button">Quiero saber mas</a>
+                </div>
+            <ul class="slides">
+              <li ng-repeat="slide in slides">
+                <img src="/img/slider/01.jpg" />
+              </li>
+              <li>
+                <img src="/img/slider/02.jpg" />
+              </li>
+              <li>
+                <img src="/img/slider/03.jpg" />
+              </li>
+              <li>
+                <img src="/img/slider/04.jpg" />
+              </li>
+            </ul>
+          </div>
+          <div id="header">
+            <a ui-sref="home">
+                <img src="img/logo.png" alt="Adopta un Galgo en Argentina" id="logo" class="hidden-xs hidden-sm"/>
+            </a>
+            <a ui-sref="home">
+                <img src="img/logo.png" alt="Adopta un Galgo en Argentina" id="logo" class="hidden-md hidden-lg"/>
+            </a>
+
+          </div>
+
+        </div>
+        <div class="container-fluid" id="main-content-container" autoscroll="false" ui-view></div>
+        <footer>
+        <div class="container-fluid main-footer">
+            <div class="main-footer-call-to-action">
+                <p>
+                    No te pierdas las ultimas <strong>novedades</strong>, rescates y encuentros <strong>¡Seguinos en las redes sociales!</strong>
+                </p>
+                <a href="https://www.facebook.com/adoptaungalgoenargentina/" target="_blank"><i class="fa  fa-size_medium fa-facebook" aria-hidden="true"></i></a>
+                <a href="https://twitter.com/adoptaungalgo" target="_blank"><i class="fa  fa-size_medium fa-twitter" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/adoptaungalgo/" target="_blank"><i class="fa  fa-size_medium fa-instagram" aria-hidden="true"></i></a>
+            </div>
+            <div class="row main-footer-links">
+                <div class="col-xs-12 col-sm-2 col-sm-offset-1">
+                    <ul>
+                        <li>Nosostros</li>
+                        <li><a ui-sref="mision">Mision</a></li>
+                        <li><a ui-sref="como-trabajamos">Como trabajamos?</a></li>
+                        <li><a ui-sref="experiencia-de-voluntarios">Experiencias de voluntarios</a></li>
+                        <li><a ui-sref="contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-2">
+                    <ul>
+                        <li>En adopcion</li>
+                        <li><a ui-sref="en-adopcion">Todos</a></li>
+                        <li><a ui-sref="en-adopcion({filter: 'a'})">Adultos</a></li>
+                        <li><a ui-sref="en-adopcion({filter: 'c'})">Cachorros</a></li>
+                        <li><a ui-sref="en-adopcion({filter: 'h'})">Hembras</a></li>
+                        <li><a ui-sref="en-adopcion({filter: 'm'})">Machos</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-2">
+                    <ul>
+                        <li>¿Como ayudo?</li>
+                        <li><a ui-sref="transitos">Transitar</a></li>
+                        <li><a ui-sref="donaciones" analytics-on="click" analytics-event="Donar">Donar</a></li>
+                        <li><a ui-sref="difundir">Difundir</a></li>
+                        <li><a ui-sref="not-found">Comprar en el shop solidario</a></li>
+                        <li><a ui-sref="donar-insumos">Donar insumos o alimentos</a></li>
+                    </ul>
+                </div>
+                <!-- <div class="col-xs-12 col-sm-2">
+                    <ul>
+                        <li>Multimedia</li>
+                        <li><a ui-sref="not-found">Antes y despues</a></li>
+                        <li><a ui-sref="not-found">De los rescates</a></li>
+                        <li><a ui-sref="not-found">Material para prensa</a></li>
+                        <li><a ui-sref="not-found">Guias y descargas</a></li>
+                        <li><a ui-sref="not-found">Galerias de imagenes</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-2">
+                    <ul>
+                        <li>Tengo un galgo</li>
+                        <li><a ui-sref="not-found">Sobre la raza</a></li>
+                        <li><a ui-sref="not-found">Los galgos y la salud</a></li>
+                        <li><a ui-sref="not-found">Recomendaciones</a></li>
+                    </ul>
+                </div> -->
+            </div>
+            <div class="row text-center main-footer-legales">
+                <p>
+                    2016 Adopta un galgo Argentina. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+        </footer>
+
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-ui/build/angular-ui.min.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+        <script src="bower_components/flexslider/jquery.flexslider-min.js"></script>
+        <script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
+        <script src="bower_components/angular-socialshare/dist/angular-socialshare.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+        <script src="bower_components/angulartics/dist/angulartics.min.js"></script>
+        <script src="bower_components/angulartics-google-analytics/dist/angulartics-google-analytics.min.js"></script>
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <script src="bower_components/angular-youtube-mb/dist/angular-youtube-embed.min.js"></script>
+        <script src="bower_components/lightbox2/dist/js/lightbox.min.js"></script>
+        <!-- <script src="bower_components/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script> -->
+        <!-- <script src="alljavascript.js"></script> -->
+        <script type="text/javascript" src="src/js/app.js"></script>
+        <script type="text/javascript" src="src/js/config.js"></script>
+        <script type="text/javascript" src="src/js/controllers.js"></script>
+        <script type="text/javascript" src="src/js/controllers/comoTrabajamos.js"></script>
+        <script type="text/javascript" src="src/js/controllers/contacto.js"></script>
+        <script type="text/javascript" src="src/js/controllers/difundir.js"></script>
+        <script type="text/javascript" src="src/js/controllers/donaciones.js"></script>
+        <script type="text/javascript" src="src/js/controllers/donarinsumos.js"></script>
+        <script type="text/javascript" src="src/js/controllers/experienciaVoluntarios.js"></script>
+        <script type="text/javascript" src="src/js/controllers/finalesFelices.js"></script>
+        <script type="text/javascript" src="src/js/controllers/formulario-adopcion.js"></script>
+        <script type="text/javascript" src="src/js/controllers/mision.js"></script>
+        <script type="text/javascript" src="src/js/controllers/transitos.js"></script>
+        <script type="text/javascript" src="src/js/controllers/ultimos-rescates.js"></script>
+        <script type="text/javascript" src="src/js/controllers/privacypolicy.js"></script>
+        <script type="text/javascript" src="src/js/controllers/videos.js"></script>
+        <script type="text/javascript" src="src/js/directives.js"></script>
+        <script type="text/javascript" src="src/js/services.js"></script>
+
+
+        <script>
+             $(document).ready(function(){
+                $('.dropdown-toggle').dropdown()
+            });
+        </script>
+        <script type="text/javascript" charset="utf-8">
+        $(window).load(function() {
+          $('.flexslider').flexslider({
+              controlNav: false,
+              directionNav: false
+          });
+        });
+      </script>
+    </body>
+    </html>

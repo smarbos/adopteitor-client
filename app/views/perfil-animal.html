@@ -25,7 +25,13 @@
         </div>
         <div class="col-xs-12 col-sm-5 col-xs-offset-1">
             <div class="squared-thumbnail squared-thumbnail-perfil">
-                <img src="{{ apiEndpoint }}/static{{ currentImage }}" class="portrait" alt="Image" />
+                <a class="example-image-link" href="{{ apiEndpoint }}/static{{ currentImage }}" data-lightbox="example-2" data-title="{{ animal.nombre }}">
+                    <img src="{{ apiEndpoint }}/static{{ currentImage }}" data-lightbox="example-set" class="portrait" alt="Image" />
+                </a>
+
+                <a style="display:none !important;" ng-repeat="foto in animal.fotos" ng-if="$index > 0" class="example-image-link" href="{{ apiEndpoint }}/static{{ foto }}" data-lightbox="example-2" data-title="{{ animal.nombre }}">
+                    <img src="{{ apiEndpoint }}/static{{ foto }}" data-lightbox="example-set" class="portrait" alt="Image" />
+                </a>
              </div>
             <div class="row perfil-animal-thumbnails">
                 <div class="thumbnail-container">
