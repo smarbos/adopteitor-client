@@ -439,3 +439,11 @@ hr{
 .squared-thumbnail-perfil{
     height: 450px !important;
 }
+
+iframe{
+    border: none !important;
+    outline: none !important;
+}
+iframe .summary{
+        top: 90px !important;
+}

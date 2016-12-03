@@ -20,6 +20,7 @@ function donaciones($scope, $http, $state, sliderService, $log) {
                   html: '<iframe width=\"100%\" height=\"400px\" src='+response.data.response.init_point+'></iframe>',
                   showCloseButton: false,
                   showCancelButton: false,
+                  showConfirmButton: false,
                   confirmButtonText:
                     '<i class="fa fa-thumbs-up"></i> Great!',
                   cancelButtonText:
