@@ -52,7 +52,7 @@
         </div>
          <div class="row ultimos-rescates" ng-controller="ultimosRescates">
              <h1 class="titulo">Últimos rescates</h1>
-            <div class="tarjeta-animal tarjeta-animal-home" ng-if="!animales" ng-class="" ng-repeat="animal in animales | limitTo:-5 | orderBy:'time':true">
+            <div class="tarjeta-animal tarjeta-animal-home" ng-if="animales.length != 0" ng-class="" ng-repeat="animal in animales | limitTo:-5 | orderBy:'time':true">
                 <a ui-sref="perfilAnimal({id: {{animal.id}}})" class="ultimos-rescates-animal">
                     <div class="squared-thumbnail">
                         <img src="{{ apiEndpoint }}/static{{ animal.fotos[0] }}" class="portrait" alt="Image" />
@@ -60,7 +60,7 @@
                     <span class="hembra">{{animal.nombre}}</span>
                 </a>
             </div>
-            <div class="text-center" ng-if="!animales">
+            <div class="text-center" ng-if="animales.length == 0" >
                 <h2>Cargando...</h2>
             </div>
             <div class="col-xs-12 text-center">
