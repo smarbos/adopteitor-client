@@ -57,7 +57,7 @@
                     <div class="squared-thumbnail">
                         <img src="{{ apiEndpoint }}/static{{ animal.fotos[0] }}" class="portrait" alt="Image" />
                       </div>
-                    <span class="{{animal.genero}}}">{{animal.nombre}}</span>
+                    <span ng-class="{'m': 'macho', 'h': 'hembra'}[animal.genero]">{{animal.nombre}}</span>
                 </a>
             </div>
             <div class="text-center" ng-if="animales.length == 0" >
