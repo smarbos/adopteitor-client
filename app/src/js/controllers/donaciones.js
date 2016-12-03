@@ -16,9 +16,8 @@ function donaciones($scope, $http, $state, sliderService, $log) {
         }).then(function successCallback(response) {
             console.log(response);
             swal({
-                  title: 'Pagar',
-                  type: 'info',
-                  html: '<iframe width=\"100%\" height=\"500px\" src='+response.data.response.init_point+'></iframe>',
+                  width: '800',
+                  html: '<iframe width=\"100%\" height=\"400px\" src='+response.data.response.init_point+'></iframe>',
                   showCloseButton: false,
                   showCancelButton: false,
                   confirmButtonText:
