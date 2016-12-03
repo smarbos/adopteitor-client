@@ -16,11 +16,11 @@ function donaciones($scope, $http, $state, sliderService, $log) {
         }).then(function successCallback(response) {
             console.log(response);
             swal({
-                  title: '<i>HTML</i> <u>example</u>',
+                  title: 'Pagar',
                   type: 'info',
-                  html: '<iframe src='+response.data.response.init_point+'></iframe>',
-                  showCloseButton: true,
-                  showCancelButton: true,
+                  html: '<iframe width=\"100%\" height=\"500px\" src='+response.data.response.init_point+'></iframe>',
+                  showCloseButton: false,
+                  showCancelButton: false,
                   confirmButtonText:
                     '<i class="fa fa-thumbs-up"></i> Great!',
                   cancelButtonText:
