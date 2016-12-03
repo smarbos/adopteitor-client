@@ -45,10 +45,10 @@
           <h2>MercadoPago</h2>
           <p>Por cada donacion, se nos descuenta el 7% por gastos del servicio.</p>
           <form>
-          <label>$&nbsp;&nbsp;</label><input type="text" size="5" type="number" />
+          <label>$&nbsp;&nbsp;</label><input name="monto_a_donar" ng-model="monto_a_donar" type="text" size="5" type="number" />
           <br/> <br/>
-          <a class="btn btn-lg btn-primary" href="donar.php" role="button" id="botonAzul">Donar!</a>
+          <a class="btn btn-lg btn-primary" ng-click="donar()" role="button" id="botonAzul">Donar!</a>
           </form>
         </div>
     </div>
-    </div></div>
+    </div></div><script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
