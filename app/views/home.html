@@ -52,7 +52,7 @@
         </div>
          <div class="row ultimos-rescates" ng-controller="ultimosRescates">
              <h1 class="titulo">Últimos rescates</h1>
-             <h1>{animales.length}</h1>
+             <h1>{{ animales.length }}</h1>
             <div class="tarjeta-animal tarjeta-animal-home" ng-class="" ng-repeat="animal in animales | limitTo:-5 | orderBy:'time':true">
                 <a ui-sref="perfilAnimal({id: {{animal.id}}})" class="ultimos-rescates-animal">
                     <div class="squared-thumbnail">
