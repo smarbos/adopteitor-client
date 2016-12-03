@@ -1,8 +1,9 @@
 <?php
 
 require_once ('mercadopago.php');
+require_once ('mercadopago_config.php');
 
-$mp = new MP ("1751144349475172", "BwyDLC0352NZ6UL5LCvPgz8LNZYxAkow");
+$mp = new MP ($client_id, $client_secret);
 
 $preference_data = array (
     "items" => array (
