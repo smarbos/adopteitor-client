@@ -15,7 +15,7 @@
     <h1>Galgos en adopcion</h1>
   </div>
   <div class="text-center" id="listapepos">
-    <div class="col-sm-3" ng-repeat="galgo in galgosEnAdopcion | limitTo : 8 ">
+    <div class="col-sm-3" ng-if="galgosEnAdopcion.length != 0" ng-repeat="galgo in galgosEnAdopcion | limitTo : 8 ">
       <div class="tarjetaEnAdopcion">
         <div id="edad" ng-class="{'m': 'macho', 'h': 'hembra'}[galgo.genero]">
             <p></p>
@@ -25,6 +25,9 @@
         <p class="desc">{{galgo.desc | limitTo : 30 }}{{galgo.desc.length > 30 ? '...' : ''}}</p>
         <span><a class="btn btn-primary" href="#" role="button" ng-click="saberMas(galgo.id)">Saber mas!</a></span>
       </div>
+    </div>
+    <div class="text-center" ng-if="galgosEnAdopcion.length == 0" >
+        <h2>Cargando...</h2>
     </div>
   </div>
 </div>

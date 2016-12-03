@@ -32,7 +32,7 @@
         </div>
     </div>
     <div class="text-center">
-        <div class="tarjeta-animal" dir-paginate="galgo in galgosEnAdopcion | itemsPerPage: 24"  current-page="currentPage">
+        <div class="tarjeta-animal" ng-if="galgosEnAdopcion.length != 0" dir-paginate="galgo in galgosEnAdopcion | itemsPerPage: 24"  current-page="currentPage">
             <span ng-if="!galgosEnAdopcion"><h2>No hay resultados para su busqueda.</h2></span>
           <a ui-sref="perfilAnimal({id: {{galgo.id}}})" class="ultimos-rescates-animal">
               <div class="squared-thumbnail" style="background: url({{apiEndpoint}}/static{{ galgo.fotos[0] }}) no-repeat center center; background-size:cover;">
@@ -40,6 +40,9 @@
                 </div>
               <span ng-class="{'m': 'macho', 'h': 'hembra'}[galgo.genero]">{{galgo.nombre}}</span>
           </a>
+        </div>
+        <div class="text-center" ng-if="galgosEnAdopcion.length == 0" >
+            <h2>Cargando...</h2>
         </div>
     </div>
     <div class="row">
