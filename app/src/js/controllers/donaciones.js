@@ -17,7 +17,19 @@ function donaciones($scope, $http, $state, sliderService, $log) {
             // this callback will be called asynchronously
             // when the response is available
             console.log(response);
+            swal({
+                  title: '<i>HTML</i> <u>example</u>',
+                  type: 'info',
+                  html: '<iframe src='.response.init_point.'></iframe>',
+                  showCloseButton: true,
+                  showCancelButton: true,
+                  confirmButtonText:
+                    '<i class="fa fa-thumbs-up"></i> Great!',
+                  cancelButtonText:
+                    '<i class="fa fa-thumbs-down"></i>'
+                });
           }, function errorCallback(response) {
+              console.log(response);
             // called asynchronously if an error occurs
             // or server returns response with an error status.
           });
