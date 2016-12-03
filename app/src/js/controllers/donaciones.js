@@ -6,7 +6,7 @@ function donaciones($scope, $http, $state, sliderService, $log) {
     sliderService.updateStatus(false);
     $scope.$emit('checkSliderStatus');
 
-    $scope.donar = function(){
+    $scope.donarMP = function(){
         console.log("DONATION");
         console.log($scope.monto_a_donar);
 
@@ -29,6 +29,26 @@ function donaciones($scope, $http, $state, sliderService, $log) {
           }, function errorCallback(response) {
               console.log(response);
           });
+    }
+
+    $scope.donarDeposito = function(){
+        swal({
+          title: '<strong>Deposito Bancario</strong>',
+          type: 'info',
+          html:
+            'Banco de la Nacion Argentina<br> ' +
+            'Sucursal Virreyes, Provincia de Buenos Aires. <br> ' +
+            '<strong>Cuenta Corriente Nro.:</strong> <i>6200384/25</i> <br>' +
+            '<strong>CBU Nro.:</strong> <i>0110620220062000384256</i> <br>' +
+            '<strong>Titular:</strong> <i>ASOCIACION CIVIL ADOPTA UN GALGO EN ARGENTINA</i> <br>' +
+            '<strong>CUIT:</strong> <i>30-71502788-3</i>',
+          showCloseButton: true,
+          showCancelButton: false,
+          confirmButtonText:
+            '<i class="fa fa-thumbs-up"></i> Listo!',
+          cancelButtonText:
+            '<i class="fa fa-thumbs-down"></i>'
+        });
     }
 
 }
