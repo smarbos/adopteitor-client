@@ -18,7 +18,7 @@ function donaciones($scope, $http, $state, sliderService, $log) {
             swal({
                   title: '<i>HTML</i> <u>example</u>',
                   type: 'info',
-                  html: '<iframe src='+response.init_point+'></iframe>',
+                  html: '<iframe src='+response.data.response.init_point+'></iframe>',
                   showCloseButton: true,
                   showCancelButton: true,
                   confirmButtonText:
