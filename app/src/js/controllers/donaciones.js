@@ -33,7 +33,7 @@ function donaciones($scope, $http, $state, sliderService, $log) {
 
     $scope.donarDeposito = function(){
         swal({
-          title: '<strong>Deposito Bancario</strong>',
+          title: 'Deposito Bancario',
           type: 'info',
           html:
             'Banco de la Nacion Argentina<br> ' +
