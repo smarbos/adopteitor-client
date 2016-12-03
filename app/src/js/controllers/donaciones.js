@@ -45,7 +45,7 @@ function donaciones($scope, $http, $state, sliderService, $log) {
           showCloseButton: true,
           showCancelButton: false,
           confirmButtonText:
-            '<i class="fa fa-thumbs-up"></i> Listo!',
+            'Listo!',
           cancelButtonText:
             '<i class="fa fa-thumbs-down"></i>'
         });
