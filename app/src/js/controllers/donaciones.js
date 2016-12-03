@@ -14,13 +14,11 @@ function donaciones($scope, $http, $state, sliderService, $log) {
           method: 'GET',
           url: 'https://www.adoptaungalgoenargentina.com/create_payment.php?amount='+$scope.monto_a_donar
         }).then(function successCallback(response) {
-            // this callback will be called asynchronously
-            // when the response is available
             console.log(response);
             swal({
                   title: '<i>HTML</i> <u>example</u>',
                   type: 'info',
-                  html: '<iframe src='.response.init_point.'></iframe>',
+                  html: '<iframe src='+response.init_point+'></iframe>',
                   showCloseButton: true,
                   showCancelButton: true,
                   confirmButtonText:
@@ -30,8 +28,6 @@ function donaciones($scope, $http, $state, sliderService, $log) {
                 });
           }, function errorCallback(response) {
               console.log(response);
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
           });
     }
 
