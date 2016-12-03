@@ -27,7 +27,7 @@
           <h2>DineroYa</h2>
           <p>Por cada donacion, se nos descuenta el 5% por gastos del servicio.</p>
           <form>
-          <label>$&nbsp;&nbsp;</label><input type="text" size="5" type="number" />
+          <label>$&nbsp;&nbsp;</label><input step="50"size="5" type="number" />
           <br/> <br/>
           <a class="btn btn-lg btn-primary" href="enadopcion.php" role="button" id="botonVioleta">Donar!</a>
           </form>
@@ -45,7 +45,7 @@
           <h2>MercadoPago</h2>
           <p>Por cada donacion, se nos descuenta el 7% por gastos del servicio.</p>
           <form>
-          <label>$&nbsp;&nbsp;</label><input name="monto_a_donar" ng-model="monto_a_donar" type="text" size="5" type="number" />
+          <label>$&nbsp;&nbsp;</label><input name="monto_a_donar" value="100" ng-model="monto_a_donar" step="50" size="3" type="number" />
           <br/> <br/>
           <a class="btn btn-lg btn-primary" ng-click="donarMP()" role="button" id="botonAzul">Donar!</a>
           </form>

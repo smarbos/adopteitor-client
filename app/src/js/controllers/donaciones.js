@@ -5,10 +5,11 @@ function donaciones($scope, $http, $state, sliderService, $log) {
     // $log.debug('[donaciones.js]');
     sliderService.updateStatus(false);
     $scope.$emit('checkSliderStatus');
-
+    $scope.monto_a_donar = 100;
     $scope.donarMP = function(){
         console.log("DONATION");
         console.log($scope.monto_a_donar);
+
 
         $http({
           method: 'GET',
