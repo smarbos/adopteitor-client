@@ -13,7 +13,7 @@ function donaciones($scope, $http, $state, sliderService, $log) {
 
         $http({
           method: 'GET',
-          url: 'https://www.adoptaungalgoenargentina.com/create_payment.php?amount='+$scope.monto_a_donar
+          url: 'http://www.adoptaungalgoenargentina.com/create_payment.php?amount='+$scope.monto_a_donar
         }).then(function successCallback(response) {
             console.log(response);
             swal({
