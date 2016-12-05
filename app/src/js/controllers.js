@@ -221,8 +221,38 @@ function GalgosEnAdopcion($scope, $location, enAdopcionFilter, ENV, $stateParams
             break;
     }
           $scope.galgosEnAdopcion = enAdopcionFilter.query({},{'filter': filter});
-          $scope.galgosEnAdopcion.$promise.then(function(data) {
+
+          var getGalgosDone = false;
+          var getGalgos = function(){
+              console.log('getGalgos start');
+              setTimeout(function () {
+                  if(!getGalgosDone){
+                      getGalgos();
+                  }
+              }, 3000);
+              var getGalgosPromise = new Promise(function(resolve, reject){
+
+                  $scope.galgosEnAdopcion.$promise.then(function(data) {
+                      console.log('galgosEnAdopcion.$promise.then');
+                      resolve(data);
+                      var getGalgosDone = true;
+                  }).catch(function(error){
+                      console.log('galgosEnAdopcion.$promise.catch');
+                      reject(error);
+                  });
+
+              });
+
+              return getGalgosPromise;
+          }
+
+          getGalgos().then(function(data){
+              console.log('getGalgos.then');
+              console.log(data);
               $scope.galgosEnAdopcionRes = data.results;
+          }).catch(function(error){
+              console.log('getGalgos.catch');
+              console.log(error);
           });
           $scope.apiEndpoint = ENV.apiEndpoint;
           $scope.params = $stateParams;
