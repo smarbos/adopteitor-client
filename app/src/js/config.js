@@ -15,13 +15,14 @@ angular.module('config', [])
 
 //------------------------------------------------------------------------------------------------------------//
 
-function config($httpProvider, $locationProvider) {
+function config($httpProvider, $locationProvider, $resourceProvider) {
+    $resourceProvider.defaults.stripTrailingSlashes = false;
     $httpProvider.defaults.xsrfCookieName = 'csrftoken';
     $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
     $locationProvider.html5Mode(true);
     $locationProvider.hashPrefix('!');
 }
-config.$inject = ['$httpProvider', '$locationProvider'];
+config.$inject = ['$httpProvider', '$locationProvider', '$resourceProvider'];
 adopteitorApp.config(config);
 
 //------------------------------------------------------------------------------------------------------------//
