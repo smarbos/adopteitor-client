@@ -4,12 +4,12 @@ angular.module('config', [])
   .constant('ENV', {
 
     'name': 'produccion',
-    'apiEndpoint': 'https://www.adoptaungalgoenargentina.com:8080',
-    'currentDomain': 'https://www.adoptaungalgoenargentina.com'
+    'apiEndpoint': 'http://www.adoptaungalgoenargentina.com:8080',
+    'currentDomain': 'http://www.adoptaungalgoenargentina.com'
 
-    //'name': 'development',
-    //'apiEndpoint': 'http://www.adopteitor.local:8080',
-    //'currentDomain': 'http://adopteitor.local'
+    // 'name': 'development',
+    // 'apiEndpoint': 'http://www.adopteitor.local:8080',
+    // 'currentDomain': 'http://adopteitor.local'
 
   });
 
