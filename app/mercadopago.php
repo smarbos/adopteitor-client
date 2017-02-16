@@ -3,7 +3,7 @@
 /**
  * MercadoPago Integration Library
  * Access MercadoPago for payments integration
- * 
+ *
  * @author hcasatti
  *
  */
@@ -20,7 +20,7 @@ class MP {
     private $sandbox = FALSE;
 
     function __construct() {
-        $i = func_num_args(); 
+        $i = func_num_args();
 
         if ($i > 2 || $i < 1) {
             throw new MercadoPagoException("Invalid arguments. Use CLIENT_ID and CLIENT SECRET, or ACCESS_TOKEN");
@@ -82,7 +82,7 @@ class MP {
      */
     public function get_payment($id) {
         $uri_prefix = $this->sandbox ? "/sandbox" : "";
-            
+
         $request = array(
             "uri" => $uri_prefix."/collections/notifications/{$id}",
             "params" => array(
@@ -101,7 +101,7 @@ class MP {
      * Get information for specific authorized payment
      * @param id
      * @return array(json)
-    */    
+    */
     public function get_authorized_payment($id) {
         $request = array(
             "uri" => "/authorized_payments/{$id}",
@@ -186,7 +186,7 @@ class MP {
         $filters["limit"] = $limit;
 
         $uri_prefix = $this->sandbox ? "/sandbox" : "";
-            
+
         $request = array(
             "uri" => $uri_prefix."/collections/search",
             "params" => array_merge ($filters, array(
@@ -291,8 +291,8 @@ class MP {
      * Update a preapproval payment
      * @param string $preapproval_payment, $id
      * @return array(json)
-     */ 
-    
+     */
+
     public function update_preapproval_payment($id, $preapproval_payment) {
         $request = array(
             "uri" => "/preapproval/{$id}",

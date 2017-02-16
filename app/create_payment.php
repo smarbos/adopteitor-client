@@ -6,7 +6,6 @@ ini_set('display_errors', 1);
 
 error_reporting(-1);
 require_once ('mercadopago.php');
-echo "test";
 require_once ('mercadopago_config.php');
 
 $mp = new MP ($client_id, $client_secret);

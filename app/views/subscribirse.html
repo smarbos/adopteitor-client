@@ -1,0 +1,17 @@
+<div class="seccion" id="subscribirse" ng-controller="subscribirse">
+    <div class="row" id="comoAyudar" ng-class="{ 'processing' : procesando}">
+      <div class="col-lg-2 col-lg-offset-1">
+        <img class="img-circle" src="img/icons/Bank-icon.png" alt="Generic placeholder image" width="140" height="140">
+      </div>
+      <div class="col-lg-7 col-lg-offset-1  text-left">
+          <h2>Subscribirse</h2>
+          <p>Dona un monto fijo mensualmente y recibi nuestro exclusivo newsletter!</p>
+          <form>
+              <label>$&nbsp;&nbsp;</label><input step="50" size="5" ng-model="montoSubscripcion" type="number" />
+              <br/> <br/>
+              <a class="btn btn-lg btn-primary" href="#" role="button" id="botonVerde" ng-click="donarDeposito()">Donar!</a>
+          </form>
+      </div>
+    </div>
+    </div>
+</div>

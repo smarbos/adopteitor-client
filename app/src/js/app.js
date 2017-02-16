@@ -167,6 +167,11 @@ function routes($stateProvider, $urlRouterProvider) {
             controller: 'donaciones',
             templateUrl: 'views/donaciones.html'
         })
+        .state('subscribirse', {
+            url: '/subscribirse',
+            controller: 'subscribirse',
+            templateUrl: 'views/subscribirse.html'
+        })
         .state('perfilAnimal', {
             url: '/perfilAnimal/:id',
             controller: 'animalByID',
