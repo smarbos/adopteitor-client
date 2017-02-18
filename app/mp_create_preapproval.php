@@ -2,8 +2,18 @@
 require_once ('mercadopago_config.php');
 require_once ('mercadopago.php');
 
+date_default_timezone_set('America/Argentina/Buenos_Aires');
 
 $mp = new MP ($client_id, $client_secret);
+$time = new DateTime;
+$time->add(new DateInterval('PT' . 5 . 'M'));
+$now = (string)$time->format(DateTime::ATOM);
+$current_date = date('Y-m-d\TH:i:s.000P', strtotime($now));
+
+$end_time = new DateTime;
+$end_time->add(new DateInterval('P' . 1 . 'Y'));
+$end_now = (string)$end_time->format(DateTime::ATOM);
+$end_date = date('Y-m-d\TH:i:s.000P', strtotime($end_now));
 
 $preapprovalPayment_data = array(
     "payer_email" => "my_customer@my_site.com",
@@ -15,8 +25,8 @@ $preapprovalPayment_data = array(
         "frequency_type" => "months",
         "transaction_amount" => $_GET['monto'],
         "currency_id" => "ARS",
-        "start_date" => "2017-02-16T14:58:11.778-03:00",
-        "end_date" => "2018-06-10T14:58:11.778-03:00"
+        "start_date" => $current_date,
+        "end_date" => $end_date
     )
 );
 $preapprovalPayment = $mp->create_preapproval_payment($preapprovalPayment_data);
