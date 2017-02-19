@@ -6,7 +6,7 @@ function difundir($scope, $http, $state, sliderService, $log) {
     sliderService.updateStatus(false);
     $scope.$emit('checkSliderStatus');
 }
-difundir.$inject = ['$scope', '$http', '$state', 'sliderService'];
+difundir.$inject = ['$scope', '$http', '$state', 'sliderService', '$log'];
 adopteitorApp.controller('difundir', difundir);
 
 //------------------------------------------------------------------------------------------------------------//

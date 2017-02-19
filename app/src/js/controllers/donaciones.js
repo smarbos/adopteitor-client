@@ -2,7 +2,7 @@
 //------------------------------------------------------------------------------------------------------------//
 
 function donaciones($scope, $http, $state, sliderService, $log) {
-    // $log.debug('[donaciones.js]');
+    $log.debug('[donaciones.js]');
     sliderService.updateStatus(false);
     $scope.$emit('checkSliderStatus');
     $scope.monto_a_donar = 100;
@@ -53,7 +53,7 @@ function donaciones($scope, $http, $state, sliderService, $log) {
     }
 
 }
-donaciones.$inject = ['$scope', '$http', '$state', 'sliderService'];
+donaciones.$inject = ['$scope', '$http', '$state', 'sliderService', '$log'];
 adopteitorApp.controller('donaciones', donaciones);
 
 //------------------------------------------------------------------------------------------------------------//

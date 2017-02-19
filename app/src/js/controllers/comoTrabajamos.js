@@ -6,7 +6,7 @@ function comoTrabajamos($scope, $http, $state, sliderService, $log) {
     sliderService.updateStatus(false);
     $scope.$emit('checkSliderStatus');
 }
-comoTrabajamos.$inject = ['$scope', '$http', '$state', 'sliderService'];
+comoTrabajamos.$inject = ['$scope', '$http', '$state', 'sliderService', '$log'];
 adopteitorApp.controller('comoTrabajamos', comoTrabajamos);
 
 //------------------------------------------------------------------------------------------------------------//

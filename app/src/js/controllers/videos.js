@@ -8,7 +8,7 @@ function videos($scope, $http, $state, sliderService, $log) {
     }
 
     angular.forEach(videoItems, function(value, key) {console.log(key) }, $log);
-    // $log.debug('[videos.js]');
+    $log.debug('[videos.js]');
     $scope.videos = [
         {
             'id': 1,
@@ -51,7 +51,7 @@ function videos($scope, $http, $state, sliderService, $log) {
     sliderService.updateStatus(false);
     $scope.$emit('checkSliderStatus');
 }
-videos.$inject = ['$scope', '$http', '$state', 'sliderService'];
+videos.$inject = ['$scope', '$http', '$state', 'sliderService', '$log'];
 adopteitorApp.controller('videos', videos);
 
 //------------------------------------------------------------------------------------------------------------//

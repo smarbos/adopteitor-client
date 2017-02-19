@@ -6,7 +6,7 @@ function privacypolicy($scope, $http, $state, sliderService, $log) {
     sliderService.updateStatus(false);
     $scope.$emit('checkSliderStatus');
 }
-privacypolicy.$inject = ['$scope', '$http', '$state', 'sliderService'];
+privacypolicy.$inject = ['$scope', '$http', '$state', 'sliderService', '$log'];
 adopteitorApp.controller('privacypolicy', privacypolicy);
 
 //------------------------------------------------------------------------------------------------------------//

@@ -6,7 +6,7 @@ function finalesFelices($scope, $http, $state, sliderService, $log) {
     sliderService.updateStatus(false);
     $scope.$emit('checkSliderStatus');
 }
-finalesFelices.$inject = ['$scope', '$http', '$state', 'sliderService'];
+finalesFelices.$inject = ['$scope', '$http', '$state', 'sliderService', '$log'];
 adopteitorApp.controller('finalesFelices', finalesFelices);
 
 //------------------------------------------------------------------------------------------------------------//

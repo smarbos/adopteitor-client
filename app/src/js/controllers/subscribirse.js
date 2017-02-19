@@ -16,13 +16,13 @@ function subscribirse($scope, $http, $state, sliderService, $log) {
               url: '/mpauth.php'
             }).then(function successCallback(response) {
                 var access_token = response.data;
-                console.log(access_token);
-                console.log('monto:'+  $scope.montoSubscripcion);
+                $log.debug(access_token);
+                $log.debug('monto:'+  $scope.montoSubscripcion);
                 $http({
                   method: 'POST',
                   url: '/mp_create_preapproval.php?monto='+$scope.montoSubscripcion
                 }).then(function successCallback(response) {
-                    console.log(response);
+                    $log.debug(response);
                     swal({
                           width: '800',
                           height: '800',
@@ -37,10 +37,10 @@ function subscribirse($scope, $http, $state, sliderService, $log) {
                         });
                         $scope.procesando = false;
                 }, function errorCallback(error) {
-                      console.log(error);
+                      $log.error(error);
                   });
             }, function errorCallback(error) {
-                  console.log(error);
+                  $log.error(error);
               });
 
         }else{
@@ -51,7 +51,7 @@ function subscribirse($scope, $http, $state, sliderService, $log) {
     }
 
 }
-subscribirse.$inject = ['$scope', '$http', '$state', 'sliderService'];
+subscribirse.$inject = ['$scope', '$http', '$state', 'sliderService', '$log'];
 adopteitorApp.controller('subscribirse', subscribirse);
 
 //------------------------------------------------------------------------------------------------------------//

@@ -61,7 +61,7 @@ adopteitorApp.factory('FormularioAdopcionFactory', FormularioAdopcionFactory);
 
 //------------------------------------------------------------------------------------------------------------//
 
-function Authentication($cookies, $http, ENV) {
+function Authentication($cookies, $http, ENV, $log) {
   var Authentication = {
     getAuthenticatedAccount: getAuthenticatedAccount,
     isAuthenticated: isAuthenticated,
@@ -89,7 +89,7 @@ function Authentication($cookies, $http, ENV) {
     }
 
     function registerErrorFn(data, status, headers, config) {
-      console.error('Epic failure!');
+      $log.error('Epic failure!');
     }
   }
 
@@ -101,11 +101,11 @@ function Authentication($cookies, $http, ENV) {
         function loginSuccessFn(data, status, headers, config) {
             Authentication.setAuthenticatedAccount(data.data);
             // window.location = '/';
-            console.log(data.data);
+            $log.debug(data.data);
         }
 
         function loginErrorFn(data, status, headers, config) {
-            console.error('Epic failure!');
+            $log.error('Epic failure!');
         }
     }
 
@@ -120,7 +120,7 @@ function Authentication($cookies, $http, ENV) {
       }
 
       function logoutErrorFn(data, status, headers, config) {
-        console.error('Epic failure!');
+        $log.error('Epic failure!');
       }
     }
 
@@ -144,26 +144,26 @@ function Authentication($cookies, $http, ENV) {
     delete $cookies.authenticatedAccount;
   }
 }
-Authentication.$inject = ['$cookies', '$http', 'ENV']
+Authentication.$inject = ['$cookies', '$http', 'ENV', '$log']
 adopteitorApp.factory('Authentication', Authentication);
 
 //------------------------------------------------------------------------------------------------------------//
 
-function sliderService() {
+function sliderService($log) {
 
     var status;
 
     this.updateStatus = function (newStatus) {
         status = newStatus;
-        console.log(status);
         return status;
     }
 
     this.checkStatus = function () {
-        console.log(status);
+        $log.debug('sliderService Status: '+status);
         return status;
     }
 }
+sliderService.$inject = ['$log']
 adopteitorApp.service('sliderService', sliderService);
 
 //------------------------------------------------------------------------------------------------------------//
@@ -189,9 +189,9 @@ home.$inject = ['$scope', '$location', 'enAdopcion', 'ENV', 'sliderService'];
 adopteitorApp.controller('home', home);
 
 //------------------------------------------------------------------------------------------------------------//
-function GalgosEnAdopcion($scope, $location, enAdopcionFilter, ENV, $stateParams, sliderService) {
+function GalgosEnAdopcion($scope, $location, enAdopcionFilter, ENV, $stateParams, sliderService, $log) {
 
-    console.log("[GalgosEnAdopcion]");
+    $log.debug("[GalgosEnAdopcion]");
     //Give current filtering option to mark it as active in the menu//
     $scope.currentFilter = $stateParams.filter;
 
@@ -224,7 +224,7 @@ function GalgosEnAdopcion($scope, $location, enAdopcionFilter, ENV, $stateParams
 
           var getGalgosDone = false;
           var getGalgos = function(){
-              console.log('getGalgos start');
+              $log.debug('getGalgos start');
               setTimeout(function () {
                   if(!getGalgosDone){
                       getGalgos();
@@ -233,11 +233,13 @@ function GalgosEnAdopcion($scope, $location, enAdopcionFilter, ENV, $stateParams
               var getGalgosPromise = new Promise(function(resolve, reject){
 
                   $scope.galgosEnAdopcion.$promise.then(function(data) {
-                      console.log('galgosEnAdopcion.$promise.then');
+                      $log.debug('galgosEnAdopcion.$promise.then');
+                      $log.debug(data);
                       resolve(data);
+                      $log.debug(data);
                       var getGalgosDone = true;
                   }).catch(function(error){
-                      console.log('galgosEnAdopcion.$promise.catch');
+                      $log.debug('galgosEnAdopcion.$promise.catch');
                       reject(error);
                   });
 
@@ -247,18 +249,18 @@ function GalgosEnAdopcion($scope, $location, enAdopcionFilter, ENV, $stateParams
           }
 
           getGalgos().then(function(data){
-              console.log('getGalgos.then');
-              console.log(data);
+              $log.debug('getGalgos.then');
+              $log.debug(data);
               $scope.galgosEnAdopcionRes = data.results;
           }).catch(function(error){
-              console.log('getGalgos.catch');
-              console.log(error);
+              $log.debug('getGalgos.catch');
+              $log.debug(error);
           });
           $scope.apiEndpoint = ENV.apiEndpoint;
           $scope.params = $stateParams;
 
 }
-GalgosEnAdopcion.$inject = ['$scope', '$location', 'enAdopcionFilter', 'ENV', '$stateParams', 'sliderService'];
+GalgosEnAdopcion.$inject = ['$scope', '$location', 'enAdopcionFilter', 'ENV', '$stateParams', 'sliderService', '$log'];
 adopteitorApp.controller('GalgosEnAdopcion', GalgosEnAdopcion);
 
 //------------------------------------------------------------------------------------------------------------//
@@ -266,7 +268,7 @@ adopteitorApp.controller('GalgosEnAdopcion', GalgosEnAdopcion);
 function notFound($scope, $location, getAnimalByID, $stateParams, ENV, sliderService) {
 
     // sliderService.updateStatus(false);
-    // console.log("XX");
+    // $log.debug("XX");
     // $scope.$emit('checkSliderStatus');
     // $scope.$apply();
 }
@@ -275,7 +277,7 @@ adopteitorApp.controller('notFound', notFound);
 
 //------------------------------------------------------------------------------------------------------------//
 
-function animalByID($scope, $location, getAnimalByID, $stateParams, ENV, sliderService, enAdopcionFilter) {
+function animalByID($scope, $location, getAnimalByID, $stateParams, ENV, sliderService, enAdopcionFilter, $log) {
 
     sliderService.updateStatus(false);
     $scope.$emit('checkSliderStatus');
@@ -295,7 +297,7 @@ function animalByID($scope, $location, getAnimalByID, $stateParams, ENV, sliderS
 
 
     }, function(error) {
-        console.log('error', error);
+        $log.debug('error', error);
     }
     );
 
@@ -304,7 +306,7 @@ function animalByID($scope, $location, getAnimalByID, $stateParams, ENV, sliderS
 
         $scope.totalAnimalAmount = data.length;
     }, function(error) {
-        console.log('error', error);
+        $log.debug('error', error);
     }
     );
     // $scope.currentImage = $scope.animal.fotos[0];
@@ -315,7 +317,7 @@ function animalByID($scope, $location, getAnimalByID, $stateParams, ENV, sliderS
     }
 
 }
-animalByID.$inject = ['$scope', '$location', 'getAnimalByID', '$stateParams', 'ENV', 'sliderService', 'enAdopcionFilter'];
+animalByID.$inject = ['$scope', '$location', 'getAnimalByID', '$stateParams', 'ENV', 'sliderService', 'enAdopcionFilter', '$log'];
 adopteitorApp.controller('animalByID', animalByID);
 
 //------------------------------------------------------------------------------------------------------------//

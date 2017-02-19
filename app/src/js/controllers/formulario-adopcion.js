@@ -1,7 +1,7 @@
 
 //------------------------------------------------------------------------------------------------------------//
 
-function formularioAdopcion($scope, FormularioAdopcionFactory, $http, getAnimalByID, ENV, $stateParams, $state, sliderService) {
+function formularioAdopcion($scope, FormularioAdopcionFactory, $http, getAnimalByID, ENV, $stateParams, $state, sliderService, $log) {
     sliderService.updateStatus(false);
     $scope.$emit('checkSliderStatus');
     $scope.apiEndpoint = ENV.apiEndpoint;
@@ -15,7 +15,7 @@ function formularioAdopcion($scope, FormularioAdopcionFactory, $http, getAnimalB
             $scope.animal['genero'] = 'hembra';
         }
     }, function(error) {
-        console.log('error', error);
+        $log.error(error);
     }
     );
     id = $stateParams.id;
@@ -63,7 +63,7 @@ function formularioAdopcion($scope, FormularioAdopcionFactory, $http, getAnimalB
         }
     }
 }
-formularioAdopcion.$inject = ['$scope', 'FormularioAdopcionFactory', '$http', 'getAnimalByID', 'ENV', '$stateParams', '$state', 'sliderService'];
+formularioAdopcion.$inject = ['$scope', 'FormularioAdopcionFactory', '$http', 'getAnimalByID', 'ENV', '$stateParams', '$state', 'sliderService', '$log'];
 adopteitorApp.controller('formularioAdopcion', formularioAdopcion);
 
 //------------------------------------------------------------------------------------------------------------//

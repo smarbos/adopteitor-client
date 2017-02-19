@@ -1,6 +1,6 @@
 
 //------------------------------------------------------------------------------------------------------------//
-function contacto($scope, $location, getAnimalByID, $stateParams, ENV, $http, $state, sliderService) {
+function contacto($scope, $location, getAnimalByID, $stateParams, ENV, $http, $state, sliderService, $log) {
     sliderService.updateStatus(false);
     $scope.$emit('checkSliderStatus');
     $scope.success = false;
@@ -36,7 +36,7 @@ function contacto($scope, $location, getAnimalByID, $stateParams, ENV, $http, $s
                       }
                     });
                 } else {
-                    console.error("failure");
+                    $log.error("failure");
                     $scope.submitted = false;
                     $scope.submitButtonDisabled = false;
                 }
@@ -47,7 +47,7 @@ function contacto($scope, $location, getAnimalByID, $stateParams, ENV, $http, $s
         }
     }
 }
-contacto.$inject = ['$scope', '$location', 'getAnimalByID', '$stateParams', 'ENV', '$http', '$state', 'sliderService'];
+contacto.$inject = ['$scope', '$location', 'getAnimalByID', '$stateParams', 'ENV', '$http', '$state', 'sliderService', '$log'];
 adopteitorApp.controller('contacto', contacto);
 
 //------------------------------------------------------------------------------------------------------------//

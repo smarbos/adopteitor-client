@@ -1,7 +1,7 @@
 
 //------------------------------------------------------------------------------------------------------------//
 
-function transitos($scope, $http, $state, sliderService) {
+function transitos($scope, $http, $state, sliderService, $log) {
     sliderService.updateStatus(false);
     $scope.$emit('checkSliderStatus');
     $scope.success = false;
@@ -37,7 +37,7 @@ function transitos($scope, $http, $state, sliderService) {
                       }
                     });
                 } else {
-                    console.error("failure");
+                    $log.error("failure");
                     $scope.submitted = false;
                     $scope.submitButtonDisabled = false;
                 }
@@ -48,7 +48,7 @@ function transitos($scope, $http, $state, sliderService) {
         }
     }
 }
-transitos.$inject = ['$scope', '$http', '$state', 'sliderService'];
+transitos.$inject = ['$scope', '$http', '$state', 'sliderService', '$log'];
 adopteitorApp.controller('transitos', transitos);
 
 //------------------------------------------------------------------------------------------------------------//

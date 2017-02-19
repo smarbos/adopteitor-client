@@ -6,7 +6,7 @@ function experienciaVoluntarios($scope, $http, $state, sliderService, $log) {
     sliderService.updateStatus(false);
     $scope.$emit('checkSliderStatus');
 }
-experienciaVoluntarios.$inject = ['$scope', '$http', '$state', 'sliderService'];
+experienciaVoluntarios.$inject = ['$scope', '$http', '$state', 'sliderService', '$log'];
 adopteitorApp.controller('experienciaVoluntarios', experienciaVoluntarios);
 
 //------------------------------------------------------------------------------------------------------------//
