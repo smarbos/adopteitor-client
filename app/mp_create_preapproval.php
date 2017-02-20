@@ -16,10 +16,10 @@ $end_now = (string)$end_time->format(DateTime::ATOM);
 $end_date = date('Y-m-d\TH:i:s.000P', strtotime($end_now));
 
 $preapprovalPayment_data = array(
-    "payer_email" => "my_customer@my_site.com",
+    "payer_email" => $_GET['email'],
     "back_url" => "http://www.adoptaungalgoenargentina.com/subscripcion-exitosa",
     "reason" => "Subscripcion mensual de Adopta un Galgo en Argentina",
-    "external_reference" => "OP-1234",
+    "external_reference" => uniqid(),
     "auto_recurring" => array(
         "frequency" => 1,
         "frequency_type" => "months",
@@ -29,6 +29,7 @@ $preapprovalPayment_data = array(
         "end_date" => $end_date
     )
 );
+
 $preapprovalPayment = $mp->create_preapproval_payment($preapprovalPayment_data);
 
 die(json_encode($preapprovalPayment));
