@@ -51,7 +51,6 @@ $ch = curl_init();
            $head = curl_exec($ch);
            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
            curl_close($ch);
-           die(var_dump($head, $httpCode));
 
 die(json_encode($preapprovalPayment));
 ?>
