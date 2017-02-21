@@ -37,6 +37,7 @@ function subscribirse($scope, $http, $state, sliderService, $log) {
                                 showCloseButton: false,
                                 showCancelButton: false,
                                 showConfirmButton: false,
+                                customClass: 'subscribirseModal',
                                 confirmButtonText:
                                   '<i class="fa fa-thumbs-up"></i> Great!',
                                 cancelButtonText:
