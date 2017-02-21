@@ -39,7 +39,7 @@ $object = [
     "transaction_amount" => $_GET['monto']
 ];
 
-$url = $current_domain+'/Subscripcion/';
+$url = 'http://www.adoptaungalgoenargentina.com:8080/Subscripcion/';
 
 $ch = curl_init();
            curl_setopt($ch, CURLOPT_URL, $url);
