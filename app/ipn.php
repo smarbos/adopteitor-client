@@ -1,6 +1,8 @@
 <?php
 
-$object = [ "content" => json_encode($_GET) ];
+$paymentInfo = $mp->get_payment_info($_GET["id"]);
+
+$object = [ "content" => json_encode($paymentInfo) ];
 
 $url = 'http://www.adoptaungalgoenargentina.com:8080/Ipn/';
 
