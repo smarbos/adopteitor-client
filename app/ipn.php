@@ -1,5 +1,10 @@
 <?php
 
+require_once ('mercadopago_config.php');
+require_once ('mercadopago.php');
+
+$mp = new MP ($client_id, $client_secret);
+
 $paymentInfo = $mp->get_payment_info($_GET["id"]);
 
 $object = [ "content" => json_encode($paymentInfo) ];
