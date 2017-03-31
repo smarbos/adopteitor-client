@@ -44,23 +44,38 @@
         </div>
         <div class="container-fluid" id="headerContainer">
             <div class="flexslider" ng-class="{'flexslider-compact': !showSlider}">
+            <ul class="slides">
+              <li ng-repeat="slide in slides">
+                <img src="/img/slider/01.jpg" />
                 <div class="box" ng-show="showSlider">
                   <h2>Sin hogares de tránsito no podemos <strong>rescatar</strong> galgos.</h2>
                   <h2>Sumate y se parte de sus nuevas vidas!</h2>
                   <a class="btn btn-primary btn-lg" ui-sref="transitos" role="button">Quiero saber mas</a>
                 </div>
-            <ul class="slides">
-              <li ng-repeat="slide in slides">
-                <img src="/img/slider/01.jpg" />
               </li>
               <li>
                 <img src="/img/slider/02.jpg" />
+                <div class="box resaltar" ng-show="showSlider">
+                  <h2>Ayudanos con una <br><strong>donacion mensual</strong>.</h2>
+                  <h2>La suma de voluntades hace cosas increíbles!</h2>
+                  <a class="btn btn-primary btn-lg" ui-sref="subscribirse" role="button">Subscribirse</a>
+                </div>
               </li>
               <li>
                 <img src="/img/slider/03.jpg" />
+                <div class="box" ng-show="showSlider">
+                  <h2>Sin hogares de tránsito no podemos <strong>rescatar</strong> galgos.</h2>
+                  <h2>Sumate y se parte de sus nuevas vidas!</h2>
+                  <a class="btn btn-primary btn-lg" ui-sref="transitos" role="button">Quiero saber mas</a>
+                </div>
               </li>
               <li>
                 <img src="/img/slider/04.jpg" />
+                <div class="box resaltar" ng-show="showSlider">
+                  <h2>Ayudanos con una <br><strong>donacion mensual</strong>.</h2>
+                  <h2>La suma de voluntades hace cosas increíbles!</h2>
+                  <a class="btn btn-primary btn-lg" ui-sref="subscribirse" role="button">Subscribirse</a>
+                </div>
               </li>
             </ul>
           </div>
