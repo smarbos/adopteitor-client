@@ -168,7 +168,14 @@ function routes($stateProvider, $urlRouterProvider) {
             templateUrl: 'views/donaciones.html'
         })
         .state('subscribirse', {
-            url: '/subscribirse',
+            url: '/subscribirse/:amount',
+            params: {
+            amount: {
+              value: '100',
+              squash: false
+            },
+            hiddenParam: 'YES',
+          },
             controller: 'subscribirse',
             templateUrl: 'views/subscribirse.html'
         })

@@ -5,7 +5,8 @@ function donaciones($scope, $http, $state, sliderService, $log) {
     $log.debug('[donaciones.js]');
     sliderService.updateStatus(false);
     $scope.$emit('checkSliderStatus');
-    $scope.monto_a_donar = 100;
+    $scope.monto_a_donar = $scope.subscriptionAmount;
+    $scope.subscription;
     $scope.donarMP = function(){
         console.log("DONATION");
         console.log($scope.monto_a_donar);
@@ -50,6 +51,10 @@ function donaciones($scope, $http, $state, sliderService, $log) {
           cancelButtonText:
             '<i class="fa fa-thumbs-down"></i>'
         });
+    }
+
+    $scope.donarSubscripcion = function() {
+      $state.go('subscribirse', {amount: document.getElementsByName("subscriptionAmount")[0].value}, {reload: true});
     }
 
 }

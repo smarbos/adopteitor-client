@@ -1,11 +1,12 @@
 
 //------------------------------------------------------------------------------------------------------------//
 
-function subscribirse($scope, $http, $state, sliderService, $log) {
-    // $log.debug('[donaciones.js]');
+function subscribirse($scope, $http, $state, sliderService, $log, $stateParams) {
+
+    $log.debug('[donaciones.js]');
     sliderService.updateStatus(false);
     $scope.$emit('checkSliderStatus');
-    $scope.montoSubscripcion;
+    $scope.montoSubscripcion = parseInt($stateParams.amount) ;
     $scope.procesando = false;
 
     $scope.donarDeposito = function(){
@@ -66,7 +67,7 @@ function subscribirse($scope, $http, $state, sliderService, $log) {
     }
 
 }
-subscribirse.$inject = ['$scope', '$http', '$state', 'sliderService', '$log'];
+subscribirse.$inject = ['$scope', '$http', '$state', 'sliderService', '$log', "$stateParams"];
 adopteitorApp.controller('subscribirse', subscribirse);
 
 //------------------------------------------------------------------------------------------------------------//
