@@ -1,0 +1,109 @@
+<div class="perfil-animal">
+    <div class="row  perfil-animal-footer">
+        <div class="col-xs-10 col-xs-offset-1">
+            <div class="perfil-animal-texto">
+                <h2 class="titulo">¿COMO ES EL PROCESO DE ADOPCIÓN?</h2>
+                <p class="lead">
+                    Para adoptar primero enviamos un cuestionario que tiene como finalidad conocer un poco la dinámica familiar y a partir de ahí poder recomendarles el Galgo que más se acerca a su forma de vida,
+                    para que él y ustedes disfruten de una feliz convivencia y una gran experiencia.
+                    Sucesivamente se realiza una entrevista en el hogar donde viviría el galgo para conocernos, hablar sobre la responsabilidad de la adopción,
+                    que puedan hacernos todas las preguntas que necesite y chequear que el lugar sea seguro para la mascota.
+                    La adopción de un Galgo debe ser pensada y tomada muy seriamente. Al adoptar un animal se toma un compromiso por el resto de su vida.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 hidden-xs">
+            <!-- <span class="perfil-animal-filtros">Filtrar por: <a ui-sref="en-adopcion({filter: '*'})" ui-sref-opts="{reload: true, notify: true}" ng-class="{'active': currentFilter == '*'}">TODOS</a> | <a ui-sref="en-adopcion({filter: 'a'})" ng-class="{'active': currentFilter == 'a'}">ADULTOS</a> | <a ui-sref="en-adopcion({filter: 'c'})" ui-sref-opts="{reload: true, notify: true}" ng-class="{'active': currentFilter == 'c'}">CACHORROS</a> | <a ui-sref="en-adopcion({filter: 'h'})" ui-sref-opts="{reload: true, notify: true}" ng-class="{'active': currentFilter == 'h'}">HEMBRAS</a> | <a ui-sref="en-adopcion({filter: 'm'})" ui-sref-opts="{reload: true, notify: true}" ng-class="{'active': currentFilter == 'm'}">MACHOS</a> </span> -->
+            &nbsp;
+        </div>
+    </div>
+    <div class="row" style="position:relative;">
+        <div class="col-xs-1 perfil-animal-navigation perfil-animal-navigation-prev">
+            <span class=""><a href="#" ng-click="previousAnimal()" ng-show="animal.id > 1"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></span>
+        </div>
+        <div class="col-xs-12 col-sm-5 col-xs-offset-1">
+            <div class="squared-thumbnail squared-thumbnail-perfil">
+                <a class="example-image-link" href="{{ apiEndpoint }}/static{{ currentImage }}" data-lightbox="example-2" data-title="{{ animal.nombre }}">
+                    <img src="{{ apiEndpoint }}/static{{ currentImage }}" data-lightbox="example-set" class="portrait" alt="Image" />
+                </a>
+
+                <a style="display:none !important;" ng-repeat="foto in animal.fotos" ng-if="$index > 0" class="example-image-link" href="{{ apiEndpoint }}/static{{ foto }}" data-lightbox="example-2" data-title="{{ animal.nombre }}">
+                    <img src="{{ apiEndpoint }}/static{{ foto }}" data-lightbox="example-set" class="portrait" alt="Image" />
+                </a>
+             </div>
+            <div class="row perfil-animal-thumbnails">
+                <div class="thumbnail-container">
+                    <div class="col-xs-2 perfil-animal-thumbnail" ng-repeat="foto in animal.fotos"  alt="Foto de perfil de {{ animal.nombre }}" ng-click="showImage(foto)" style="background: url({{ apiEndpoint }}/static{{ foto }}); background-size: cover;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-5 col-xs-offset-1 col-sm-offset-0">
+            <h1 class="perfil-animal-nombre" ng-class="{'hembra':animal.genero=hembra}">{{ animal.nombre }} [{{ animal.id }}]</h1>
+            <p class="lead perfil-animal-desc">{{ animal.desc }}</p>
+            <span><a class="btn btn-primary perfil-animal-boton-adoptar" ui-sref="formulario-adopcion({id: animal.id})" ui-sref-opts="{reload: true, notify: true}">Comenzar proceso de adopcion</a></span>
+            <a href="#" class="perfil-animal-ayuda">¿Como es el proceso de adopcion?</a>
+            <div class="perfil-animal-badges">
+                <span class="badge perfil-animal-badge perfil-animal-badge-cachorro" ng-show="animal.etapa == 'c'">Cachorro</span>
+                <span class="badge perfil-animal-badge perfil-animal-badge-adulto" ng-show="animal.etapa == 'a'">Adulto</span>
+                <span class="badge perfil-animal-badge perfil-animal-badge-hembra" ng-show="genero == 'h'">Hembra</span>
+                <span class="badge perfil-animal-badge perfil-animal-badge-macho" ng-show="genero == 'm'">Macho</span>
+                <hr />
+            </div>
+            <div class="perfil-animal-compartir">
+                <span class="perfil-animal-compartir-titulo">Comparte:</span>
+                <a class="visible-xs" href="" style="display:inline-block!important"
+                socialshare
+                socialshare-provider="whatsapp"
+                socialshare-text="{{ animal.nombre }} esta en adopcion!"
+                socialshare-url="{{ currentDomain }}/perfilAnimal/{{animal.id}}">
+                    <span class="social-button social-button-whatsapp"><i class="fa fa-size_small fa-whatsapp" aria-hidden="true"></i></span>
+                </a>
+                <a href=""
+                socialshare
+                socialshare-provider="facebook"
+                socialshare-via="235955076772407"
+                socialshare-text="{{ animal.nombre }} esta en adopcion!"
+                socialshare-description="{{ animal.nombre }} esta en adopcion!"
+                socialshare-hashtags="{{ genero }}, {{ animal.nombre }}, adopta, adoptaungalgoenargentina, galgosEnAdopcion, stopGalgueros"
+                socialshare-media="{{ apiEndpoint }}/static{{ currentImage }}"
+                socialshare-from="adoptaungalgoenargentina"
+                socialshare-type="feed"
+                socialshare-url="{{ currentDomain }}/perfilAnimal/{{ animal.id }}">
+                    <span class="social-button social-button-facebook"><i class="fa fa-size_small fa-facebook" aria-hidden="true"></i></span>
+                </a>
+                <a href=""
+                socialshare
+                socialshare-provider="twitter"
+                socialshare-text="{{ animal.nombre }} esta en adopcion!"
+                socialshare-hashtags="{{ animal.genero }}, {{ animal.nombre }}, adopta, adoptaungalgoenargentina"
+                socialshare-url="{{ currentDomain }}/perfilAnimal/{{animal.id}}">
+                <span class="social-button social-button-twitter"><i class="fa fa-size_small fa-twitter" aria-hidden="true"></i></span>
+                </a>
+                <a href=""
+                socialshare
+                socialshare-provider="google"
+                socialshare-url="{{ currentDomain }}/perfilAnimal/{{animal.id}}">
+                    <span class="social-button social-button-google"><i class="fa fa-size_small fa-google" aria-hidden="true"></i></span>
+                </a>
+                <a href=""
+                socialshare
+                socialshare-provider="email"
+                socialshare-body="{{ animal.nombre }} esta en adopcion!<br>Para mas informacion visita: {{ currentDomain }}/perfilAnimal/{{animal.id}}"
+                socialshare-subject="Mira que hermoso galgui en adopcion!"
+                socialshare-cc="info@adoptaungalgoenargentina.com.ar"
+                socialshare-url="{{ currentDomain }}/perfilAnimal/{{animal.id}}">
+                    <span class="social-button social-button-email"><i class="fa fa-size_small fa-envelope" aria-hidden="true"></i></span>
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-1 perfil-animal-navigation perfil-animal-navigation-next">
+            <span class=""><a href="#" ng-click="nextAnimal()"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></span>
+        </div>
+    </div>
+    <div class="row perfil-animal-footer">
+
+</div>
+
+</div>
