@@ -1,4 +1,5 @@
-<div class="perfil-animal">
+<h1 class="text-center" ng-if="!animal">Cargando...</h1>
+<div class="perfil-animal" ng-if="animal">
     <div class="row  perfil-animal-footer">
         <div class="col-xs-10 col-xs-offset-1">
             <div class="perfil-animal-texto">
@@ -21,7 +22,7 @@
     </div>
     <div class="row" style="position:relative;">
         <div class="col-xs-1 perfil-animal-navigation perfil-animal-navigation-prev">
-            <span class=""><a ui-sref="perfilAnimal({id: animal.id-1})" ng-show="animal.id > 1"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></span>
+            <span class=""><a href="#" ng-click="previousAnimal()" ng-show="animal.id > 1"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></span>
         </div>
         <div class="col-xs-12 col-sm-5 col-xs-offset-1">
             <div class="squared-thumbnail squared-thumbnail-perfil">
@@ -29,7 +30,7 @@
                     <img src="{{ apiEndpoint }}/static{{ currentImage }}" data-lightbox="example-set" class="portrait" alt="Image" />
                 </a>
 
-                <a style="display:none !important;" ng-repeat="foto in animal.fotos" ng-if="$index > 0" class="example-image-link" href="{{ apiEndpoint }}/static{{ foto }}" data-lightbox="example-2" data-title="{{ animal.nombre }}">
+                <a style="display:none !important;" ng-repeat="foto in animal.fotos"  class="example-image-link" href="{{ apiEndpoint }}/static{{ foto }}" data-lightbox="example-2" data-title="{{ animal.nombre }}">
                     <img src="{{ apiEndpoint }}/static{{ foto }}" data-lightbox="example-set" class="portrait" alt="Image" />
                 </a>
              </div>
@@ -40,7 +41,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-5 col-xs-offset-1 col-sm-offset-0">
-            <h1 class="perfil-animal-nombre" ng-class="{'hembra':animal.genero=hembra}">{{ animal.nombre }}</h1>
+            <h1 class="perfil-animal-nombre" ng-class="{'hembra':genero===h,'macho':genero==m}">{{ animal.nombre }}</h1>
             <p class="lead perfil-animal-desc">{{ animal.desc }}</p>
             <span><a class="btn btn-primary perfil-animal-boton-adoptar" ui-sref="formulario-adopcion({id: animal.id})" ui-sref-opts="{reload: true, notify: true}">Comenzar proceso de adopcion</a></span>
             <a href="#" class="perfil-animal-ayuda">¿Como es el proceso de adopcion?</a>
@@ -99,7 +100,7 @@
             </div>
         </div>
         <div class="col-xs-1 perfil-animal-navigation perfil-animal-navigation-next">
-            <span class=""><a ui-sref="perfilAnimal({id: animal.id+1})" ng-show="animal.id < totalAnimalAmount"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></span>
+            <span class=""><a href="#" ng-click="nextAnimal()"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></span>
         </div>
     </div>
     <div class="row perfil-animal-footer">

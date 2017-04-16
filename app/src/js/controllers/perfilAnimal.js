@@ -1,7 +1,7 @@
 
 //------------------------------------------------------------------------------------------------------------//
 
-function perfilAnimalBeta($scope, $http, $state, sliderService, $log, enAdopcionFilter, $stateParams, _, $location, ENV) {
+function perfilAnimal($scope, $http, $state, sliderService, $log, enAdopcionFilter, $stateParams, _, $location, ENV) {
     $log.debug('[perfilAnimalBeta.js]');
     sliderService.updateStatus(false);
     $scope.$emit('checkSliderStatus');
@@ -16,6 +16,10 @@ function perfilAnimalBeta($scope, $http, $state, sliderService, $log, enAdopcion
       return galgosEnAdopcionPromise
     }
 
+    $scope.showImage = function(image) {
+        $scope.currentImage = image;
+    }
+
     getGalgosEnAdopcion().then(function(response){
       $scope.apiEndpoint = ENV.apiEndpoint;
       $scope.currentDomain = ENV.currentDomain;
@@ -23,15 +27,14 @@ function perfilAnimalBeta($scope, $http, $state, sliderService, $log, enAdopcion
       $scope.allAnimals = response;
       $scope.animal = _.findWhere($scope.allAnimals, {id: Number($stateParams.animalId)});
       $scope.$apply(function () {
-            $scope.animal = $scope.animal;
+            $scope.currentImage = $scope.animal.fotos[0];
+            if($scope.animal['genero']=='m'){
+              $scope.genero = "m";
+            }
+            else{
+              $scope.genero = "h";
+            }
       });
-      $scope.currentImage = $scope.animal.fotos[0];
-      if($scope.animal['genero']=='m'){
-          $scope.genero = "m";
-      }
-      else{
-          $scope.genero = "h";
-      }
       Array.prototype.current = $scope.allAnimals.indexOf(_.findWhere($scope.allAnimals, {id: Number($stateParams.animalId)})) || 0;
       Array.prototype.next = function() {
         return this[++this.current];
@@ -49,7 +52,14 @@ function perfilAnimalBeta($scope, $http, $state, sliderService, $log, enAdopcion
       if (!$scope.animal) {
         $scope.animal = $scope.allAnimals.prev();
       }
-      $state.transitionTo('perfilAnimalBeta', {animalId: $scope.animal.id}, { notify: false });
+      if($scope.animal['genero']=='m'){
+        $scope.genero = "m";
+      }
+      else{
+        $scope.genero = "h";
+      }
+      $scope.currentImage = $scope.animal.fotos[0];
+      $state.transitionTo('perfilAnimal', {animalId: $scope.animal.id}, { notify: false });
     }
 
     $scope.previousAnimal = function() {
@@ -57,11 +67,12 @@ function perfilAnimalBeta($scope, $http, $state, sliderService, $log, enAdopcion
       if (!$scope.animal) {
         $scope.animal = $scope.allAnimals.next();
       }
-      $state.transitionTo('perfilAnimalBeta', {animalId: $scope.animal.id}, { notify: false });
+      $scope.currentImage = $scope.animal.fotos[0];
+      $state.transitionTo('perfilAnimal', {animalId: $scope.animal.id}, { notify: false });
     }
 
 }
-perfilAnimalBeta.$inject = ['$scope', '$http', '$state', 'sliderService', '$log', 'enAdopcionFilter', '$stateParams', '_', '$location', 'ENV'];
-adopteitorApp.controller('perfilAnimalBeta', perfilAnimalBeta);
+perfilAnimal.$inject = ['$scope', '$http', '$state', 'sliderService', '$log', 'enAdopcionFilter', '$stateParams', '_', '$location', 'ENV'];
+adopteitorApp.controller('perfilAnimal', perfilAnimal);
 
 //------------------------------------------------------------------------------------------------------------//

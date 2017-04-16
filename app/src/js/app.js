@@ -180,14 +180,9 @@ function routes($stateProvider, $urlRouterProvider) {
             templateUrl: 'views/subscribirse.html'
         })
         .state('perfilAnimal', {
-            url: '/perfilAnimal/:id',
-            controller: 'animalByID',
+            url: '/perfilAnimal/:animalId',
+            controller: 'perfilAnimal',
             templateUrl: 'views/perfil-animal.html'
-        })
-        .state('perfilAnimalBeta', {
-            url: '/perfilAnimalBeta/:animalId',
-            controller: 'perfilAnimalBeta',
-            templateUrl: 'views/perfil-animal-beta.html'
         })
         .state('not-found', {
             url: '/not-found',
