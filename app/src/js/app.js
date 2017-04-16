@@ -2,7 +2,7 @@
 
 //------------------------------------------------------------------------------------------------------------//
 
-var adopteitorApp = angular.module('adopteitorApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'config', 'angularUtils.directives.dirPagination', '720kb.socialshare', 'ngCookies', 'youtube-embed']);
+var adopteitorApp = angular.module('adopteitorApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'config', 'angularUtils.directives.dirPagination', '720kb.socialshare', 'ngCookies', 'youtube-embed', 'underscore']);
 
 //------------------------------------------------------------------------------------------------------------//
 
@@ -183,6 +183,11 @@ function routes($stateProvider, $urlRouterProvider) {
             url: '/perfilAnimal/:id',
             controller: 'animalByID',
             templateUrl: 'views/perfil-animal.html'
+        })
+        .state('perfilAnimalBeta', {
+            url: '/perfilAnimalBeta/:animalId',
+            controller: 'perfilAnimalBeta',
+            templateUrl: 'views/perfil-animal-beta.html'
         })
         .state('not-found', {
             url: '/not-found',
