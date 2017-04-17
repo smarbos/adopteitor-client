@@ -1,11 +1,15 @@
 
 //------------------------------------------------------------------------------------------------------------//
 
-function perfilAnimal($scope, $http, $state, sliderService, $log, enAdopcionFilter, $stateParams, _, $location, ENV) {
+function perfilAnimal($scope, $http, $state, sliderService, $log, enAdopcionFilter, $stateParams, _, $location, ENV, $q) {
     $log.debug('[perfilAnimalBeta.js]');
     sliderService.updateStatus(false);
     $scope.$emit('checkSliderStatus');
-    $scope.allAnimals = [];
+    allAnimals = [];
+    $scope.thereAreNoMoreAnimals = false;
+    $scope.thereAreNoLessAnimals = false;
+    $scope.apiEndpoint = ENV.apiEndpoint;
+    $scope.currentDomain = ENV.currentDomain;
 
     var getGalgosEnAdopcion = function() {
       var galgosEnAdopcionPromise = new Promise(function(resolve, reject){
@@ -20,59 +24,103 @@ function perfilAnimal($scope, $http, $state, sliderService, $log, enAdopcionFilt
         $scope.currentImage = image;
     }
 
-    getGalgosEnAdopcion().then(function(response){
-      $scope.apiEndpoint = ENV.apiEndpoint;
-      $scope.currentDomain = ENV.currentDomain;
+    renderAnimal = function(animal) {
 
-      $scope.allAnimals = response;
-      $scope.animal = _.findWhere($scope.allAnimals, {id: Number($stateParams.animalId)});
-      $scope.$apply(function () {
-            $scope.currentImage = $scope.animal.fotos[0];
-            if($scope.animal['genero']=='m'){
-              $scope.genero = "m";
-            }
-            else{
-              $scope.genero = "h";
-            }
-      });
-      Array.prototype.current = $scope.allAnimals.indexOf(_.findWhere($scope.allAnimals, {id: Number($stateParams.animalId)})) || 0;
+      $log.debug("[renderAnimal]");
+      $log.debug(animal);
+      var renderAnimalPromise = $q.defer();
+
+      if (animal) {
+        Array.prototype.current = allAnimals.indexOf(_.findWhere(allAnimals, {id: Number($stateParams.animalId)})) || 0;
+        if(animal['genero']=='m'){
+          $scope.genero = "m";
+        }
+        else{
+          $scope.genero = "h";
+        }
+        $scope.currentImage = animal.fotos[0];
+        renderAnimalPromise.resolve(animal);
+      } else {
+        renderAnimalPromise.reject("[renderAnimal] Animal is undefined");
+      }
+
+      return renderAnimalPromise.promise;
+    }
+
+    getGalgosEnAdopcion().then(function (response) {
+      allAnimals = response;
       Array.prototype.next = function() {
+        if (!((this.current + 1) in this)) return false;
         return this[++this.current];
       };
       Array.prototype.prev = function() {
+          if (!((this.current - 1) in this)) return false;
           return this[--this.current];
       };
+
+      renderAnimal(_.findWhere(allAnimals, {id: Number($stateParams.animalId)}))
+        .then(function (animal) {
+          $scope.animal = animal;
+        })
+        .catch(function (error) {
+          $log.debug(error)
+        });
+
     })
     .catch(function(error){
-      console.log(error)
+      $log.debug(error)
     })
 
     $scope.nextAnimal = function() {
-      $scope.animal = $scope.allAnimals.next();
-      if (!$scope.animal) {
-        $scope.animal = $scope.allAnimals.prev();
+      $scope.thereAreNoLessAnimals = false;
+      $scope.thereAreNoMoreAnimals = false;
+      var nextAnimal = allAnimals.next();
+      if(nextAnimal){
+        renderAnimal(nextAnimal)
+          .then(function (animal) {
+            $scope.animal = animal;
+            $state.transitionTo('perfilAnimal', {animalId: animal.id}, { notify: false });
+            if(allAnimals.indexOf(animal) >= allAnimals.length-1){
+              $scope.thereAreNoMoreAnimals = true;
+            } else {
+              $scope.thereAreNoMoreAnimals = false;
+            }
+          })
+          .catch(function (error) {
+            $log.debug(error)
+          });
       }
-      if($scope.animal['genero']=='m'){
-        $scope.genero = "m";
+      else {
+        $log.debug("[nextAnimal] allAnimals.next() is false")
       }
-      else{
-        $scope.genero = "h";
-      }
-      $scope.currentImage = $scope.animal.fotos[0];
-      $state.transitionTo('perfilAnimal', {animalId: $scope.animal.id}, { notify: false });
     }
 
     $scope.previousAnimal = function() {
-      $scope.animal = $scope.allAnimals.prev();
-      if (!$scope.animal) {
-        $scope.animal = $scope.allAnimals.next();
+      $scope.thereAreNoLessAnimals = false;
+      $scope.thereAreNoMoreAnimals = false;
+      var previousAnimal = allAnimals.prev();
+      if(previousAnimal){
+        renderAnimal(previousAnimal)
+          .then(function (animal) {
+            $scope.animal = animal;
+            $state.transitionTo('perfilAnimal', {animalId: animal.id}, { notify: false });
+            if(allAnimals.indexOf(animal) === 0){
+              $scope.thereAreNoLessAnimals = true;
+            } else {
+              $scope.thereAreNoLessAnimals = false;
+            }
+          })
+          .catch(function (error) {
+            $log.debug(error)
+          });
       }
-      $scope.currentImage = $scope.animal.fotos[0];
-      $state.transitionTo('perfilAnimal', {animalId: $scope.animal.id}, { notify: false });
+      else {
+        $log.debug("[previousAnimal] allAnimals.next() is false")
+      }
     }
 
 }
-perfilAnimal.$inject = ['$scope', '$http', '$state', 'sliderService', '$log', 'enAdopcionFilter', '$stateParams', '_', '$location', 'ENV'];
+perfilAnimal.$inject = ['$scope', '$http', '$state', 'sliderService', '$log', 'enAdopcionFilter', '$stateParams', '_', '$location', 'ENV', '$q'];
 adopteitorApp.controller('perfilAnimal', perfilAnimal);
 
 //------------------------------------------------------------------------------------------------------------//
