@@ -20,7 +20,7 @@
         <div id="edad" ng-class="{'m': 'macho', 'h': 'hembra'}[galgo.genero]">
             <p></p>
         </div>
-        <img class="img-circle" src="{{ galgo.imagen }}" alt="Generic placeholder image" width="140" height="140">
+        <img class="img-circle" ng-src="{{ galgo.imagen }}" fallback-src loading-src alt="XXX Generic placeholder image" width="140" height="140">
         <h2 ng-class="{'m': 'macho', 'h': 'hembra'}[galgo.genero]">{{galgo.nombre | limitTo : 9}}{{galgo.nombre.length > 9 ? '...' : ''}}</h2>
         <p class="desc">{{galgo.desc | limitTo : 30 }}{{galgo.desc.length > 30 ? '...' : ''}}</p>
         <span><a class="btn btn-primary" href="#" role="button" ng-click="saberMas(galgo.id)">Saber mas!</a></span>

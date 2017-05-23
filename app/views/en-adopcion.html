@@ -34,10 +34,11 @@
     <div class="text-center">
         <div class="tarjeta-animal" ng-if="galgosEnAdopcion.length != 0" dir-paginate="galgo in galgosEnAdopcion | itemsPerPage: 24"  current-page="currentPage">
             <span ng-if="!galgosEnAdopcion"><h2>No hay resultados para su busqueda.</h2></span>
-          <a ui-sref="perfilAnimal({id: {{galgo.id}}})" class="ultimos-rescates-animal">
-              <div class="squared-thumbnail" style="background: url({{apiEndpoint}}/static{{ galgo.fotos[0] }}) no-repeat center center; background-size:cover;">
+          <a ui-sref="perfilAnimal({animalId: {{galgo.id}}})" class="ultimos-rescates-animal">
+              <div ng-show="galgo.fotos[0]" class="squared-thumbnail" style="background: url({{apiEndpoint}}/static{{ galgo.fotos[0] }}) no-repeat center center; background-size:cover;">
                   <!-- <img src="" class="portrait" alt="Image" /> -->
-                </div>
+              </div>
+              <img ng-show="!galgo.fotos[0]" ng-src="{{apiEndpoint}}/static{{ galgo.fotos[0] }}" alt="" fallback-src loading-src/>
               <span ng-class="{'m': 'macho', 'h': 'hembra'}[galgo.genero]">{{galgo.nombre}}</span>
           </a>
         </div>

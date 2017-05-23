@@ -190,18 +190,28 @@ adopteitorApp.controller('home', home);
 
 //------------------------------------------------------------------------------------------------------------//
 
-function notFound($scope, $location, getAnimalByID, $stateParams, ENV, sliderService) {
+function notFound($scope, $location, $stateParams, ENV, sliderService) {
 
     // sliderService.updateStatus(false);
     // $log.debug("XX");
     // $scope.$emit('checkSliderStatus');
     // $scope.$apply();
 }
-notFound.$inject = ['$scope', '$location', 'getAnimalByID', '$stateParams', 'ENV', 'sliderService'];
+notFound.$inject = ['$scope', '$location', '$stateParams', 'ENV', 'sliderService'];
 adopteitorApp.controller('notFound', notFound);
 
 //------------------------------------------------------------------------------------------------------------//
 
+function maintenance($scope, $location, $stateParams, ENV, sliderService, $log) {
+
+    // sliderService.updateStatus(false);
+    $log.debug("maintenance");
+    // $scope.$emit('checkSliderStatus');
+    // $scope.$apply();
+}
+maintenance.$inject = ['$scope', '$location', '$stateParams', 'ENV', 'sliderService', '$log'];
+adopteitorApp.controller('maintenance', maintenance);
+//------------------------------------------------------------------------------------------------------------//
 function animalByID($scope, $location, getAnimalByID, $stateParams, ENV, sliderService, enAdopcionFilter, $log) {
 
     sliderService.updateStatus(false);

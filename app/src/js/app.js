@@ -2,7 +2,7 @@
 
 //------------------------------------------------------------------------------------------------------------//
 
-var adopteitorApp = angular.module('adopteitorApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'config', 'angularUtils.directives.dirPagination', '720kb.socialshare', 'ngCookies', 'youtube-embed', 'underscore']);
+var adopteitorApp = angular.module('adopteitorApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'config', 'angularUtils.directives.dirPagination', '720kb.socialshare', 'ngCookies', 'youtube-embed', 'underscore', 'dcbImgFallback']);
 
 //------------------------------------------------------------------------------------------------------------//
 
@@ -100,13 +100,11 @@ function animalFilter($stateParams, $rootScope) {
 adopteitorApp.filter('animalFilter', animalFilter);
 
 //------------------------------------------------------------------------------------------------------------//
-function routes($stateProvider, $urlRouterProvider) {
-
+function routes($stateProvider, $urlRouterProvider, ENV) {
     // $rootScope.$on('$stateChangeError', function(event) {
     //   $state.go('404');
     // });
     $stateProvider
-
         .state('home', {
             url: '/home',
             controller: 'home',
@@ -182,12 +180,18 @@ function routes($stateProvider, $urlRouterProvider) {
         .state('perfilAnimal', {
             url: '/perfilAnimal/:animalId',
             controller: 'perfilAnimal',
-            templateUrl: 'views/perfil-animal.html'
+            templateUrl: 'views/perfil-animal.html',
+            hiddenParam: 'YES'
         })
         .state('not-found', {
             url: '/not-found',
             controller: 'notFound',
             templateUrl: 'views/not-found.html'
+        })
+        .state('maintenance', {
+            url: '/maintenance',
+            controller: 'maintenance',
+            templateUrl: 'views/maintenance.html'
         })
         .state('register', {
             url: '/register',
@@ -220,8 +224,17 @@ function routes($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise('/home');
 
+        // $rootScope.$on('$stateChangeStart',
+        //         function(event, toState, toParams, fromState, fromParams){
+        //           if(ENV.maintenance) {
+        //             if(location.pathname != "/maintenance")
+        //             {
+        //               location.replace("/maintenance");
+        //             }
+        //           }
+        //         });
 }
-routes.$inject = ['$stateProvider', '$urlRouterProvider'];
+routes.$inject = ['$stateProvider', '$urlRouterProvider', 'ENV'];
 adopteitorApp.config(routes);
 
 //------------------------------------------------------------------------------------------------------------//

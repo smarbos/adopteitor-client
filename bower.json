@@ -25,7 +25,8 @@
     "lightbox2": "lightbox#^2.9.0",
     "underscore": "^1.8.3",
     "angular-underscore-module": "^1.0.3",
-    "sweetalert2": "^6.4.2"
+    "sweetalert2": "^6.4.2",
+    "angular-img-fallback": "^0.2.0"
   },
   "moduleType": [],
   "keywords": [
