@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------------------------------------//
 
 function enAdopcion($resource, ENV){
-    return $resource(ENV.apiEndpoint+'/Animal/', null, {'query':{method: 'GET', isArray: true}});
+    return $resource(ENV.apiEndpoint+'/Animal/?galgo_estado=1', null, {'query':{method: 'GET', isArray: true}});
 }
 enAdopcion.$inject = ['$resource', 'ENV'];
 adopteitorApp.factory('enAdopcion', enAdopcion);
