@@ -12,13 +12,27 @@ adopteitorApp.factory('enAdopcion', enAdopcion);
 
 function enAdopcionFilter($resource, ENV){
     return $resource(
-        ENV.apiEndpoint+'/Animal/?:filter/',
+        ENV.apiEndpoint+'/Animal/?galgo_estado=1&:filter/',
         {filter:'@filter'},
         {'query':{method: 'GET', isArray: true}}
     );
 }
 enAdopcionFilter.$inject = ['$resource', 'ENV'];
 adopteitorApp.factory('enAdopcionFilter', enAdopcionFilter);
+
+//------------------------------------------------------------------------------------------------------------//
+
+//------------------------------------------------------------------------------------------------------------//
+
+function finalesFelicesFilter($resource, ENV){
+    return $resource(
+        ENV.apiEndpoint+'/Animal/?galgo_estado=3',
+        {filter:'@filter'},
+        {'query':{method: 'GET', isArray: true}}
+    );
+}
+finalesFelicesFilter.$inject = ['$resource', 'ENV'];
+adopteitorApp.factory('finalesFelicesFilter', finalesFelicesFilter);
 
 //------------------------------------------------------------------------------------------------------------//
 

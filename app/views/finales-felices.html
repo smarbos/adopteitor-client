@@ -1,1 +1,25 @@
-<h1>finales-felices</h1>
+<div class="container-fluid" ng-controller="GalgosEnAdopcion" id="en-adopcion">
+    <div class="row text-center">
+        <h1>Finales Felices</h1>
+    </div>
+    <div class="text-center">
+        <div class="tarjeta-animal" ng-if="galgosEnAdopcion.length != 0" dir-paginate="galgo in galgosEnAdopcion | itemsPerPage: 24"  current-page="currentPage">
+            <span ng-if="!galgosEnAdopcion"><h2>No hay resultados para su busqueda.</h2></span>
+          <a ui-sref="perfilAnimal({animalId: {{galgo.id}}})" class="ultimos-rescates-animal">
+              <div ng-show="galgo.fotos[0]" class="squared-thumbnail" style="background: url({{apiEndpoint}}/static{{ galgo.fotos[0] }}) no-repeat center center; background-size:cover;">
+                  <!-- <img src="" class="portrait" alt="Image" /> -->
+              </div>
+              <img ng-show="!galgo.fotos[0]" ng-src="{{apiEndpoint}}/static{{ galgo.fotos[0] }}" alt="" fallback-src loading-src/>
+              <span ng-class="{'m': 'macho', 'h': 'hembra'}[galgo.genero]">{{galgo.nombre}}</span>
+          </a>
+        </div>
+        <div class="text-center" ng-if="galgosEnAdopcion.length == 0" >
+            <h2>Cargando...</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="views/dirPagination.tpl.html"></dir-pagination-controls>
+        </div>
+    </div>
+</div>
