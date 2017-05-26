@@ -1,7 +1,7 @@
 
 //------------------------------------------------------------------------------------------------------------//
 
-function perfilAnimal($scope, $http, $state, sliderService, $log, enAdopcionFilter, $stateParams, _, $location, ENV, $q) {
+function perfilAnimal($scope, $http, $state, sliderService, $log, allAnimalsFilter, $stateParams, _, $location, ENV, $q) {
     $log.debug('[perfilAnimalBeta.js]');
     sliderService.updateStatus(false);
     $scope.$emit('checkSliderStatus');
@@ -13,7 +13,8 @@ function perfilAnimal($scope, $http, $state, sliderService, $log, enAdopcionFilt
 
     var getGalgosEnAdopcion = function() {
       var galgosEnAdopcionPromise = new Promise(function(resolve, reject){
-          enAdopcionFilter.query({},{}).$promise.then(function(data){
+          allAnimalsFilter.query({},{}).$promise.then(function(data){
+            console.log(data)
               resolve(data);
           })
       });
@@ -120,7 +121,7 @@ function perfilAnimal($scope, $http, $state, sliderService, $log, enAdopcionFilt
     }
 
 }
-perfilAnimal.$inject = ['$scope', '$http', '$state', 'sliderService', '$log', 'enAdopcionFilter', '$stateParams', '_', '$location', 'ENV', '$q'];
+perfilAnimal.$inject = ['$scope', '$http', '$state', 'sliderService', '$log', 'allAnimalsFilter', '$stateParams', '_', '$location', 'ENV', '$q'];
 adopteitorApp.controller('perfilAnimal', perfilAnimal);
 
 //------------------------------------------------------------------------------------------------------------//

@@ -1,15 +1,18 @@
 
 //------------------------------------------------------------------------------------------------------------//
-function finalesFelices($scope, $location, finalesFelicesFilter, $stateParams, ENV, sliderService, enAdopcionFilter, $log) {
+function finalesFelices($scope, $location, finalesFelicesFilter, $stateParams, ENV, sliderService, $log) {
 
     $log.debug('[finalesFelices.js]');
+    console.log("finalesfelices")
     sliderService.updateStatus(false);
+    $scope.currentPage = 1;
     $scope.$emit('checkSliderStatus');
     $scope.apiEndpoint = ENV.apiEndpoint;
     $scope.currentDomain = ENV.currentDomain;
-    $scope.galgosEnAdopcion = finalesFelicesFilter.query({},{'estado': "2"});
-    $scope.galgosEnAdopcion.$promise.then(function(data) {
-
+    galgosAdoptados = finalesFelicesFilter.query({},{});
+    galgosAdoptados.$promise.then(function(data) {
+      console.log(data)
+      $scope.adoptedAnimals = data;
         $scope.totalAnimalAmount = data.length;
     }, function(error) {
       console.log(error)
@@ -24,5 +27,5 @@ function finalesFelices($scope, $location, finalesFelicesFilter, $stateParams, E
     }
 
 }
-finalesFelices.$inject = ['$scope', '$location', 'finalesFelicesFilter', '$stateParams', 'ENV', 'sliderService', 'enAdopcionFilter', '$log'];
+finalesFelices.$inject = ['$scope', '$location', 'finalesFelicesFilter', '$stateParams', 'ENV', 'sliderService', '$log'];
 adopteitorApp.controller('finalesFelices', finalesFelices);
